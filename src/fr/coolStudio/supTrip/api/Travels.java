@@ -29,4 +29,11 @@ public class Travels
 	{
         return "{\n\tdeparture : \"" + from + "\",\n\tdestination : \"" + to + "\"\n}";
     }
+
+	@GET
+	@Path("/{campus: [A-Za-z]+}")
+    public String searchCampus(@PathParam("campus") String campus)
+	{
+        return "{\n\tdeparture : \"" + campus + "\",\n\tdestination : \"" + campus + "\"\n}";
+    }
 }
