@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>test</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			form, pre{ border: thin solid black }
+			form{ margin: 4px }
+			pre{ padding: 0px }
+		</style>
+		<script>
+			function getAjaxReq()
+			{
+				var xhr = null;
+				if(window.XMLHttpRequest || window.ActiveXObject)
+				{
+					if(window.ActiveXObject)
+					{
+						try{ xhr = new ActiveXObject("Msxml2.XMLHTTP"); }catch(e){ xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
+					}
+					else xhr = new XMLHttpRequest();
+				}
+				else alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+				return xhr;
+			};
+
+			function search(kind)
+			{
+				var data,
+					baseURL = "http://localhost:8080/SupTrip/API/travels/";
+				switch(kind)
+				{
+					case 'all': data = ''; break;
+					case 'id': data = parseInt(prompt("Travel ID :")); break;
+					case 'campus': data = encodeURIComponent(prompt("Campus name :")); break;
+					case 'fromto': data = encodeURIComponent(prompt("Departure : ")) + "/" + encodeURIComponent(prompt("Destination : ")); break;
+					default: return;
+				}
+
+
+
+				var xhr = getAjaxReq();
+
+				xhr.onreadystatechange = function()
+				{
+					if(xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) document.getElementById('result').innerHTML = xhr.responseText;
+				};
+console.log(xhr);
+				xhr.open("GET", baseURL + data, true);
+				xhr.send(null);
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li onclick="search('all')">Get All</li>
+			<li onclick="search('id')">Search by ID</li>
+			<li onclick="search('campus')">Search by campus</li>
+			<li onclick="search('fromto')">Search by departure and/or arrival</li>
+		</ul>
+		<pre><code id=result>No request send yet.</code></pre>
+	</body>
+</html>
