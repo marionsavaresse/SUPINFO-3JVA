@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>SupCommerce - Login</title>
+		<title>SupCommerce - Register</title>
 	</head>
 	<body>
 		<form action="login" method=post>

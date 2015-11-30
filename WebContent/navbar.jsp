@@ -24,7 +24,7 @@
 			<input type=text id="password" name="userPwd">
 			<input type=submit>
 		</form>
-		<a href="login.html">register</a>
+		<a href="register.jsp">register</a>
 	</header>
 </body>
 </html>
