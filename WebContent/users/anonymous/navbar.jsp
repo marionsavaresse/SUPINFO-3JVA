@@ -17,14 +17,20 @@
 </head>
 <body>
 	<header id="div1">
+		<a href="/SupTrip/login">Home</a>
+		<a href="/SupTrip/contact">Contact</a>
+		<% if(request.getSession().getAttribute("id") == null){%>
 		<form action="login" method=post>
-			<label for="username">Username :</label>
-			<input type=text id="username" name="userName">
-			<label for="username">Password :</label>
+			<label for="idBooster">Username :</label>
+			<input type=text id="idBooster" name="idBooster">
+			<label for="password">Password :</label>
 			<input type=text id="password" name="userPwd">
 			<input type=submit>
 		</form>
-		<a href="register.jsp">register</a>
+		<a href="/SupTrip/users/anonymous/register.jsp">register</a>
+		<% }else{%>
+		<a href="/SupTrip/logout">logout</a>
+		<% }%>
 	</header>
 </body>
 </html>

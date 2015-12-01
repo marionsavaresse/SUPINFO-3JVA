@@ -5,6 +5,7 @@
 		<title>SupCommerce - Register</title>
 	</head>
 	<body>
+		<%@include file="navbar.jsp" %>
 		<form action="login" method=post>
 			<label for="username">Username :</label>
 			<input type=text id="username" name="user[name]">

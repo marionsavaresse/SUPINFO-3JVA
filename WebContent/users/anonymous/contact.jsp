@@ -10,7 +10,6 @@
 	<body>
 		<%@include file="navbar.jsp" %>
 		
-		<%=request.getSession().getAttribute("id")%>
-		idk-idc
+		CONTACT PAGE WEEEEEEE
 	</body>
 </html>
