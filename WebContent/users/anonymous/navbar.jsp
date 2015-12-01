@@ -1,36 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
-	<style>
-		#div1{
-		border-bottom: thick solid #000000;
-		padding-bottom: 50px;
-		}
-		form{
-		display: inline;
-		}
-	</style>
-</head>
-<body>
-	<header id="div1">
-		<a href="/SupTrip/login">Home</a>
-		<a href="/SupTrip/contact">Contact</a>
-		<% if(request.getSession().getAttribute("id") == null){%>
-		<form action="login" method=post>
-			<label for="idBooster">Username :</label>
-			<input type=text id="idBooster" name="idBooster">
-			<label for="password">Password :</label>
-			<input type=text id="password" name="userPwd">
-			<input type=submit>
-		</form>
-		<a href="/SupTrip/users/anonymous/register.jsp">register</a>
-		<% }else{%>
-		<a href="/SupTrip/logout">logout</a>
-		<% }%>
-	</header>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+		<header>
+			<ul>
+				<li><a href="/SupTrip/login">Home</a></li>
+				<li><a href="/SupTrip/contact">Contact</a></li>
+			</ul>
+		  <% if(request.getSession().getAttribute("id") == null){%>
+			<form action="login" id="loginForm" method=post>
+				<label for="username">Username :</label>
+				<input type=text id="username" name="idBooster">
+				<label for="password">Password :</label>
+				<input type=text id="password" name="password">
+				<input type=submit>
+				<label style="margin-right:4px">or</label><a href="register.jsp">register</a>
+			</form>
+		  <% }else{%>
+			<a href="/SupTrip/logout">logout</a>
+		  <% }%>
+		</header>

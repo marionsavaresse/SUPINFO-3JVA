@@ -1,16 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset=UTF-8>
+		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
+
 		<title>SupCommerce - Login</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
 		<%@include file="navbar.jsp" %>
-		
-		<%=request.getSession().getAttribute("id")%>
-		idk-idc
+
+		<main>
+			<p><%=request.getSession().getAttribute("id")%></p>
+			<p>idk-idc</p>
+		</main>
+
+		<footer>
+			<p>Copyright © SUPTRIP Team & SUPINFO 2015. All rights reserved - <a href="#">More about us</a></p>
+		</footer>
+
 	</body>
 </html>

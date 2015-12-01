@@ -1,0 +1,126 @@
+/**
+ *	Colors :
+ *		- main 1 : 2A2E37 (gris/noir) [fond, font, ...]
+ *		- main 2 : 367BB6 (bleu) [btn, links, bandeaux, ...]
+ *		- main 3 : FFFFFF (.. bah blanc) [fond, font ou le fond est main1, ...]
+ *
+ *		- alt  1 : 222933 (gris foncé) [input fond, subtitles, ...]
+ *		- alt  2 : 5799D3 (bleu plus clair) [over, active, ...]
+ *		- alt  3 : F2F0F1 (gris clair) [empty inputs fond, ...]
+ *
+ *
+ */
+
+/* TODO : Font ?*/
+
+*
+{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden
+}
+html, body{ overflow: auto }
+
+
+
+::selection { background-color: #367BB6; color: #000000 }
+::-moz-selection { background-color: #367BB6; color: #000000 }
+
+
+
+body
+{
+	background-color: #323844;
+	background-image: url("bodybg.png");
+	background-position: center 80px;
+	background-repeat: no-repeat;
+	color: #2A2E37;
+	min-height: 600px;
+	min-width: 1200px;
+	max-width: 1200px;
+	margin: 0px auto;
+}
+
+
+
+/* HEADER AND FOOTER */
+body > header,
+body > footer
+{
+	background-color: #222933;
+	border-top: 9px solid;
+	margin: 0px auto;
+	padding: 0px 75px;
+	width: 1200px;
+}
+body > header
+{
+	border-top-color: #394048;
+	height: 80px;
+}
+body > footer
+{
+	border-top-color: #2D5377;
+	color: #E0E0E0;
+	height: 110px; 
+	margin-top: 200px; /*temp*/
+	padding-top: 51px;
+}
+body > footer > p
+{
+	text-align: center;
+}
+
+
+
+/* MAIN GENERAL CONTENT */
+hr
+{
+	color: #2A2E37;
+	margin: 25px 0px;
+	opacity: 0.4;
+}
+
+a{ text-decoration: none }
+a, a:visited{ color: #5799D3 }
+a:hover{ text-decoration: underline }
+
+
+
+
+
+
+main
+{
+	background-color: #FFFFFF;
+	margin: 0px auto;
+	margin-top: 200px;
+	width: 1050px;
+}
+
+
+
+
+
+/* --- old --- */
+main section
+{
+	background-color: #FFFFFF;
+	border: 1px solid lightgray;/**/
+	border-radius: 5px;
+	/*box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.25);/**/
+	margin: 20px auto 30px auto;
+	padding: 8px;
+	width: 600px;
+}
+
+.cAuto{cursor: auto}
+.cCross{cursor: crosshair}
+.cDefault{cursor: default}
+.cHelp{cursor: help}
+.cNotAllowed{cursor: not-allowed}
+.cPlus{cursor: copy}
+.cPtr{cursor: pointer}
+.cZoomIn{cursor: zoom-in}
+.cZoomOut{cursor: zoom-out}

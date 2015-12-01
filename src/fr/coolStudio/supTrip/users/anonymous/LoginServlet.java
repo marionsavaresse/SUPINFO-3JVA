@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet
 	throws ServletException, IOException
 	{		
 		// A REMPLACER AVEC REQUETE SQL ID = 172012 || 172012, PWD = "TEST"
-		if (checkId(request,response).equals("172012") || checkId(request,response).equals("172012") && hashPWD(request.getParameter("userPwd")).equals("098f6bcd4621d373cade4e832627b4f6"))
+		if (checkId(request,response).equals("172012") || checkId(request,response).equals("174595") && hashPWD(request.getParameter("userPwd")).equals("098f6bcd4621d373cade4e832627b4f6"))
 		{
 			request.getSession().setAttribute("id", request.getParameter("idBooster"));
 			((HttpServletResponse)response).sendRedirect("/SupTrip/login");
