@@ -11,9 +11,10 @@
 				<label for="password">Password :</label>
 				<input type=text id="password" name="password">
 				<input type=submit>
-				<label style="margin-right:4px">or</label><a href="register.jsp">register</a>
+				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>
 		  <% }else{%>
-			<a href="/SupTrip/logout">logout</a>
+			<a href="/SupTrip/profile">Profile</a>
+			<a href="/SupTrip/logout">Logout</a>
 		  <% }%>
 		</header>

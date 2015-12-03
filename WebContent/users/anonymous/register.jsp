@@ -13,10 +13,20 @@
 		<%@include file="navbar.jsp" %>
 
 		<main>
-			<form action="login" method=post>
-				<label for="username">Username :</label>
-				<input type=text id="username" name="user[name]">
-				<input type=submit>
+			<form action="/SupTrip/register" method="post">
+				<label for="idBooster">Usernamee :</label>
+				<input type="text" id="idBooster" name="idBooster" required="">
+				<label for="password">Password :</label>
+				<input type="password" id="password" name="password" required="">
+				<label for="firstName">First Name :</label>
+				<input type="text" id="firstName" name="firstName" required="">
+				<label for="lastName">Last Name :</label>
+				<input type="text" id="lastName" name="lastName" required="">
+				<label for="email">Email :</label>
+				<input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+				<label for="campusName">Campus Name :</label>
+				<input type="text" id="campusName" name="campusName" required="">
+				<input type="submit">
 			</form>
 		</main>
 

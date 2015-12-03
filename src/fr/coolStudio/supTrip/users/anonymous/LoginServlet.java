@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet
 	throws ServletException, IOException
 	{		
 		// A REMPLACER AVEC REQUETE SQL ID = 172012 || 172012, PWD = "TEST"
-		if (checkId(request,response).equals("172012") || checkId(request,response).equals("174595") && hashPWD(request.getParameter("userPwd")).equals("098f6bcd4621d373cade4e832627b4f6"))
+		if (checkId(request.getParameter("idBooster")).equals("172012") || checkId(request.getParameter("idBooster")).equals("174595") && hashPWD(request.getParameter("userPwd")).equals("098f6bcd4621d373cade4e832627b4f6"))
 		{
 			request.getSession().setAttribute("id", request.getParameter("idBooster"));
 			((HttpServletResponse)response).sendRedirect("/SupTrip/login");
@@ -43,15 +43,15 @@ public class LoginServlet extends HttpServlet
 		
 	}
 	
-	protected String checkId(HttpServletRequest request, HttpServletResponse response)
+	protected String checkId(String idBooster)
 	throws ServletException, IOException
 	{		
 		//ID IS ALWAYS 6 NUMBERS
-		if (request.getParameter("idBooster").length() == 6){
+		if (idBooster.length() == 6){
 			//CHECKS IF ONLY NUMBERS
 			try{
-				int num = Integer.parseInt(request.getParameter("idBooster"));
-						return request.getParameter("idBooster");
+				int num = Integer.parseInt(idBooster);
+						return idBooster;
 				} catch (NumberFormatException e) {
 				}
 		}
