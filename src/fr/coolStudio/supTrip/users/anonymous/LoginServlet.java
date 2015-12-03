@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet
 	protected String hashPWD(String password)
 	{
 		MessageDigest md5 = null;
-		//REQUIRES A TRYCATCH I DONT KNOW WHY
+		//REQUIRES A TRYCATCH I DONT KNOW WHY => That's 'cause getInstance methods throws exception (see checkId declaration)
 		try {
 			md5 = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
