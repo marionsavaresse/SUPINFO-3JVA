@@ -14,10 +14,12 @@
 
 		<main>
 			<form action="/SupTrip/register" method="post">
-				<label for="idBooster">Usernamee :</label>
-				<input type="text" id="idBooster" name="idBooster" required="">
+				<label for="idBooster">Username :</label>
+				<input type="number" id="idBooster" name="idBooster" pattern="^[0-9]*$" required="">
 				<label for="password">Password :</label>
 				<input type="password" id="password" name="password" required="">
+				<label for="passwordConf">Password Confirmation:</label>
+				<input type="password" id="passwordConf" name="passwordConf" required="">
 				<label for="firstName">First Name :</label>
 				<input type="text" id="firstName" name="firstName" required="">
 				<label for="lastName">Last Name :</label>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-		<header>
+		<header style="color: white;")>
 			<ul>
 				<li><a href="/SupTrip/login">Home</a></li>
 				<li><a href="/SupTrip/contact">Contact</a></li>
@@ -14,6 +14,8 @@
 				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>
 		  <% }else{%>
+			<%=request.getSession().getAttribute("id")%>
+			<a href="/SupTrip/bag">Bag</a>
 			<a href="/SupTrip/profile">Profile</a>
 			<a href="/SupTrip/logout">Logout</a>
 		  <% }%>

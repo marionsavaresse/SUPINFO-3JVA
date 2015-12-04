@@ -5,7 +5,7 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Index</title>
+		<title>SupCommerce - Login</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
@@ -13,8 +13,14 @@
 		<%@include file="navbar.jsp" %>
 
 		<main>
-			<p><%=request.getSession().getAttribute("id")%></p>
-			<p>idk-idc</p>
+			<form action="login" id="loginForm" method=post>
+				<label for="username">Username :</label>
+				<input type=text id="username" name="idBooster">
+				<label for="password">Password :</label>
+				<input type=text id="password" name="password">
+				<input type=submit>
+				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
+			</form>
 		</main>
 
 		<footer>

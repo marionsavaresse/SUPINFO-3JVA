@@ -36,17 +36,23 @@ public class RegisterServlet extends HttpServlet
 		{
 			if (checkPWD(request.getParameter("password")).equals("Ok"))
 			{
-				response.getWriter().print(request.getParameter("idBooster"));
-				response.getWriter().print(hashPWD(request.getParameter("password")));
-				response.getWriter().print(request.getParameter("firstName"));
-				response.getWriter().print(request.getParameter("lastName"));
-				response.getWriter().print(request.getParameter("email"));
-				response.getWriter().print(request.getParameter("campusName"));
-				
-				//request.getSession().setAttribute("id", request.getParameter("idBooster"));
-				//((HttpServletResponse)response).sendRedirect("/SupTrip/login");
-				
-				return;
+				if (request.getParameter("passwordConf").equals(request.getParameter("password")))
+				{
+					response.getWriter().print(request.getParameter("idBooster"));
+					response.getWriter().print(hashPWD(request.getParameter("password")));
+					response.getWriter().print(hashPWD(request.getParameter("passwordConf")));
+					response.getWriter().print(request.getParameter("firstName"));
+					response.getWriter().print(request.getParameter("lastName"));
+					response.getWriter().print(request.getParameter("email"));
+					response.getWriter().print(request.getParameter("campusName"));
+					
+					//request.getSession().setAttribute("id", request.getParameter("idBooster"));
+					//((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+					
+					return;
+				}else{
+					errorMsg = "not same pwd";
+				}
 			}else{
 				errorMsg = "pwd more than 6 char";
 			}
