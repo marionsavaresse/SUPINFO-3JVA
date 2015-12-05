@@ -2,14 +2,16 @@
 		<form action="login" id="loginForm" method=post></form>
 		
 		<header>
-			<a>Logo SUP TRIP</a>
-			<a href="/SupTrip/index">Home</a>
+			<div>
+				<img src="logo.png" alt="LogoSupTrip"/>
+			</div>
+			<a href="/SupTrip/index">HOME</a>
 		  <% if(request.getSession().getAttribute("id") == null){%>
-			<a href="/SupTrip/contact">Contact</a>
+			<a href="/SupTrip/contact">CONTACT</a>
 
 			<div>
-				<input type=text id="username" name="idBooster" form="loginForm">
-				<input type=password id="password" name="password" form="loginForm">
+				<input type=text id="username" name="idBooster" form="loginForm" placeholder="ID Booster">
+				<input type=password id="password" name="password" form="loginForm" placeholder="Password">
 			</div>
 			<div>
 				<input type=submit value="SIGN IN" form="loginForm">

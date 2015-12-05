@@ -47,7 +47,7 @@ body
 body > header,
 body > footer
 {
-	background-color: #222933;
+	background-color: #2A2F36;
 	border-top: 9px solid;
 	margin: 0px auto;
 	padding: 0px 75px;
@@ -81,10 +81,9 @@ body > footer > p
 body > header > *
 {
 	align-items: center;
-	background-color: #2A2E37;
 	border: 1px solid green;
 	display: flex;
-	flex: 0 1 90px;
+	flex: 0 1 120px;
 	flex-direction: column;
 	margin: 0px 7px;
 	justify-content: center;
@@ -95,7 +94,23 @@ body > header > :last-child{ margin-right: 0px }
 body > header > :first-child
 { 
 	align-items: flex-start;
-	flex-grow: 6;
+	flex-grow: 3;
+}
+body > header > a
+{ 
+	background-color: #2F333E;
+}
+
+body > header > div > input
+{ 
+	border: none;
+	background-color: #1D212A; /* à changer*/
+	color: #52555E;
+	border-radius: 12px;
+	padding-left: 12px;
+	margin-bottom: 4px;
+	height: 22px;
+	width: 100%;
 }
 
 
@@ -110,13 +125,11 @@ hr
 }
 
 a{ text-decoration: none }
-a, a:visited{ color: #5799D3 }
-a:hover{ text-decoration: underline }
-
-
-
-
-
+a, a:visited, a:hover
+{ 
+	color: white;
+	text-decoration: none;
+}
 
 main
 {
