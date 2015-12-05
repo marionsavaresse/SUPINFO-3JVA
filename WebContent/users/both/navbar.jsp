@@ -1,22 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-		<header style="color: white;")>
-			<ul>
-				<li><a href="/SupTrip/login">Home</a></li>
-				<li><a href="/SupTrip/contact">Contact</a></li>
-			</ul>
+		<form action="login" id="loginForm" method=post></form>
+		
+		<header>
+			<a>Logo SUP TRIP</a>
+			<a href="/SupTrip/index">Home</a>
 		  <% if(request.getSession().getAttribute("id") == null){%>
-			<form action="login" id="loginForm" method=post>
-				<label for="username">Username :</label>
-				<input type=text id="username" name="idBooster">
-				<label for="password">Password :</label>
-				<input type=password id="password" name="password">
-				<input type=submit>
-				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
-			</form>
+			<a href="/SupTrip/contact">Contact</a>
+
+			<div>
+				<input type=text id="username" name="idBooster" form="loginForm">
+				<input type=password id="password" name="password" form="loginForm">
+			</div>
+			<div>
+				<input type=submit value="SIGN IN" form="loginForm">
+				<a href="/SupTrip/register">REGISTER</a>
+			</div>
 		  <% }else{%>
-			<%=request.getSession().getAttribute("id")%>
-			<a href="/SupTrip/bag">Bag</a>
 			<a href="/SupTrip/profile">Profile</a>
-			<a href="/SupTrip/logout">Logout</a>
+			<a href="/SupTrip/bag">
+				<p>Bag</p>
+				<p>0</p>
+			</a>
+			<a href="/SupTrip/contact">Contact</a>
+			<div>
+				<%=request.getSession().getAttribute("id")%>
+				<br>Name
+			</div>
+			<a href="/SupTrip/logout">SIGN OUT</a>
 		  <% }%>
 		</header>
