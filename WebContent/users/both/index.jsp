@@ -23,9 +23,11 @@
 		 <% }%>
 		</main>
 
-		<footer>
-			<p>Copyright © SUPTRIP Team &amp; SUPINFO 2015. All rights reserved - <a href="#">More about us</a></p>
-		</footer>
+		<section id="footer-container">
+			<footer>
+				<p>Copyright © SUPTRIP Team &amp; SUPINFO 2015. All rights reserved - <a href="#">More about us</a></p>
+			</footer>
+		</section>
 
 	</body>
 </html>

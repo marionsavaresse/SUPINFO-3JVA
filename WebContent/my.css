@@ -4,139 +4,207 @@
  *		- main 2 : 367BB6 (bleu) [btn, links, bandeaux, ...]
  *		- main 3 : FFFFFF (.. bah blanc) [fond, font ou le fond est main1, ...]
  *
- *		- alt  1 : 222933 (gris foncé) [input fond, subtitles, ...]
+ *		- alt  1 : 222933 (gris foncï¿½) [input fond, subtitles, ...]
  *		- alt  2 : 5799D3 (bleu plus clair) [over, active, ...]
  *		- alt  3 : F2F0F1 (gris clair) [empty inputs fond, ...]
  *
  *
  */
 
+@font-face {
+    font-family: "Lato-Light";
+    src: url(res/font/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(res/font/Lato-Regular.ttf);
+}
 
 *
 {
 	box-sizing: border-box;
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden
+	margin: 0;
+	padding: 0;
 }
-html, body{ overflow: auto }
-
-
-
-::selection { background-color: #367BB6; color: #000000 }
-::-moz-selection { background-color: #367BB6; color: #000000 }
-
-
 
 body
 {
 	background-color: #323844;
-	background-image: url("bodybg.png");
-	background-position: center 80px;
-	background-repeat: no-repeat;
 	color: #2A2E37;
-	min-height: 600px;
-	min-width: 1200px;
-	max-width: 1200px;
 	margin: 0px auto;
+	box-sizing: border-box;
 }
 
 
+/* HEADER */
 
-/* HEADER AND FOOTER */
-body > header,
-body > footer
-{
-	background-color: #292E37;
-	border-top: 10px solid;
-	margin: 0px auto;
-	padding: 0px 75px;
-	width: 1200px;
-}
-body > header
-{
-	align-items: stretch;
-	border-top-color: #3A4049;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+#header-container {
 	height: 80px;
+	background-color: #292e37;
+	width: 100%;
+	top: 0px;	
 }
-body > footer
-{
-	border-top-color: #2D5377;
-	color: #E0E0E0;
-	height: 110px; 
-	margin-top: 200px; /*temp*/
-	padding-top: 51px;
+
+#grey-strip {
+	height: 10px;
+	background-color: #3a4049;
 }
-body > footer > p
-{
+
+header {
+	height: 70px;
+	width: 940px;
+	margin: auto;	
+}
+
+#grey-strip {
+	height: 10px;
+	background-color: #343b46;
+}
+
+#header-background {
+	background-image: url("bodybg.png");
+	height: 150px;
+	width:100%;
+}
+
+#logo {
+	margin-top: 10px;
+	float: left;
+}
+
+nav {
+	margin: 0 10px 0 20px;
+	width: 460px;
+	float: left;
+}
+
+nav ul {
+	float: right;
+}
+
+nav li {
+    display: block;
+    float: left;
+    list-style: none outside none;
+    margin: -10px 0px 0px 0px;
+}
+	
+nav a, nav a:visited, nav a:focus {
+	display: block;
+	background-color: #2e333d;
+	height: 80px;
+	width: 105px;
 	text-align: center;
+	margin: 0 5px 0 5px;
+    padding: 25px 10px 0 10px;
+    border-top: 10px solid #4b515b;
+    font-family: Lato-Light;
+	font-size: 14px;
+    color: #e1e1e1;
+    text-decoration: none;
+	text-transform:uppercase;
+		-webkit-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+	   -moz-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+	    -ms-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+	     -o-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+	        transition: color 0.3s ease 0s, border-color 0.3s ease 0s; 
 }
 
-
-
-/* HEADER CONTENT */
-body > header > *
-{
-	align-items: center;
-	display: flex;
-	flex: 0 1 105px;
-	flex-direction: column;
-	margin: 0px 7px;
-	justify-content: center;
-	font-family: Lato-Light;
-	text-transform: uppercase;
-	font-size: 14px
+nav a:hover {
+    border-top-color: #59606c;
+    color: #fff;
 }
-body > header > :first-child{ margin-left: 0px }
-body > header > :nth-last-child(2){ flex: 0 1 122px }
-body > header > :last-child{ 
-	margin-right: 0px;
+	
+nav a.active, nav a.active:focus {
+    border-top-color: #377bb5;
+    color: #bfac6e;
+    font-weight: bold;
+        -webkit-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+       -moz-transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
+        -ms-transition: color 0.3s ease 0s, border-color 0.3s ease 0s; 
+         -o-transition: color 0.3s ease 0s, border-color 0.3s ease 0s; 
+	        transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
 }
 
-body > header > :first-child
-{ 
-	align-items: flex-start;
-	flex-grow: 3;
-}
-body > header > a
-{ 
-	background-color: #2E333D;
+nav li a, nav li a:visited, nav li a:focus {
+    display: inline-block;
 }
 
-body > header > div > input,
-#buttonRegister
-{ 
-	font-family: Lato-Light;
-	border: none;
-	background-color: #1D212A; /* à changer*/
-	color: #878787;
-	border-radius: 12px;
-	margin-bottom: 4px;
-	height: 25px;
+#login-inputs, #login-buttons{
+	float: left;
+	margin: 8px 0 0 10px;
 }
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #878787;
+}
+
+textarea, input { outline: none; }
+
 input[type="text"], input[type="password"]
 {
 	font-size: 14px;
 	padding-left: 12px;
 	width: 120px;
+	display: block;
 }
-input[type="submit"]
-{
-	background-color: #377bb5;
+
+input, .button
+{ 
+	font-family: Lato-Light;
+	border: none;
+	border-radius: 12px;
+	margin-bottom: 4px;
+	height: 25px;
+	background-color: #f2f1f1;
+	color: #5c6066;
+}
+
+.header-input {
+	background-color: #1D212A;
+	color: #fff;
+}
+
+.button {
 	font-size: 11px;
 	color: #fff;
 	width: 85px;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	cursor: pointer;
 }
+
+#buttonLogin {
+	background-color: #377bb5;
+}
+
 #buttonRegister
 {
 	background-color: #559bd6;
-	font-size: 11px;
-	color: #fff;
-	width: 85px;
-	padding-top: 5px;
+	padding-top: 6px;
+}
+
+
+/* FOOTER */
+
+#footer-container {
+	height: 110px; 
+	width: 100%;
+	background-color: #292E37;
+	border-top: 10px solid #2D5377;
+	margin-top: 200px; /*temp*/
+}
+
+footer
+{
+	padding-top: 35px;
+	font-family: "Lato";
+	font-size: 14px;
+	color: #acacac;
+	width: 940px;
+	margin: auto;
 	text-align: center;
 }
 
@@ -152,7 +220,7 @@ hr
 a{ text-decoration: none }
 a, a:visited, a:hover
 { 
-	color: white;
+	color: #559bd6;
 	text-decoration: none;
 }
 
@@ -166,10 +234,7 @@ main
 
 
 
-@font-face {
-    font-family: "Lato-Light";
-    src: url(res/font/lato/Lato-Light.ttf);
-}
+
 
 /* --- old --- */
 main section
