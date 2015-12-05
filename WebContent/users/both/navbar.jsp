@@ -3,11 +3,11 @@
 		
 		<header>
 			<div>
-				<img src="logo.png" alt="LogoSupTrip"/>
+				<img src="logoSupTrip.png" alt="LogoSupTrip"/>
 			</div>
-			<a href="/SupTrip/index">HOME</a>
+			<a href="/SupTrip/index">Home</a>
 		  <% if(request.getSession().getAttribute("id") == null){%>
-			<a href="/SupTrip/contact">CONTACT</a>
+			<a href="/SupTrip/contact">Contact</a>
 
 			<div>
 				<input type=text id="username" name="idBooster" form="loginForm" placeholder="ID Booster">
@@ -15,8 +15,9 @@
 			</div>
 			<div>
 				<input type=submit value="SIGN IN" form="loginForm">
-				<a href="/SupTrip/register">REGISTER</a>
+				<a id="buttonRegister" href="/SupTrip/register">Register</a>
 			</div>
+			
 		  <% }else{%>
 			<a href="/SupTrip/profile">Profile</a>
 			<a href="/SupTrip/bag">
@@ -28,6 +29,6 @@
 				<%=request.getSession().getAttribute("id")%>
 				<br>Name
 			</div>
-			<a href="/SupTrip/logout">SIGN OUT</a>
+			<a href="/SupTrip/logout">Sign out</a>
 		  <% }%>
 		</header>

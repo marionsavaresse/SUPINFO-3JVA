@@ -47,8 +47,8 @@ body
 body > header,
 body > footer
 {
-	background-color: #2A2F36;
-	border-top: 9px solid;
+	background-color: #292E37;
+	border-top: 10px solid;
 	margin: 0px auto;
 	padding: 0px 75px;
 	width: 1200px;
@@ -56,7 +56,7 @@ body > footer
 body > header
 {
 	align-items: stretch;
-	border-top-color: #394048;
+	border-top-color: #3A4049;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -81,15 +81,20 @@ body > footer > p
 body > header > *
 {
 	align-items: center;
-	border: 1px solid green;
 	display: flex;
-	flex: 0 1 120px;
+	flex: 0 1 105px;
 	flex-direction: column;
 	margin: 0px 7px;
 	justify-content: center;
+	font-family: Lato-Light;
+	text-transform: uppercase;
+	font-size: 14px
 }
 body > header > :first-child{ margin-left: 0px }
-body > header > :last-child{ margin-right: 0px }
+body > header > :nth-last-child(2){ flex: 0 1 122px }
+body > header > :last-child{ 
+	margin-right: 0px;
+}
 
 body > header > :first-child
 { 
@@ -98,22 +103,42 @@ body > header > :first-child
 }
 body > header > a
 { 
-	background-color: #2F333E;
+	background-color: #2E333D;
 }
 
-body > header > div > input
+body > header > div > input,
+#buttonRegister
 { 
+	font-family: Lato-Light;
 	border: none;
 	background-color: #1D212A; /* à changer*/
-	color: #52555E;
+	color: #878787;
 	border-radius: 12px;
-	padding-left: 12px;
 	margin-bottom: 4px;
-	height: 22px;
-	width: 100%;
+	height: 25px;
 }
-
-
+input[type="text"], input[type="password"]
+{
+	font-size: 14px;
+	padding-left: 12px;
+	width: 120px;
+}
+input[type="submit"]
+{
+	background-color: #377bb5;
+	font-size: 11px;
+	color: #fff;
+	width: 85px;
+}
+#buttonRegister
+{
+	background-color: #559bd6;
+	font-size: 11px;
+	color: #fff;
+	width: 85px;
+	padding-top: 5px;
+	text-align: center;
+}
 
 
 /* MAIN GENERAL CONTENT */
@@ -141,7 +166,10 @@ main
 
 
 
-
+@font-face {
+    font-family: "Lato-Light";
+    src: url(res/font/lato/Lato-Light.ttf);
+}
 
 /* --- old --- */
 main section
