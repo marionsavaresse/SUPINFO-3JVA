@@ -67,6 +67,9 @@ header {
 
 #header-background {
 	background-image: url("bodybg.png");
+	background-color: #5391c6;
+	background-position: center center;
+	background-repeat: no-repeat;
 	height: 150px;
 	width:100%;
 }
