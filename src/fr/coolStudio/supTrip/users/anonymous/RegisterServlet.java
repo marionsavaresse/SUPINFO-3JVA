@@ -38,18 +38,18 @@ public class RegisterServlet extends HttpServlet
 			{
 				if (request.getParameter("passwordConf").equals(request.getParameter("password")))
 				{
-					response.getWriter().print(request.getParameter("idBooster"));
+					/*response.getWriter().print(request.getParameter("idBooster"));
 					response.getWriter().print(hashPWD(request.getParameter("password")));
 					response.getWriter().print(hashPWD(request.getParameter("passwordConf")));
 					response.getWriter().print(request.getParameter("firstName"));
 					response.getWriter().print(request.getParameter("lastName"));
 					response.getWriter().print(request.getParameter("email"));
-					response.getWriter().print(request.getParameter("campusName"));
+					response.getWriter().print(request.getParameter("campusName"));*/
 					
-					//request.getSession().setAttribute("id", request.getParameter("idBooster"));
-					//((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+					request.getSession().setAttribute("id", request.getParameter("idBooster"));
+					((HttpServletResponse)response).sendRedirect("/SupTrip/index");
 					
-					return;
+					//return;
 				}else{
 					errorMsg = "not same pwd";
 				}

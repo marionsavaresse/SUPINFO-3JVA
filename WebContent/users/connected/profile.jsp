@@ -5,16 +5,16 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Bag</title>
+		<title>SupCommerce - Profile</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
-		<%@include file="navbar.jsp" %>
+		<%@include file="../both/navbar.jsp" %>
 
 		<main>
 			<p><%=request.getSession().getAttribute("id")%></p>
-			<p>idk-idc</p>
+			<p>Need DB stuff</p>
 		</main>
 
 		<footer>

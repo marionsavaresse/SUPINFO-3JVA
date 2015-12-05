@@ -1,7 +1,8 @@
-package fr.coolStudio.supTrip.users.anonymous;
+package fr.coolStudio.supTrip.users.connected;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,15 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 @WebServlet(
 	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
-	urlPatterns = { "/profile" }
+	urlPatterns = { "/bag" }
 )
-public class ProfileServlet extends HttpServlet
+public class BagServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 211L;
 
@@ -26,18 +25,20 @@ public class ProfileServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		if(request.getSession().getAttribute("id") == null){ //might be a filter?
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/index.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
 			dispatcher.forward(request, response);
 		}else{
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/profile.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
 			dispatcher.forward(request, response); //can't put this line down for some reason, ty java
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
-	{	
-		
+	{
+		//response.getWriter().print(request.getParameter("idk"));
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
+		dispatcher.forward(request, response);
 	}
-
+	
 }

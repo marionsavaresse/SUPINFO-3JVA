@@ -25,8 +25,12 @@ public class LoginServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/index.jsp");
-		dispatcher.forward(request, response);
+		if(request.getSession().getAttribute("id") == null){ //might be a filter?
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/login.jsp");
+			dispatcher.forward(request, response);
+		}else{
+			((HttpServletResponse)response).sendRedirect("/SupTrip/index");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

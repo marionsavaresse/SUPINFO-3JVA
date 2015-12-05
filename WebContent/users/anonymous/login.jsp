@@ -10,14 +10,14 @@
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
-		<%@include file="navbar.jsp" %>
+		<%@include file="../both/navbar.jsp" %>
 
 		<main>
 			<form action="login" id="loginForm" method=post>
 				<label for="username">Username :</label>
 				<input type=text id="username" name="idBooster">
 				<label for="password">Password :</label>
-				<input type=text id="password" name="password">
+				<input type=password id="password" name="password">
 				<input type=submit>
 				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>

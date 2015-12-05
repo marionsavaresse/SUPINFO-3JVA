@@ -10,7 +10,7 @@
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
-		<%@include file="navbar.jsp" %>
+		<%@include file="../both/navbar.jsp" %>
 
 		<main>
 			<form action="/SupTrip/register" method="post">

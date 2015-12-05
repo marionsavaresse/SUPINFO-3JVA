@@ -1,4 +1,4 @@
-package fr.coolStudio.supTrip.users.anonymous;
+package fr.coolStudio.supTrip.users.connected;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,25 +10,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 @WebServlet(
 	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
-	urlPatterns = { "/logout" }
+	urlPatterns = { "/profile" }
 )
-public class LogoutServlet extends HttpServlet
+public class ProfileServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 211L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		request.getSession().removeAttribute("id");
-		request.getRequestDispatcher("/login").forward(request, response);
+		if(request.getSession().getAttribute("id") == null){ //might be a filter?
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
+			dispatcher.forward(request, response);
+		}else{
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/profile.jsp");
+			dispatcher.forward(request, response); //can't put this line down for some reason, ty java
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{	
+		
 	}
 
 }

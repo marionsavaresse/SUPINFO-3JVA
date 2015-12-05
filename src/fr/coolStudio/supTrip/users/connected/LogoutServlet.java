@@ -1,6 +1,7 @@
-package fr.coolStudio.supTrip.users.anonymous;
+package fr.coolStudio.supTrip.users.connected;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,26 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 @WebServlet(
 	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
-	urlPatterns = { "/contact" }
+	urlPatterns = { "/logout" }
 )
-public class ContactServlet extends HttpServlet
+public class LogoutServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 211L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/contact.jsp");
-		dispatcher.forward(request, response);
+		request.getSession().removeAttribute("id");
+		request.getRequestDispatcher("/login").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
-	{
-		response.getWriter().print("WWWe got you request but the server is temporaly under maintenance, try later :)");
+	{	
 	}
 
 }

@@ -11,10 +11,16 @@
 	</head>
 	<body>
 		<%@include file="navbar.jsp" %>
-
 		<main>
-			<p><%=request.getSession().getAttribute("id")%></p>
-			<p>idk-idc</p>
+		 <% if(request.getSession().getAttribute("id") == null){%>
+			<p>Please login to view our catalogue :D</p>
+		 <% }else{%>
+			<form action="/SupTrip/bag" method="post">
+				<button type="submit" value="Trip1" name="idk" >Trip1</button>
+				<button type="submit" value="Trip2" name="idk" >Trip2</button>
+				<button type="submit" value="Trip3" name="idk" >Trip3</button>
+			</form>
+		 <% }%>
 		</main>
 
 		<footer>
