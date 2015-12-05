@@ -34,6 +34,9 @@ body
 	color: #2A2E37;
 	margin: 0px auto;
 	box-sizing: border-box;
+	font-family: "Lato";
+	font-size: 14px;
+	color: #292e37;
 }
 
 
@@ -168,7 +171,7 @@ input, .button
 
 .button {
 	font-size: 11px;
-	color: #fff;
+	color: #fff!important;
 	width: 85px;
 	text-transform: uppercase;
 	display: block;

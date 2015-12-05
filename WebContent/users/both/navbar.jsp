@@ -10,6 +10,19 @@
 				        <li><a href="/SupTrip/index">Home</a></li>
 				        <% if(request.getSession().getAttribute("id") == null){%>
 				        <li><a href="/SupTrip/contact">Contact</a></li>
+				        <% }else{%>
+						<li><a href="/SupTrip/profile">Profile</a></li>
+						<li><a href="/SupTrip/bag">
+							<p>Bag</p>
+							<p>0</p>
+						</a></li>
+						<li><a href="/SupTrip/contact">Contact</a></li>
+				<div>
+					<%=request.getSession().getAttribute("id")%>
+					<br>Name
+				</div>
+				<a href="/SupTrip/logout">Sign out</a>
+			  <% }%>
 				    </ul>
 			 	</nav>
 	
@@ -23,19 +36,6 @@
 					<a class="button" id="buttonRegister" href="/SupTrip/register">Register</a>
 				</div>
 				
-			  <% }else{%>
-				<a href="/SupTrip/profile">Profile</a>
-				<a href="/SupTrip/bag">
-					<p>Bag</p>
-					<p>0</p>
-				</a>
-				<a href="/SupTrip/contact">Contact</a>
-				<div>
-					<%=request.getSession().getAttribute("id")%>
-					<br>Name
-				</div>
-				<a href="/SupTrip/logout">Sign out</a>
-			  <% }%>
 			</header>
 		</section>	
 		<div id="header-background"></div>
