@@ -1,16 +1,3 @@
-/**
- *	Colors :
- *		- main 1 : 2A2E37 (gris/noir) [fond, font, ...]
- *		- main 2 : 367BB6 (bleu) [btn, links, bandeaux, ...]
- *		- main 3 : FFFFFF (.. bah blanc) [fond, font ou le fond est main1, ...]
- *
- *		- alt  1 : 222933 (gris fonc�) [input fond, subtitles, ...]
- *		- alt  2 : 5799D3 (bleu plus clair) [over, active, ...]
- *		- alt  3 : F2F0F1 (gris clair) [empty inputs fond, ...]
- *
- *
- */
-
 @font-face {
     font-family: "Lato-Light";
     src: url(res/font/Lato-Light.ttf);
@@ -66,7 +53,8 @@ header {
 }
 
 #header-background {
-	background-image: url("bodybg.png");
+	background-image: url("header-map.png");
+	background-position: center;
 	height: 150px;
 	width:100%;
 }
@@ -82,9 +70,7 @@ nav {
 	float: left;
 }
 
-nav ul {
-	float: right;
-}
+nav ul { float: right }
 
 nav li {
     display: block;
@@ -130,20 +116,20 @@ nav a.active, nav a.active:focus {
 	        transition: color 0.3s ease 0s, border-color 0.3s ease 0s;
 }
 
-nav li a, nav li a:visited, nav li a:focus {
-    display: inline-block;
-}
+nav li a, nav li a:visited, nav li a:focus { display: inline-block }
 
 #login-inputs, #login-buttons{
 	float: left;
 	margin: 8px 0 0 10px;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:-moz-placeholder, textarea:-moz-placeholder {
-    color: #878787;
-}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input:-moz-placeholder,
+textarea:-moz-placeholder
+{ color: #878787 }
 
-textarea, input { outline: none; }
+textarea, input { outline: none }
 
 input[type="text"], input[type="password"]
 {
@@ -179,9 +165,7 @@ input, .button
 	cursor: pointer;
 }
 
-#buttonLogin {
-	background-color: #377bb5;
-}
+#buttonLogin { background-color: #377bb5 }
 
 #buttonRegister
 {
@@ -193,16 +177,18 @@ input, .button
 /* FOOTER */
 
 #footer-container {
-	height: 110px; 
+	height: 130px; 
 	width: 100%;
 	background-color: #292E37;
 	border-top: 10px solid #2D5377;
-	margin-top: 200px; /*temp*/
+	position: relative;
+	top: -125px;
+	z-index: 10;
 }
 
 footer
 {
-	padding-top: 35px;
+	padding-top: 80px;
 	font-family: "Lato";
 	font-size: 14px;
 	color: #acacac;
@@ -220,43 +206,33 @@ hr
 	opacity: 0.4;
 }
 
-a{ text-decoration: none }
 a, a:visited, a:hover
 { 
 	color: #559bd6;
 	text-decoration: none;
 }
 
+
+
+
 main
 {
 	background-color: #FFFFFF;
 	margin: 0px auto;
-	margin-top: 200px;
 	width: 1050px;
+	position: relative;
+	top: -50px;
+	height: 600px;
+	z-index: 20;
 }
 
 
-
-
-
-/* --- old --- */
-main section
-{
-	background-color: #FFFFFF;
-	border: 1px solid lightgray;/**/
-	border-radius: 5px;
-	/*box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.25);/**/
-	margin: 20px auto 30px auto;
-	padding: 8px;
-	width: 600px;
+#quantity {
+	background-color: #377bb5;
+	border-radius: 40%;
+	color: #FFFFFF;
+	margin: 0px 9px;
+	padding: 3px 9px;
 }
 
-.cAuto{cursor: auto}
-.cCross{cursor: crosshair}
-.cDefault{cursor: default}
-.cHelp{cursor: help}
-.cNotAllowed{cursor: not-allowed}
-.cPlus{cursor: copy}
-.cPtr{cursor: pointer}
-.cZoomIn{cursor: zoom-in}
-.cZoomOut{cursor: zoom-out}
+

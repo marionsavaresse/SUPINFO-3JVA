@@ -15,28 +15,23 @@
 		<main>
 			<form action="/SupTrip/register" method="post">
 				<label for="idBooster">Username :</label>
-				<input type="number" id="idBooster" name="idBooster" pattern="^[0-9]*$" required="">
+				<input type="number" id="idBooster" name="idBooster" pattern="^[0-9]*$" required>
 				<label for="password">Password :</label>
-				<input type="password" id="password" name="password" required="">
+				<input type="password" id="password" name="password" required>
 				<label for="passwordConf">Password Confirmation:</label>
-				<input type="password" id="passwordConf" name="passwordConf" required="">
+				<input type="password" id="passwordConf" name="passwordConf" required>
 				<label for="firstName">First Name :</label>
-				<input type="text" id="firstName" name="firstName" required="">
+				<input type="text" id="firstName" name="firstName" required>
 				<label for="lastName">Last Name :</label>
-				<input type="text" id="lastName" name="lastName" required="">
+				<input type="text" id="lastName" name="lastName" required>
 				<label for="email">Email :</label>
-				<input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+				<input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
 				<label for="campusName">Campus Name :</label>
-				<input type="text" id="campusName" name="campusName" required="">
+				<input type="text" id="campusName" name="campusName" required>
 				<input type="submit">
 			</form>
 		</main>
 
-		<section id="footer-container">
-			<footer>
-				<p>Copyright © SUPTRIP Team &amp; SUPINFO 2015. All rights reserved - <a href="#">More about us</a></p>
-			</footer>
-		</section>
-
+		<%@include file="../both/footer.jsp" %>
 	</body>
 </html>
