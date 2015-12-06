@@ -16,7 +16,7 @@
 
 		<h1>Profile <span>see and edit your personal informations</span></h1>
 		<main>
-			<%=DaoFactory.getUserDao().all()%>
+			<%=DaoFactory.getCampusDao().all()%>
 			<p><%=request.getSession().getAttribute("id")%></p>
 			<p>Need DB stuff</p>
 		</main>
