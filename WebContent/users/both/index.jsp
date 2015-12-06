@@ -14,7 +14,7 @@
 
 		<h1>Welcome <span>to suptrip website</span></h1>
 		<main> <style>main>p{margin: 25px auto}</style>
-		  <% if(request.getSession().getAttribute("id") == null){%>
+		  <% if(request.getSession().getAttribute("idBooster") == null){%>
 			
 			<h4>Bienvenue sur le service en ligne SupTrip !</h4>
 			<p>Le site vous propose de réserver l'une des 750+ offres de voyages

@@ -15,9 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "IDBooster")
-	private Long idBooster;
+	private int idBooster;
 
 	@Basic
 	@Column(name = "Name")
@@ -44,12 +43,22 @@ public class User {
 	private int currentSchoolYear; // from 1 to 5
 		
 	public User() { }
+	
+	public User(int _idBooster ,String _name,String _familyName,String _email, String _password, Long _campusID,int _currentSchoolYear){
+		setIdBooster(_idBooster);
+		setName(_name);
+		setFamilyName(_familyName);
+		setEmail(_email);
+		setPassword(_password);
+		setCampusID(_campusID);
+		setCurrentSchoolYear(_currentSchoolYear);
+	}
 
-	public Long getIdBooster() {
+	public int getIdBooster() {
 		return idBooster;
 	}
 
-	public void setIdBooster(Long idBooster) {
+	public void setIdBooster(int idBooster) {
 		this.idBooster = idBooster;
 	}
 

@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.coolStudio.supTrip.bo.User;
+import fr.coolStudio.supTrip.dao.DaoFactory;
+import fr.coolStudio.supTrip.dao.jpa.JpaUserDao;
+
 
 
 @WebServlet(
@@ -38,6 +42,15 @@ public class RegisterServlet extends HttpServlet
 			{
 				if (request.getParameter("passwordConf").equals(request.getParameter("password")))
 				{
+					User user = new User(Integer.parseInt(request.getParameter("idBooster")),
+							request.getParameter("firstName"),
+							request.getParameter("lastName"),
+							request.getParameter("email"),
+							request.getParameter("password"),
+							1L,
+							3);
+					
+					DaoFactory.getUserDao().persist(user);
 					/*response.getWriter().print(request.getParameter("idBooster"));
 					response.getWriter().print(hashPWD(request.getParameter("password")));
 					response.getWriter().print(hashPWD(request.getParameter("passwordConf")));
@@ -46,7 +59,16 @@ public class RegisterServlet extends HttpServlet
 					response.getWriter().print(request.getParameter("email"));
 					response.getWriter().print(request.getParameter("campusName"));*/
 					
-					request.getSession().setAttribute("id", request.getParameter("idBooster"));
+					User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
+					request.getSession().setAttribute("idBooster", object.getIdBooster());
+					request.getSession().setAttribute("name", object.getName());
+					request.getSession().setAttribute("familyName", object.getFamilyName());
+					request.getSession().setAttribute("email", object.getEmail());
+					request.getSession().setAttribute("campusID", object.getCampusID());
+					request.getSession().setAttribute("password", object.getPassword());
+					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
+					
+					
 					((HttpServletResponse)response).sendRedirect("/SupTrip/index");
 					
 					//return;

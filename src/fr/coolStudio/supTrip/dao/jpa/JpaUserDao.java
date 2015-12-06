@@ -28,16 +28,16 @@ public class JpaUserDao extends BaseJpaDao implements UserDao {
 	}
 
 	@Override
-	public User oneById(Long campusId) {
+	public User oneById(int userID) {
 		return getEntityManagerFactory().createEntityManager()
-				.find(User.class, campusId);
+				.find(User.class, userID);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> all() {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
-		Query selectAllCat = em.createQuery("SELECT idBooster FROM User");
+		Query selectAllCat = em.createQuery("SELECT a FROM User a");
 		return selectAllCat.getResultList();
 	}
 }

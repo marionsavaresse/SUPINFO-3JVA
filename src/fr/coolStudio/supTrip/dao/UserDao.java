@@ -13,6 +13,6 @@ import java.util.List;
 public interface UserDao {
 
 	public User persist(User user);
-	public User oneById(Long user);
+	public User oneById(int user);
 	public List<User> all();
 }

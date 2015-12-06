@@ -24,7 +24,7 @@ public class BagServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if(request.getSession().getAttribute("id") == null){ //might be a filter?
+		if(request.getSession().getAttribute("idBooster") == null){ //might be a filter?
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
 			dispatcher.forward(request, response);
 		}else{

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.coolStudio.supTrip.bo.User;
+import fr.coolStudio.supTrip.dao.DaoFactory;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -37,17 +40,30 @@ public class LoginServlet extends HttpServlet
 	throws ServletException, IOException
 	{		
 		// A REMPLACER AVEC REQUETE SQL ID = 172012 || 172012, PWD = "TEST"
-		if ((checkId(request.getParameter("idBooster")).equals("172012") || checkId(request.getParameter("idBooster")).equals("174595")) && hashPWD(request.getParameter("password")).equals("098f6bcd4621d373cade4e832627b4f6"))
-		{
-			request.getSession().setAttribute("id", request.getParameter("idBooster"));
-			((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+		if (checkId(request.getParameter("idBooster"))){
+			User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
+			
+			if (object != null)
+			{
+				if(request.getParameter("password").equals(object.getPassword()))
+				{
+					request.getSession().setAttribute("idBooster", object.getIdBooster());
+					request.getSession().setAttribute("name", object.getName());
+					request.getSession().setAttribute("familyName", object.getFamilyName());
+					request.getSession().setAttribute("email", object.getEmail());
+					request.getSession().setAttribute("campusID", object.getCampusID());
+					request.getSession().setAttribute("password", object.getPassword());
+					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
+
+					((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+				}
+			}
 		}else{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/register");
+		((HttpServletResponse)response).sendRedirect("/SupTrip/register");
 		}
-		
 	}
 	
-	protected String checkId(String idBooster)
+	protected boolean checkId(String idBooster)
 	throws ServletException, IOException
 	{		
 		//ID IS ALWAYS 6 NUMBERS
@@ -55,13 +71,13 @@ public class LoginServlet extends HttpServlet
 			//CHECKS IF ONLY NUMBERS
 			try{
 				int num = Integer.parseInt(idBooster);
-						return idBooster;
+						return true;
 				} catch (NumberFormatException e) {
 				}
 		}
 		else{
 		}
-		return "";
+		return false;
 	}
 	
 	//Does a MD5 Hash on the PWD

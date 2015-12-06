@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		request.getSession().removeAttribute("id");
+		request.getSession().invalidate();
 		request.getRequestDispatcher("/login").forward(request, response);
 	}
 
