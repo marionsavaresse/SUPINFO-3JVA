@@ -15,19 +15,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class User {
 
 	@Id
-	@Column(name = "IDBooster")
+	@Column(name = "campusId")
 	private int idBooster;
 
 	@Basic
-	@Column(name = "Name")
+	@Column(name = "firstName")
 	private String name;
 
 	@Basic
-	@Column(name = "FamilyName")
+	@Column(name = "lastName")
 	private String familyName;
 
 	@Basic
-	@Column(name = "Email")
+	@Column(name = "email")
 	private String email;
 
 	@Basic
@@ -35,11 +35,11 @@ public class User {
 	private String password;
 
 	@Basic
-	@Column(name = "CampusID")
+	@Column(name = "campus")
 	private Long campusID;
 	
 	@Basic
-	@Column(name = "CurrentSchoolYear")
+	@Column(name = "currentYear")
 	private int currentSchoolYear; // from 1 to 5
 		
 	public User() { }

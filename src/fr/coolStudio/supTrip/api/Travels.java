@@ -8,7 +8,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import fr.coolStudio.supTrip.bo.AvailableTrip;
 import fr.coolStudio.supTrip.bo.Trip;
+import fr.coolStudio.supTrip.dao.DaoFactory;
 import fr.coolStudio.supTrip.dao.TripDao;
 
 @Path("/travels")
@@ -16,9 +18,9 @@ import fr.coolStudio.supTrip.dao.TripDao;
 public class Travels
 {
 	@GET
-    public List<Trip> getTravels()
+    public List<AvailableTrip> getTravels()
 	{
-        return TripDao.getAllTrip();
+        return DaoFactory.getAvailableTripDao().all();
     }
 
 	@GET @Path("/{id: [0-9]+}")

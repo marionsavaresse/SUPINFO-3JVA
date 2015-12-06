@@ -57,6 +57,8 @@ public class LoginServlet extends HttpServlet
 
 					((HttpServletResponse)response).sendRedirect("/SupTrip/login");
 				}
+			}else{
+				((HttpServletResponse)response).sendRedirect("/SupTrip/register");
 			}
 		}else{
 		((HttpServletResponse)response).sendRedirect("/SupTrip/register");

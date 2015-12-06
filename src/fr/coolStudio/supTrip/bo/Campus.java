@@ -10,28 +10,28 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="campus")
+@Table(name="campuses")
 @XmlRootElement
 public class Campus {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
+	@Column(name = "id")
 	private Long id;
 	
 	@Basic
-	@Column(name = "Name")
+	@Column(name = "name")
 	private String campusName;
 
 	@Basic
-	@Column(name = "CountryCode")
+	@Column(name = "countryCode")
 	private String countryCode;
 
 	@Basic
-	@Column(name = "Address")
+	@Column(name = "address")
 	private String address;
 	@Basic
-	@Column(name = "GoogleLink")
+	@Column(name = "googleMapLink")
 	private String googleLink;
 		
 	public Campus() { }
