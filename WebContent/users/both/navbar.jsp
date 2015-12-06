@@ -28,11 +28,11 @@
 					<a class="button" id="buttonRegister" href="/SupTrip/register">Register</a>
 				</div>
 		      <% }else{%>
-				<div>
-					<%=request.getSession().getAttribute("id")%>
-					<br>Name
+				<div id="login-infos">
+					Welcome<br>
+					<b>ID <%=request.getSession().getAttribute("id")%></b>
 				</div>
-				<a href="/SupTrip/logout">Sign out</a>
+				<a href="/SupTrip/logout" class="button" id="buttonLogout">Sign out</a>
 	 		  <% }%>
 			</header>
 		</section>	

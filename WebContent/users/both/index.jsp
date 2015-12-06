@@ -5,13 +5,14 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Index</title>
+		<title>SupTrip - Home</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
 		<%@include file="navbar.jsp" %>
 
+		<h1>Welcome <span>to suptrip website</span></h1>
 		<main> <style>main>p{margin: 25px auto}</style>
 		  <% if(request.getSession().getAttribute("id") == null){%>
 			<h4>Bienvenue sur le service en ligne SupTrip !</h4>

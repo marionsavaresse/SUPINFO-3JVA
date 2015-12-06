@@ -5,13 +5,14 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Login</title>
+		<title>SupTrip - Login</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %>
 
+		<h1>Login <span>to access our offers</span></h1>
 		<main>
 			<form action="login" id="loginForm" method=post>
 				<label for="username">Username :</label>

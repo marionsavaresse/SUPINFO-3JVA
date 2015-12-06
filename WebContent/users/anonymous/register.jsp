@@ -5,13 +5,14 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Register</title>
+		<title>SupTrip - Register</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %>
 
+		<h1>Register <span>the last step to see our deals</span></h1>
 		<main>
 			<form action="/SupTrip/register" method="post">
 				<label for="idBooster">Username :</label>
