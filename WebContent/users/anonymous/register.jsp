@@ -26,7 +26,7 @@
 				<label for="lastName">Last Name :</label>
 				<input type="text" id="lastName" name="lastName" required>
 				<label for="email">Email :</label>
-				<input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+				<input type="text" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" required>
 				<label for="campusName">Campus Name :</label>
 				<input type="text" id="campusName" name="campusName" required>
 				<input type="submit">

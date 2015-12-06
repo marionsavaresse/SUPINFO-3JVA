@@ -19,6 +19,18 @@ public class User {
 	private int idBooster;
 
 	@Basic
+	@Column(name = "password")
+	private String password;
+	
+	@Basic
+	@Column(name = "currentYear")
+	private int currentSchoolYear; // from 1 to 5
+
+	@Basic
+	@Column(name = "email")
+	private String email;
+
+	@Basic
 	@Column(name = "firstName")
 	private String name;
 
@@ -27,20 +39,8 @@ public class User {
 	private String familyName;
 
 	@Basic
-	@Column(name = "email")
-	private String email;
-
-	@Basic
-	@Column(name = "password")
-	private String password;
-
-	@Basic
 	@Column(name = "campus")
 	private Long campusID;
-	
-	@Basic
-	@Column(name = "currentYear")
-	private int currentSchoolYear; // from 1 to 5
 		
 	public User() { }
 	

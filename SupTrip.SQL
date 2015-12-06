@@ -28,16 +28,16 @@ CREATE TABLE IF NOT EXISTS `suptrip`.`trips` (
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE IF NOT EXISTS `suptrip`.`users` (
+CREATE TABLE IF NOT EXISTS `users` (
 	`campusId` mediumint(8) unsigned NOT NULL,
 	`password` char(42) NOT NULL,
-	`currentYear` enum('A.Sc. 1','A.Sc. 2','B.Sc.','M.Sc. 1','M.Sc. 2') NOT NULL COMMENT 'Si vide => ancien ou externe',
+	`currentYear` tinyint(4) NOT NULL,
 	`email` tinytext COMMENT 'si null, utiliser id@sup.com',
 	`firstName` tinytext NOT NULL,
 	`lastName` tinytext NOT NULL,
+	`campus` tinytext NOT NULL,
 	UNIQUE KEY `campusId` (`campusId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-DROP TABLE IF EXISTS `availabletrips`;
 
 INSERT INTO `campuses` (`countryCode`, `name`, `address`, `longitude`, `latitude`) VALUES
 ('BE', 'Brussels', '29 Rue Ducale, 1000 Bruxelles, Belgique', 50.8448, 4.3659),
@@ -76,22 +76,22 @@ INSERT INTO `campuses` (`countryCode`, `name`, `address`, `longitude`, `latitude
 ('CN', 'Zhenjiang', 'East Campus JUST, MengXi Road 2, Jingkou District, ZHENJIANG', NULL, NULL);
 
 
-CREATE
-ALGORITHM = UNDEFINED
-DEFINER=`root`@`localhost`
-SQL SECURITY DEFINER 
-VIEW `suptrip`.`AvailableTrips`
-AS
-	SELECT
-		 @i:=@i+1 AS line,
-		 `d`.`id`	AS `departure_id`,
-		 `d`.`name`	AS `departure_name`,
-		 `a`.`id`	AS `arrival_id`,
-		 `a`.`name`	AS `arrival_name`
-	FROM `campuses`	AS `a`
-	JOIN `campuses` AS `d`
-	ON	 `a`.`id`	<> `d`.`id`,
-    (SELECT @i:=0) fuckU;
+-- CREATE
+-- ALGORITHM = UNDEFINED
+-- DEFINER=`root`@`localhost`
+-- SQL SECURITY DEFINER 
+-- VIEW `suptrip`.`AvailableTrips`
+-- AS
+	-- SELECT
+		 -- @i:=@i+1 AS line,
+		 -- `d`.`id`	AS `departure_id`,
+		 -- `d`.`name`	AS `departure_name`,
+		 -- `a`.`id`	AS `arrival_id`,
+		 -- `a`.`name`	AS `arrival_name`
+	-- FROM `campuses`	AS `a`
+	-- JOIN `campuses` AS `d`
+	-- ON	 `a`.`id`	<> `d`.`id`,
+    -- (SELECT @i:=0) fuckU;
 
 GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW
 ON *.*
