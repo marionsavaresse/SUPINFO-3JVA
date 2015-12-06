@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="fr.coolStudio.supTrip.dao.DaoFactory" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,6 +15,7 @@
 		<%@include file="../both/navbar.jsp" %>
 
 		<main>
+			<%=DaoFactory.getUserDao().all()%>
 			<p><%=request.getSession().getAttribute("id")%></p>
 			<p>Need DB stuff</p>
 		</main>

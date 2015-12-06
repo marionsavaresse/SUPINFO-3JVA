@@ -14,6 +14,7 @@
 
 		<main> <style>main>p{margin: 25px auto}</style>
 		  <% if(request.getSession().getAttribute("id") == null){%>
+			
 			<h4>Bienvenue sur le service en ligne SupTrip !</h4>
 			<p>Le site vous propose de réserver l'une des 750+ offres de voyages
 			entre tous les différents campus SUPINFO all around the world.
