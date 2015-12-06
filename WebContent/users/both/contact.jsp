@@ -5,13 +5,14 @@
 		<meta charset=UTF-8>
 		<meta http-equiv=Content-Type content="text/html;charset=UTF-8">
 
-		<title>SupCommerce - Contact</title>
+		<title>SupTrip - Contact</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
 	</head>
 	<body>
 		<%@include file="navbar.jsp" %>
 
+		<h1>Contact <span>we are only a click away</span></h1>
 		<main> <style>main>div{margin: 25px auto}</style>
 			<div>
 				<img alt="Photo de Marion">
