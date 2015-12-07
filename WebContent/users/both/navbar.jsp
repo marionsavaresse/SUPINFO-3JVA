@@ -31,8 +31,7 @@
 		      <% }else{%>
 				<div id="login-infos">
 					Welcome<br>
-					<b><%=request.getSession().getAttribute("name").toString().substring(0, 1)%>
-					. <%=request.getSession().getAttribute("familyName")%></b>
+					<b><%=request.getSession().getAttribute("idBooster")%></b>
 				 </div>
 				<a href="/SupTrip/logout" class="button" id="buttonLogout">Sign out</a>
 	 		  <% }%>
