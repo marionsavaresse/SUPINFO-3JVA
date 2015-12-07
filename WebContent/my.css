@@ -26,6 +26,9 @@ body
 	
 }
 
+main {
+	overflow:auto;
+}
 
 /* HEADER */
 
@@ -128,19 +131,19 @@ input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder,
 input:-moz-placeholder,
 textarea:-moz-placeholder
-{ color: #878787 }
+{ color: #878787; }
 
 textarea, input { outline: none }
 
-input[type="text"], input[type="password"]
+input[type="text"], input[type="password"], input[type="mail"]
 {
-	font-size: 14px;
+	font-size: 13px;
 	padding-left: 12px;
 	width: 120px;
 	display: block;
 }
 
-input, .button
+input, .button, textarea
 { 
 	font-family: Lato-Light;
 	border: none;
@@ -304,4 +307,63 @@ td {
 .homeTDRight {
 	background-color: #eee;
 	text-align: center;
+}
+
+/* CONTACT */
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+.column {
+	box-sizing: border-box;
+	width:50%;
+	float: left;
+	text-align: justify;
+}
+
+#one {
+	padding-right: 20px;
+}
+
+#contact-infos{
+	text-align:center;
+	margin-top: 40px;
+}
+
+h3 {
+	color: #559bd6;
+	margin-bottom:10px;
+}
+
+#two {
+	padding-left:5px;
+}
+
+input.contact, textarea.contact {
+	height: 40px;	
+	border-radius: 20px;
+	width: 210px;
+	display: inline;
+	margin-bottom:10px;
+	padding-left:25px;
+	font-size: 13px;
+}
+
+textarea.contact {
+	height: 145px;
+	width: 425px;
+	padding: 25px;
+	resize: none;
+	outline: none;
+}
+
+input.send-button {
+	height: 40px;	
+	border-radius: 20px;
+	background-color: #559bd6;
+	display: inline;
+	text-align: center;
+	font-size: 13px;
 }

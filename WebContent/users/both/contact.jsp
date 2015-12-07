@@ -14,35 +14,80 @@
 
 		<h1>Contact <span>we are only a click away</span></h1>
 		<main> <style>main>div{margin: 25px auto}</style>
-			<div>
-				<img alt="Photo de Marion">
-				<p>Marion SAVARESSE</p>
-				<p>Directrice Marketing et Designer</p>
-				<a href="mailto:170754@supinfo.com">Envoyer un compliment</a>
-			</div>
+		
+		
+			<div id="map"></div>
+			
+			<div class="column" id="one">
+				<p>Nous nous efforçons toujours de répondre le plus rapidement possible à nos mails. Vous pouvez donc en général compter une réponse sous 24h.</p>
+				
+				<div id="contact-infos">
+					<h3>SUPTRIP TEAM</h3>
 
-			<div>
-				<img alt="Photo de Hugo">
-				<p>Hugo TARDIOU</p>
-				<p>Responsable Technique et Developpement</p>
-				<a href="mailto:172012@supinfo.com">Envoyer un super message</a>
-			</div>
+					<b><u>Address</u></b></br>
+					21 Boulevard François</br>
+					Grosso, 06000 Nice</br></br>
 
-			<div>
-				<img alt="Photo de Mike">
-				<p>Mike ROUX</p>
-				<p>Quality Manager</p>
-				<a href="mailto:174595@supinfo.com">Envoyez des grossièretés</a>
+					<b><u>Email address</u></b></br>
+					suptripteam@gmail.com
+				</div>
+			
 			</div>
+			
+			<div class="column" id="two">
+				<form>
+					<input class="contact" type="text" name= "lastName" placeholder="Last name">
+					<input class="contact" type="text" name= "firstName" placeholder="First Name">
+					</br>
 
-			<div>
-				<img alt="Photo d'Adrien">
-				<p>Adrien-Charles BUFFET</p>
-				<p>Database Administrator and Community Manager</p>
-				<a href="mailto:208851@supinfo.com">Envoyer une invitation au restaurant</a>
+					<input class="contact" type="mail" name= "email" placeholder="Email address">
+					<input class="contact" type="text" name= "idBooster" placeholder="ID Booster">
+					</br>
+
+					<textarea class="contact" placeholder="Message"></textarea>
+					</br>
+					
+					<input class="button send-button" id="envoyer" type="submit" value="Send">
+				</form>
 			</div>
+		
+		
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
+		
+    <script>
+		var map;
+		var myLatLng = {lat: 43.6958795, lng: 7.251661499999955};
+		
+		function initMap() {
+			
+			  map = new google.maps.Map(document.getElementById('map'), {
+			    center: myLatLng,
+			    zoom: 15
+			  });
+			  
+			 var marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				title: 'Nom de notre entreprise'
+			 });
+			 
+			 var contentString = '<b>Nom de notre entreprise</b></br>21 Boulevard François Grosso,<br>06000 Nice';
+	
+		  	var infowindow = new google.maps.InfoWindow({
+		    content: contentString
+		  	});
+
+		    infowindow.open(map, marker);
+		    marker.addListener('click', function() {
+		        infowindow.open(map, marker);
+		      });
+		    
+		 }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZfdqbq-7wuj_Fzoa7ltz5I3nnM_C0n30&callback=initMap"
+        async defer></script>
+	
 	</body>
 </html>

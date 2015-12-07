@@ -43,5 +43,7 @@
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
+		
+		
 	</body>
 </html>
