@@ -12,7 +12,7 @@
 				        <li><a href="/SupTrip/index" <%=printClassIfActive(request, "index")%>>Home</a></li>
 				      <% if(request.getSession().getAttribute("idBooster") != null){%>
 						<li><a href="/SupTrip/profile" <%=printClassIfActive(request, "profile")%>>Profile</a></li>
-						<li><a href="/SupTrip/bag" <%=printClassIfActive(request, "bag")%>>Bag<span id="quantity">0</span></a></li>
+						<li><a href="/SupTrip/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip">0</span></a></li>
 			 		  <% }%>
 				        <li><a href="/SupTrip/contact" <%=printClassIfActive(request, "contact")%>>Contact</a></li>
 				    </ul>

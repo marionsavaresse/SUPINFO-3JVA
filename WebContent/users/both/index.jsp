@@ -12,22 +12,27 @@
 	<body>
 		<%@include file="navbar.jsp" %>
 
-		<h1>Welcome <span>to suptrip website</span></h1>
+		<h1>Welcome <span>to SUPTRIP website</span></h1>
 		<main> <style>main>p{margin: 25px auto}</style>
 		  <% if(request.getSession().getAttribute("idBooster") == null){%>
 			
-			<h4>Bienvenue sur le service en ligne SupTrip !</h4>
-			<p>Le site vous propose de réserver l'une des 750+ offres de voyages
-			entre tous les différents campus SUPINFO all around the world.
-			</p>
-			<p>Une fois enregistré sur la plateforme (que votre compte campus-booster a été confirmé), vous pouvez consulter la totalité des voyages disponibles.
-			Les technologies innovantes choisies pour le developpement du projet vous permettent également de rechercher de façons rapide et efficace le
-			voyage dont vous avez besoin.
-			Organisez vos déplacements SCT en toute simplicité ! Connectez-vous, selectionner votre déplacement et recevez tous les détails relatif à votre déplacement.
-			Blablabla ça sera super cool pour aller partager vos connaissances, ouééé.</p>
-			<p>De plus, la puissance et la robustesse du Java vous permettrons d'utiliser un super API de la mort qui tue pour faire de super applications mobiles qui en jette grave
-			et afficher les dernières offre sur votre site cv pour consolider a e-reputation !</p>
-			<p>Franchement on rigole on rigole mais si on publiait un site comme ça, SUPINFO nous mettrait en une des magazines donc votez pour nous wesh.</p>
+			<h4>Welcome to SUPTRIP !</h4> 
+			<p>This website is an interface allowing students of <b>SUPINFO International University</b> to book their travel between the campus world. You are welcome to login or register a new account in order to access our offers.</p>
+			
+			<table id="homeTable">
+				<tr>
+					<td class="homeTDLeft">Number of registered users</td>
+					<td class="homeTDRight"><span class="blueChip">4</span></td>
+				</tr>	
+				<tr>
+					<td class="homeTDLeft">Number of destinations</td>
+					<td class="homeTDRight"><span class="blueChip">39</span></td>
+				</tr>	
+				<tr>
+					<td class="homeTDLeft">Number of possible travels</td>
+					<td class="homeTDRight"><span class="blueChip">1521</span></td>
+				</tr>	
+			</table>
 		  <% }else{%>
 			<form action="/SupTrip/bag" method="post">
 				<button type="submit" value="Trip1" name="idk" >Trip1</button>
