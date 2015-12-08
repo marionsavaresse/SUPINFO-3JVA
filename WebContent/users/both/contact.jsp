@@ -36,12 +36,12 @@
 			
 			<div class="column" id="two">
 				<form id="mel" action="javascript: sendMsg(document.getElementById('mel'))">
-					<input class="contact" type="text" name= "lastName" placeholder="Last name" required>
-					<input class="contact" type="text" name= "firstName" placeholder="First Name" required>
+					<input class="input" type="text" name= "lastName" placeholder="Last name" required>
+					<input class="input" type="text" name= "firstName" placeholder="First Name" required>
 					</br>
 
-					<input class="contact" type="email" name= "email" placeholder="Email address" required>
-					<input class="contact" type="text" name= "idBooster" placeholder="ID Booster" required>
+					<input class="input" type="email" name= "email" placeholder="Email address" required>
+					<input class="input" type="text" name= "idBooster" placeholder="ID Booster" required>
 					</br>
 
 					<textarea class="contact" placeholder="Message" name="body" form="mel" required></textarea>

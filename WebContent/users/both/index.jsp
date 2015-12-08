@@ -38,7 +38,7 @@
 				Home 
 				<span>WHERE DO YOU WANT TO GO ?</span>
 				<div id="searchBar">
-					<input class="contact" type="text" name="search" placeholder="Search a campus">
+					<input class="input" type="text" name="search" placeholder="Search a campus">
 					<input class="button send-button" id="envoyer" type="submit" value="Go">
 				</div>
 			</h1>

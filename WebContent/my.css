@@ -162,7 +162,7 @@ input, .button, textarea
 .button {
 	font-size: 11px;
 	color: #fff!important;
-	width: 85px;
+	padding: 0 15px 0 15px;
 	text-transform: uppercase;
 	display: block;
 	text-align: center;
@@ -297,6 +297,48 @@ h3 {
 	margin-bottom:10px;
 }
 
+input.input, textarea.contact {
+	height: 40px;	
+	border-radius: 20px;
+	width: 210px;
+	display: inline;
+	margin-bottom:10px;
+	padding-left:25px;
+	font-size: 13px;
+}
+
+input.long {
+	width: 350px;
+	margin: 0 10px 15px 0;
+}
+
+input.wrong {
+	border: 1px solid #82bbeb;
+}
+
+form > span {
+	color: #377bb5;
+	font-family: Lato-Light;
+}
+
+textarea.contact {
+	height: 145px;
+	width: 425px;
+	padding: 25px;
+	resize: none;
+	outline: none;
+}
+
+input.send-button {
+	height: 40px;	
+	border-radius: 20px;
+	background-color: #559bd6;
+	display: inline;
+	text-align: center;
+	font-size: 13px;
+}
+
+
 /* HOME - ANONYMOUS */
 
 #homeTable {
@@ -360,7 +402,7 @@ th#null {
 	padding: 8px;
 }
 
-td > span {
+table[id="homeTable connected"] > td > span {
 	margin-top: 3px;
 	display: block;
 	font-size: 11px;
@@ -418,33 +460,6 @@ td > span {
 	padding-left:5px;
 }
 
-input.contact, textarea.contact {
-	height: 40px;	
-	border-radius: 20px;
-	width: 210px;
-	display: inline;
-	margin-bottom:10px;
-	padding-left:25px;
-	font-size: 13px;
-}
-
-textarea.contact {
-	height: 145px;
-	width: 425px;
-	padding: 25px;
-	resize: none;
-	outline: none;
-}
-
-input.send-button {
-	height: 40px;	
-	border-radius: 20px;
-	background-color: #559bd6;
-	display: inline;
-	text-align: center;
-	font-size: 13px;
-}
-
 /* ABOUT US */
 
 #compagny {
@@ -488,4 +503,12 @@ input.send-button {
 	background-image: url("");
 	background-position: center center;
 	background-size: cover;
+}
+
+/* REGISTER */
+
+#registerForm {
+	width:725px; 
+	margin: auto;
+	margin-top: 50px;
 }
