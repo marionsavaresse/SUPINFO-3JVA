@@ -438,6 +438,7 @@ span.address {
 	width:50%;
 	float: left;
 	text-align: justify;
+	margin-top: 35px;
 }
 
 #one {
@@ -504,4 +505,10 @@ span.address {
 	width:725px; 
 	margin: auto;
 	margin-top: 50px;
+}
+
+/* REGISTER */
+
+.cancel {
+	background-color: #4b515b !important;
 }

@@ -14,8 +14,8 @@
 
 		<h1>Register <span>the last step to see our deals</span></h1>
 		<main>
+		
 			<p>Seuls les étudiants de SUPINFO International Univeristy peuvent créer un compte sur notre site et profiter de nos offres de voyages. Merci de vous munir de vos informations personnelles et de remplir le formulaire ci-dessous.</p>
-			<br>
 			<p>Tous les champs sont obligatoires afin de pouvoir s’inscrire.</p>
 			
 			<form action="/SupTrip/register" method="post" id="registerForm">

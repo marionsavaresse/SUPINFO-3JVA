@@ -13,8 +13,7 @@
 		<%@include file="navbar.jsp" %>
 
 		<h1>Contact <span>we are only a click away</span></h1>
-		<main> <style>main>div{margin: 25px auto}</style>
-		
+		<main>
 		
 			<div id="map"></div>
 			
@@ -29,7 +28,7 @@
 					Grosso, 06000 Nice</br></br>
 
 					<b><u>Email address</u></b></br>
-					infinitycode@gmail.com
+					contact@infinitycode.io
 				</div>
 			
 			</div>

@@ -43,7 +43,7 @@
 				</div>
 			</h1>
 				
-			<main> <style>main>p{margin: 25px auto}</style>
+			<main>
 		
 			<p>Welcome to SUPTRIP website, an interface allowing students of SUPINFO International University to book their travel between the campus world.</p>
 			
