@@ -19,14 +19,41 @@
 			<p>Tous les champs sont obligatoires afin de pouvoir s’inscrire.</p>
 			
 			<form action="/SupTrip/register" method="post" id="registerForm">
-				<input class="input long wrong" type="text" id="lastName" name="lastName" placeholder="Last name" required>
-				<span>You need to specify your last name.</span>
-				<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name" required>
-				<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster" required>
-				<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address" required>
-				<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
-				<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation" required>
-				<input class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+				<table>
+	            	<tr>
+                  		<td>
+							<input class="input long wrong" type="text" id="lastName" name="lastName" placeholder="Last name" required>
+							<span>You need to specify your last name.</span>
+					 	</td>
+						<td>
+							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name" required>
+						</td>
+					</tr>
+					<tr>
+						<td>	
+							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster" required>
+						</td>
+						<td>
+							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address" required>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+						</td>
+						<td>
+							<input class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="Current school year" required>								
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
+						</td>
+						<td>
+							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation" required>
+						</td>
+					</tr>
+				</table>
 				<br>
 				<input class="button send-button" type="submit" value="Create my account">
 			</form>
