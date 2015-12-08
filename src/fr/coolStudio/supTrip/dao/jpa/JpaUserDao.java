@@ -28,6 +28,18 @@ public class JpaUserDao extends BaseJpaDao implements UserDao {
 	}
 
 	@Override
+	public String update(User user) {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		EntityTransaction t = em.getTransaction();
+		 
+		  t.begin();
+			em.merge(user);
+		  t.commit();
+		  
+		return user.getFamilyName();
+	}
+	
+	@Override
 	public User oneById(int userID) {
 		return getEntityManagerFactory().createEntityManager()
 				.find(User.class, userID);
