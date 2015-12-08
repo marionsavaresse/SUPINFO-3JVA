@@ -15,6 +15,7 @@
 
 		<h1>Login <span>to access our offers</span></h1>
 		<main>
+		
 			<form action="login" id="loginForm" method="post">
 				<input class="input" type="text" id="username" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster">
 				<br>

@@ -399,7 +399,7 @@ th#null {
 	padding: 8px;
 }
 
-table[id="homeTable connected"] > td > span {
+span.address {
 	margin-top: 3px;
 	display: block;
 	font-size: 11px;
@@ -438,6 +438,7 @@ table[id="homeTable connected"] > td > span {
 	width:50%;
 	float: left;
 	text-align: justify;
+	margin-top: 35px;
 }
 
 #one {
@@ -504,4 +505,26 @@ table[id="homeTable connected"] > td > span {
 	width:725px; 
 	margin: auto;
 	margin-top: 50px;
+}
+
+/* BAG */
+
+.cancel {
+	background-color: #4b515b !important;
+}
+
+/* CONFIRMATION */
+
+.quantity {
+	color: #fff !important;
+	padding: 12px 10px 0 10px;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	background-color: #4b515b;
+	height: 40px; 
+	border-radius: 20px;
+	font-size: 13px;
+	font-family: Lato-Light;
+	float: right;
 }

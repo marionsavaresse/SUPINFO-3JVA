@@ -43,27 +43,27 @@
 				</div>
 			</h1>
 				
-			<main> <style>main>p{margin: 25px auto}</style>
+			<main>
 		
 			<p>Welcome to SUPTRIP website, an interface allowing students of SUPINFO International University to book their travel between the campus world.</p>
 			
 			<table id="homeTable connected">
 				<tr>
-					<th>Depart Town</th>
+					<th>Departure</th>
 					<th></th>
-					<th>Arrival Town</th>
+					<th>Arrival</th>
 					<th id="null"></th>
 				</tr>
 				<tr class="dark">
-					<td class="TDOne">Campus de Paris<span>33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
+					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
-					<td class="TDThree">Campus de Bordeaux<span>14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
+					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
 					<td class="TDFour"><input class="button send-button" id="addBag" type="submit" value="Add to bag"></td>
 				</tr>	
 				<tr class="light">
-					<td class="TDOne">Campus de Paris<span>33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
+					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
-					<td class="TDThree">Campus de Bordeaux<span>14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
+					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
 					<td class="TDFour"><input class="button send-button" id="addBag" type="submit" value="Add to bag"></td>
 				</tr>		
 			</table>
