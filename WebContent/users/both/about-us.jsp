@@ -18,7 +18,7 @@
 			<div id="compagny">
 				<img src="res/img/aboutus/ICLogo.png" id="ICLogo">
 				<h3>INFINITY CODE</h3>
-				<p>Nulla non libero sagittis, congue turpis vel, sagittis nulla. Ut egestas nisi et lacus tempus imperdiet. Nulla vitae neque in erat convallis suscipit vitae eget magna. Vestibulum semper ante ut sollicitudin rutrum. Etiam a facilisis metus. Sed facilisis libero non imperdiet molestie. Donec ex risus, convallis ac est vel, efficitur aliquet diam. </p>
+				<p>Co-founded in 2005, Infinity Code is a company specialized in software development for designing, implementing, and managing systems that directly contribute to revenue and business success. We help our customers to adopt technologies to advance innovation and increase agility. Our skilled technical team works as an integrated extension of our customer’s organizations. </p>
 			</div>
 			
 			<div class="column" id="one">
