@@ -15,16 +15,14 @@
 
 		<h1>Login <span>to access our offers</span></h1>
 		<main>
-			<form action="login" id="loginForm" method=post>
-				<label for="username">Username :</label>
-				<input type=text id="username" name="idBooster" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$">
-				<label for="password">Password :</label>
-				<input type=password id="password" name="password">
-				<input type=submit>
+			<form action="login" id="loginForm" method="post">
+				<input class="contact" type="text" id="username" name="idBooster" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="ID Booster">
+				<br>
+				<input class="contact" type="password" id="password" name="password" placeholder="Password">
+				</br>
+				<input class="button send-button" type="submit" value="Login">
 				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>
-		<p>/!\<%--=DaoFactory.getAvailableTripDao().all()--%></p>
-
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
