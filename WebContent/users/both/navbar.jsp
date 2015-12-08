@@ -6,7 +6,7 @@
 		<section id="header-container">
 	    	<div id="grey-strip"></div>
 			<header>
-				<a href="/SupTrip/index"><img src="logoSupTrip.png" alt="LogoSupTrip" id="logo"/></a>
+				<a href="/SupTrip/index"><img src="res/img/navbar/logoSupTrip.png" alt="LogoSupTrip" id="logo"/></a>
 				<nav>
 				    <ul>
 				        <li><a href="/SupTrip/index" <%=printClassIfActive(request, "index")%>>Home</a></li>
