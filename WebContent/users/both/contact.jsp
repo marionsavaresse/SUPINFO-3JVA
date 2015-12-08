@@ -19,17 +19,17 @@
 			<div id="map"></div>
 			
 			<div class="column" id="one">
-				<p>Nous nous efforçons toujours de répondre le plus rapidement possible à nos mails. Vous pouvez donc en général compter une réponse sous 24h.</p>
+				<p>We always try to respond as quickly as possible to emails. So you can generally have a response within 24 hours.</p>
 				
 				<div id="contact-infos">
-					<h3>SUPTRIP TEAM</h3>
+					<h3>SUPTRIP Team - Infinity Code</h3>
 
 					<b><u>Address</u></b></br>
 					21 Boulevard François</br>
 					Grosso, 06000 Nice</br></br>
 
 					<b><u>Email address</u></b></br>
-					suptripteam@gmail.com
+					infinitycode@gmail.com
 				</div>
 			
 			</div>
@@ -76,10 +76,10 @@
 			 var marker = new google.maps.Marker({
 				position: myLatLng,
 				map: map,
-				title: 'Nom de notre entreprise'
+				title: 'Infinity Code'
 			 });
 			 
-			 var contentString = '<b>Nom de notre entreprise</b></br>21 Boulevard François Grosso,<br>06000 Nice';
+			 var contentString = '<b>Infinity Code</b></br>21 Boulevard François Grosso,<br>06000 Nice';
 	
 		  	var infowindow = new google.maps.InfoWindow({
 		    content: contentString

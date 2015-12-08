@@ -24,7 +24,7 @@
 			<div class="column" id="one">
 				<img class="profilePicture" id="marion">
 				<h3>Marion Savaresse</h3>
-				<p>Designer & developer multi-plateforme, elle continue ses études afin de toujours s'améliorer, tout en relevant les missions de développement proposée à son équipe. </p>
+				<p>Developer & designer, she continues her studies while making some external missions, hoping to always learning more. Always motivated for some challenge.</p>
 			</div>
 			
 			<div class="column" id="two">
