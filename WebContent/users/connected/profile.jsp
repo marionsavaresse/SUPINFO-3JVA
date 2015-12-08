@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="fr.coolStudio.supTrip.dao.DaoFactory" %>
+<%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,7 +47,13 @@
 	<body>
 		<%@include file="../both/navbar.jsp" %> 
 		<form action="profile" id="EditForm" method=post onSubmit="return validForm(this)">
-		<h1>Profile <span>see and edit your personal informations</span></h1>
+		<h1>
+			Profile 
+			<span>see and edit your personal informations</span>
+			<div id="searchBar">
+				<input class="button send-button" id="envoyer" type="submit" value="See my order history">
+			</div>
+		</h1>
 		<main>           
 			 <table>
 	            <tr>

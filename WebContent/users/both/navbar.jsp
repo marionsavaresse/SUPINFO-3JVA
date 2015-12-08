@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="fr.coolStudio.supTrip.dao.DaoFactory" %>
+<%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
 <%! public String printClassIfActive(HttpServletRequest req, String requiredPageName){ return ( req.getRequestURI().contains(requiredPageName) ) ? "class=\"active\"" : ""; } %>
 		<form action="login" id="loginForm" method=post></form>
 		
