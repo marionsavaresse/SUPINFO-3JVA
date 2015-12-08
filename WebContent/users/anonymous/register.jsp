@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="fr.coolStudio.supTrip.dao.DaoFactory" %>
+<%@ page import="fr.coolStudio.supTrip.bo.Campus" %>
+<%@ page import="java.util.ListIterator"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,7 +30,22 @@
 				<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address" required>
 				<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
 				<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation" required>
-				<input class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+				
+				<%
+				ListIterator<Campus> list = DaoFactory.getCampusDao().all();
+				%>
+               <select  class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+        		<%while(list.hasNext()){%>
+           			 <option><%=list.next()%></option>
+     			<% } %>
+      			</select>
+               <select  class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+               	<option>B1</option>
+               	<option>B2</option>
+               	<option>B3</option>
+               	<option>M1</option>
+               	<option>M2</option>
+               </select>
 				<br>
 				<input class="button send-button" type="submit" value="Create my account">
 			</form>

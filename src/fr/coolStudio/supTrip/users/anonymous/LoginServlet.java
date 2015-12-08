@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet
 					request.getSession().setAttribute("name", object.getName());
 					request.getSession().setAttribute("familyName", object.getFamilyName());
 					request.getSession().setAttribute("email", object.getEmail());
-					request.getSession().setAttribute("campusID", object.getCampusID());
+					request.getSession().setAttribute("campusID", object.getCampusName());
 					request.getSession().setAttribute("password", object.getPassword());
 					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 

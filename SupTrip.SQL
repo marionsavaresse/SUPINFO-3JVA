@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `suptrip`.`trips` (
 CREATE TABLE IF NOT EXISTS `users` (
 	`campusId` mediumint(8) unsigned NOT NULL,
 	`password` char(42) NOT NULL,
-	`currentYear` tinyint(4) NOT NULL,
+	`currentYear` enum('B1','B2','B3','M1','M2') NOT NULL,
 	`email` tinytext COMMENT 'si null, utiliser id@sup.com',
 	`firstName` tinytext NOT NULL,
 	`lastName` tinytext NOT NULL,

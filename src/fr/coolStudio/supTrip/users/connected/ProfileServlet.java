@@ -42,14 +42,14 @@ public class ProfileServlet extends HttpServlet
 		object.setFamilyName(request.getParameter("familyName"));
 		object.setName(request.getParameter("firstName"));
 		object.setEmail(request.getParameter("email"));
-		object.setCampusID(Long.parseLong(request.getParameter("campusName")));
-		object.setCurrentSchoolYear(Integer.parseInt(request.getParameter("currentSchoolYear")));
+		object.setCampusName(request.getParameter("campusName"));
+		object.setCurrentSchoolYear(request.getParameter("currentSchoolYear"));
 
 		DaoFactory.getUserDao().update(object);
 		request.getSession().setAttribute("name", object.getName());
 		request.getSession().setAttribute("familyName", object.getFamilyName());
 		request.getSession().setAttribute("email", object.getEmail());
-		request.getSession().setAttribute("campusID", object.getCampusID());
+		request.getSession().setAttribute("campusID", object.getCampusName());
 		request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 		
 		

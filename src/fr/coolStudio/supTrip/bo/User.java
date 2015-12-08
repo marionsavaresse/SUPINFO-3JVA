@@ -24,7 +24,7 @@ public class User {
 	
 	@Basic
 	@Column(name = "currentYear")
-	private int currentSchoolYear; // from 1 to 5
+	private String currentSchoolYear; // from B1 to M2
 
 	@Basic
 	@Column(name = "email")
@@ -40,17 +40,17 @@ public class User {
 
 	@Basic
 	@Column(name = "campus")
-	private Long campusID;
+	private String campusName;
 		
 	public User() { }
 	
-	public User(int _idBooster ,String _name,String _familyName,String _email, String _password, Long _campusID,int _currentSchoolYear){
+	public User(int _idBooster ,String _name,String _familyName,String _email, String _password, String _campusName,String _currentSchoolYear){
 		setIdBooster(_idBooster);
 		setName(_name);
 		setFamilyName(_familyName);
 		setEmail(_email);
 		setPassword(_password);
-		setCampusID(_campusID);
+		setCampusName(_campusName);
 		setCurrentSchoolYear(_currentSchoolYear);
 	}
 
@@ -94,19 +94,19 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getCampusID() {
-		return campusID;
+	public String getCampusName() {
+		return campusName;
 	}
 
-	public void setCampusID(Long campusID) {
-		this.campusID = campusID;
+	public void setCampusName(String campusName) {
+		this.campusName = campusName;
 	}
 
-	public int getCurrentSchoolYear() {
+	public String getCurrentSchoolYear() {
 		return currentSchoolYear;
 	}
 
-	public void setCurrentSchoolYear(int currentSchoolYear) {
+	public void setCurrentSchoolYear(String currentSchoolYear) {
 		this.currentSchoolYear = currentSchoolYear;
 	}
 	

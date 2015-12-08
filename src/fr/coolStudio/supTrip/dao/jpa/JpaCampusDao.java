@@ -1,6 +1,7 @@
 package fr.coolStudio.supTrip.dao.jpa;
 
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,9 +36,10 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Campus> all() {
+	public ListIterator all() {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
-		Query selectAllCat = em.createQuery("SELECT address FROM Campus");
-		return selectAllCat.getResultList();
+		Query selectAllCat = em.createQuery("SELECT campusName FROM Campus");
+		ListIterator<Campus> iter = selectAllCat.getResultList().listIterator();
+		return iter;
 	}
 }
