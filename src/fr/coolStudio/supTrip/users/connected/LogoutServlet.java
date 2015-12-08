@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		request.getSession().invalidate();
-		request.getRequestDispatcher("/login").forward(request, response);
+		request.getRequestDispatcher("/").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

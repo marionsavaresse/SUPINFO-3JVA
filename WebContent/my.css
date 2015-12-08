@@ -369,9 +369,6 @@ input.send-button {
 	color: #fff;
 }
 
-#searchBar > input[type="submit"]  {
-	width: 45px;
-}
 
 table[id="homeTable connected"] {
 	width: 860px;
@@ -397,7 +394,7 @@ th#null {
 }
 
 .TDOne, .TDThree {
-	width: 365px;
+	width: 350px;
 	text-align: center;
 	padding: 8px;
 }
@@ -415,16 +412,12 @@ table[id="homeTable connected"] > td > span {
 }
 
 .TDFour {
-	width: 110px;
+	width: 130px;
 	float: right;
 	text-align: right;
 	background-color: #fff;
 	border: none;
-	padding: 15px 0 5px 0;
-}
-
-#addBag {
-	width: 100px;
+	padding: 20px 0 10px 0;
 }
 
 #pagination {

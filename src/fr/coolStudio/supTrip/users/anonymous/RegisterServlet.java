@@ -69,7 +69,7 @@ public class RegisterServlet extends HttpServlet
 					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 					
 					
-					((HttpServletResponse)response).sendRedirect("/SupTrip/index");
+					((HttpServletResponse)response).sendRedirect("/SupTrip/");
 					
 					//return;
 				}else{

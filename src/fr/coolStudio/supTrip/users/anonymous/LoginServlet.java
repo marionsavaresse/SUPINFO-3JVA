@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/login.jsp");
 			dispatcher.forward(request, response);
 		}else{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/index");
+			((HttpServletResponse)response).sendRedirect("/SupTrip/");
 		}
 	}
 
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet
 					request.getSession().setAttribute("password", object.getPassword());
 					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 
-					((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+					((HttpServletResponse)response).sendRedirect("/SupTrip/");
 				}
 			}else{
 				((HttpServletResponse)response).sendRedirect("/SupTrip/register");

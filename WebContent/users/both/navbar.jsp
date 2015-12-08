@@ -6,10 +6,10 @@
 		<section id="header-container">
 	    	<div id="grey-strip"></div>
 			<header>
-				<a href="/SupTrip/index"><img src="res/img/navbar/logoSupTrip.png" alt="LogoSupTrip" id="logo"/></a>
+				<a href="/SupTrip/"><img src="res/img/navbar/logoSupTrip.png" alt="LogoSupTrip" id="logo"/></a>
 				<nav>
 				    <ul>
-				        <li><a href="/SupTrip/index" <%=printClassIfActive(request, "index")%>>Home</a></li>
+				        <li><a href="/SupTrip/" <%=printClassIfActive(request, "index")%>>Home</a></li>
 				      <% if(request.getSession().getAttribute("idBooster") != null){%>
 						<li><a href="/SupTrip/profile" <%=printClassIfActive(request, "profile")%>>Profile</a></li>
 						<li><a href="/SupTrip/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip">0</span></a></li>
