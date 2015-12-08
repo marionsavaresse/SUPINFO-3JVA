@@ -20,7 +20,7 @@
 
 		      <% if(request.getSession().getAttribute("idBooster") == null){%>
 				<div id="login-inputs">
-					<input type=text id="username" class="header-input" name="idBooster" form="loginForm" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="ID Booster">
+					<input type=text id="username" class="header-input" name="idBooster" form="loginForm" placeholder="ID Booster">
 					<input type=password id="password" class="header-input" name="password" form="loginForm" placeholder="Password">
 				</div>
 				
