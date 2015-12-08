@@ -35,16 +35,16 @@
 			</div>
 			
 			<div class="column" id="two">
-				<form>
-					<input class="contact" type="text" name= "lastName" placeholder="Last name">
-					<input class="contact" type="text" name= "firstName" placeholder="First Name">
+				<form id="mel" action="javascript: sendMsg(document.getElementById('mel'))">
+					<input class="contact" type="text" name= "lastName" placeholder="Last name" required>
+					<input class="contact" type="text" name= "firstName" placeholder="First Name" required>
 					</br>
 
-					<input class="contact" type="mail" name= "email" placeholder="Email address">
-					<input class="contact" type="text" name= "idBooster" placeholder="ID Booster">
+					<input class="contact" type="email" name= "email" placeholder="Email address" required>
+					<input class="contact" type="text" name= "idBooster" placeholder="ID Booster" required>
 					</br>
 
-					<textarea class="contact" placeholder="Message"></textarea>
+					<textarea class="contact" placeholder="Message" name="body" form="mel" required></textarea>
 					</br>
 					
 					<input class="button send-button" id="envoyer" type="submit" value="Send">
@@ -57,6 +57,12 @@
 		<%@include file="../both/footer.jsp" %>
 		
     <script>
+    	function sendMsg(form)
+    	{
+    		console.log(form);
+    		window.location.href = "mailto:suptripteam@gmail.com?subject=["+form.idBooster.value+"] "+form.lastName.value+" "+form.firstName.value+"&body="+form.body.value+"\n\r\n\rSent by "+form.email.value; 
+    	}
+    
 		var map;
 		var myLatLng = {lat: 43.6958795, lng: 7.251661499999955};
 		
