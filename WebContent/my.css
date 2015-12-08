@@ -313,6 +313,84 @@ h3 {
 	text-align: center;
 }
 
+/* HOME - CONNECTED */
+
+#searchBar {
+	right: 50px;
+	top: 40px;
+	position: absolute;
+	float:left;
+}
+
+#searchBar > input[type="text"] {
+	background-color: #3a4049;
+	color: #fff;
+}
+
+#searchBar > input[type="submit"]  {
+	width: 45px;
+}
+
+table[id="homeTable connected"] {
+	width: 860px;
+	margin-top: 50px;
+}
+
+th {
+	background-color: #377bb5;
+	padding: 20px;
+	color: #fff;
+}
+
+th#null {
+	background-color: #fff;
+}
+
+.dark {
+	background-color: #f1f0f0;
+}
+
+.light {
+	background-color: #f7f7f7;
+}
+
+.TDOne, .TDThree {
+	width: 365px;
+	text-align: center;
+	padding: 8px;
+}
+
+td > span {
+	margin-top: 3px;
+	display: block;
+	font-size: 11px;
+	font-family: Lato-Light;
+}
+
+.TDTwo {
+	width: 45px;
+	background-color: #e7e6e7;
+}
+
+.TDFour {
+	width: 110px;
+	float: right;
+	text-align: right;
+	background-color: #fff;
+	border: none;
+	padding: 15px 0 5px 0;
+}
+
+#addBag {
+	width: 100px;
+}
+
+#pagination {
+	margin: 30px 0 0 -110px;
+	text-align: center;
+	color: #559bd6;
+}
+
 /* CONTACT */
 
 #map {
