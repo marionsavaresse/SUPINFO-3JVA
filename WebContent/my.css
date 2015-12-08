@@ -316,7 +316,7 @@ input.wrong {
 	border: 1px solid #82bbeb;
 }
 
-form > span {
+td > span {
 	color: #377bb5;
 	font-family: Lato-Light;
 }
@@ -501,10 +501,10 @@ span.address {
 
 /* REGISTER */
 
-#registerForm {
-	width:725px; 
+#registerForm, #profileForm {
+	width:800px; 
 	margin: auto;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 /* BAG */
@@ -526,5 +526,31 @@ span.address {
 	border-radius: 20px;
 	font-size: 13px;
 	font-family: Lato-Light;
+	float: right;
+}
+
+/* PROFILE */
+
+.profile {
+	background-color: #377bb5;
+	display: inline;
+	margin: 0 0 0 10px;
+}
+
+input.inputProfile {
+	margin-top: 10px;
+}
+
+.editing {
+	color: #559bd6;
+}
+
+/* ORDER HISTORY */
+
+.history {
+	padding: 10px;
+}
+
+.history > input {
 	float: right;
 }

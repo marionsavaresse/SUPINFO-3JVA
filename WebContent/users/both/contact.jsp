@@ -28,7 +28,7 @@
 					Grosso, 06000 Nice</br></br>
 
 					<b><u>Email address</u></b></br>
-					contact@infinitycode.io
+					contact.infinitycode@gmail.com
 				</div>
 			
 			</div>
@@ -59,7 +59,7 @@
     	function sendMsg(form)
     	{
     		console.log(form);
-    		window.location.href = "mailto:suptripteam@gmail.com?subject=["+form.idBooster.value+"] "+form.lastName.value+" "+form.firstName.value+"&body="+form.body.value+"\n\r\n\rSent by "+form.email.value; 
+    		window.location.href = "mailto:contact.infinitycode@gmail.com?subject=["+form.idBooster.value+"] "+form.lastName.value+" "+form.firstName.value+"&body="+form.body.value+"\n\r\n\rSent by "+form.email.value; 
     	}
     
 		var map;
