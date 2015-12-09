@@ -19,7 +19,7 @@
 				<tr>
 					<th>Order #12</th>
 					<th></th>
-					<th class="history"><input class="button send-button" id="envoyer" type="submit" value="DOWLOAD PDF"></th>
+					<th class="history"><input class="button buttonBig" id="envoyer" type="submit" value="DOWLOAD PDF"></th>
 					<th id="null"></th>
 				</tr>
 				<tr class="dark">
@@ -40,7 +40,7 @@
 				<tr>
 					<th>Order #3</th>
 					<th></th>
-					<th class="history"><input class="button send-button" id="envoyer" type="submit" value="DOWLOAD PDF"></th>
+					<th class="history"><input class="button buttonBig" id="envoyer" type="submit" value="DOWLOAD PDF"></th>
 					<th id="null"></th>
 				</tr>
 				<tr class="dark">

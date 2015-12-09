@@ -39,7 +39,7 @@
 				<span>WHERE DO YOU WANT TO GO ?</span>
 				<div id="searchBar">
 					<input class="input" type="text" name="search" placeholder="Search a campus">
-					<input class="button send-button" id="envoyer" type="submit" value="Go">
+					<input class="button buttonBig" id="envoyer" type="submit" value="Go">
 				</div>
 			</h1>
 				
@@ -58,13 +58,13 @@
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button send-button" id="addBag" type="submit" value="Add to bag"></td>
+					<td class="TDFour"><input class="button buttonBig" id="addBag" type="submit" value="Add to bag"></td>
 				</tr>	
 				<tr class="light">
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button send-button" id="addBag" type="submit" value="Add to bag"></td>
+					<td class="TDFour"><input class="button buttonBig" id="addBag" type="submit" value="Add to bag"></td>
 				</tr>		
 			</table>
 			

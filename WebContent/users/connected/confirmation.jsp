@@ -38,7 +38,7 @@
 				</tr>		
 			</table>
 			<br><br>
-			<input class="button send-button" id="envoyer" type="submit" value="DOWLOAD PDF">
+			<input class="button buttonBig" id="envoyer" type="submit" value="DOWLOAD PDF">
 			
 		</main>
 

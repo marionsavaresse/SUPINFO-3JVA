@@ -72,7 +72,7 @@
 					</tr>
 				</table>
 				<br>
-				<input class="button send-button" type="submit" value="Create my account">
+				<input class="button buttonBig" type="submit" value="Create my account">
 			</form>
 		</main>
 

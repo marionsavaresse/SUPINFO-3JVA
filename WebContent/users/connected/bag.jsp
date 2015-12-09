@@ -28,17 +28,17 @@
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button send-button cancel" id="addBag" type="submit" value="Remove trip"></td>
+					<td class="TDFour"><input class="button buttonBig cancel" id="addBag" type="submit" value="Remove trip"></td>
 				</tr>	
 				<tr class="light">
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button send-button cancel" id="addBag" type="submit" value="Remove trip"></td>
+					<td class="TDFour"><input class="button buttonBig cancel" id="addBag" type="submit" value="Remove trip"></td>
 				</tr>		
 			</table>
 			<br><br>
-			<input class="button send-button" id="envoyer" type="submit" value="Confirm my order">
+			<input class="button buttonBig" id="envoyer" type="submit" value="Confirm my order">
 			
 		</main>
 
