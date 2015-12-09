@@ -32,66 +32,81 @@ public class RegisterServlet extends HttpServlet
 		dispatcher.forward(request, response);
 	}
 
+	public void doGetErrorMessage(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+		String errorMsg = "";
+		
+		if (request.getParameter("lastName") == "")
+		{
+			errorMsg = "You need to specify your last name";
+			request.setAttribute( "errorMsgLastName", errorMsg );
+		}
+		
+		if (request.getParameter("firstName") == "")
+		{
+			errorMsg = "You need to specify your first name";
+			request.setAttribute( "errorMsgFirstName", errorMsg );
+		}
+		
+		if (!(checkId(request.getParameter("idBooster")).equals("Ok")))
+		{
+			errorMsg = "Your ID Booster must be composed of 6 numbers";
+			request.setAttribute( "errorMsgIDBooster", errorMsg );
+		}
+		
+		if (!(checkPWD(request.getParameter("password")).equals("Ok")))
+		{
+			errorMsg = "Your password must contain six characters";
+			request.setAttribute( "errorMsgPassword", errorMsg );
+		}
+						
+		if (!(request.getParameter("passwordConf").equals(request.getParameter("password"))))
+		{
+			errorMsg = "Passwords do not match.";
+			request.setAttribute( "errorMsgPasswordConf", errorMsg );
+		}
+		this.getServletContext().getRequestDispatcher( "/users/anonymous/register.jsp" ).forward( request, response );
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		String errorMsg = "";
-		if (checkId(request.getParameter("idBooster")).equals("Ok"))
+		
+		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") == "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("passwordConf").equals(request.getParameter("password"))))
 		{
-			if (checkPWD(request.getParameter("password")).equals("Ok"))
-			{
-				if (request.getParameter("passwordConf").equals(request.getParameter("password")))
-				{
-					User user = new User(Integer.parseInt(request.getParameter("idBooster")),
-							request.getParameter("firstName"),
-							request.getParameter("lastName"),
-							request.getParameter("email"),
-							request.getParameter("password"),
-							request.getParameter("campusName"),
-							request.getParameter("currentSchoolYear"));
-					
-					
-					DaoFactory.getUserDao().persist(user);
-					/*response.getWriter().print(request.getParameter("idBooster"));
-					response.getWriter().print(hashPWD(request.getParameter("password")));
-					response.getWriter().print(hashPWD(request.getParameter("passwordConf")));
-					response.getWriter().print(request.getParameter("firstName"));
-					response.getWriter().print(request.getParameter("lastName"));
-					response.getWriter().print(request.getParameter("email"));
-					response.getWriter().print(request.getParameter("campusName"));*/
-					
-					User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
-					request.getSession().setAttribute("idBooster", object.getIdBooster());
-					request.getSession().setAttribute("name", object.getName());
-					request.getSession().setAttribute("familyName", object.getFamilyName());
-					request.getSession().setAttribute("email", object.getEmail());
-					request.getSession().setAttribute("campusID", object.getCampusName());
-					request.getSession().setAttribute("password", object.getPassword());
-					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
-					
-					
-					((HttpServletResponse)response).sendRedirect("/SupTrip/");
-					
-					//return;
-				}else{
-					errorMsg = "not same pwd";
-				}
-			}else{
-				errorMsg = "pwd more than 6 char";
-			}
-		}else{
-			errorMsg = "Id needs to be 6 Numbers";
+				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
+				request.getParameter("lastName"),
+				request.getParameter("firstName"),
+				request.getParameter("email"),
+				request.getParameter("password"),
+				request.getParameter("campusName"),
+				request.getParameter("currentSchoolYear"));
+		
+				
+				DaoFactory.getUserDao().persist(user);
+				
+				User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
+				request.getSession().setAttribute("idBooster", object.getIdBooster());
+				request.getSession().setAttribute("name", object.getName());
+				request.getSession().setAttribute("familyName", object.getFamilyName());
+				request.getSession().setAttribute("email", object.getEmail());
+				request.getSession().setAttribute("campusID", object.getCampusName());
+				request.getSession().setAttribute("password", object.getPassword());
+				request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
+				
+				((HttpServletResponse)response).sendRedirect("/SupTrip/");
+				
 		}
-		response.getWriter().print(errorMsg);
-	}
+		else {
+			doGetErrorMessage(request, response);
+		}
+}
 	
 	
 	protected String checkId(String idBooster)
 	throws ServletException, IOException
 	{		
-		//ID IS ALWAYS 6 NUMBERS
+		// We suppose ID Booster is always 6 numbers (for actuals students)
 		if (idBooster.length() == 6){
-			//CHECKS IF ONLY NUMBERS
 			try{
 				int num = Integer.parseInt(idBooster);
 						return "Ok";
@@ -100,10 +115,10 @@ public class RegisterServlet extends HttpServlet
 		}
 		return "";
 	}	
+	
 	protected String checkPWD(String password)
 	throws ServletException, IOException
 	{		
-		//ID IS ALWAYS 6 NUMBERS
 		if (password.length() >= 6){
 						return "Ok";
 		}
@@ -111,11 +126,11 @@ public class RegisterServlet extends HttpServlet
 	}
 			
 	
-	//Does a MD5 Hash on the PWD
+	// Does a MD5 Hash on the PWD
 	protected String hashPWD(String password)
 	{
 		MessageDigest md5 = null;
-		//REQUIRES A TRYCATCH I DONT KNOW WHY => That's 'cause getInstance methods throws exception (see checkId declaration)
+		// Requires a try/catch because getInstance methods throws exception (see checkId declaration)
 		try {
 			md5 = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
