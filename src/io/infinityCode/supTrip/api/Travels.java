@@ -22,10 +22,8 @@ public class Travels
 	@GET
     public List<AvailableTrip> AllTravels()
 	{
-		
 		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
 		List<Campus> campuses = DaoFactory.getCampusDao().all();
-		Campus temp;
 
 		for(int i = 0; i < campuses.size(); ++i)
 			for(int j = 0; j < campuses.size(); ++j)
@@ -37,12 +35,6 @@ public class Travels
 					));
 		
 		return ret;
-    }
-
-	@GET @Path("/{id: [0-9]+}")
-    public Trip getTravel(@PathParam("id") Long tid)
-	{
-        return TripDao.findTripById(tid);
     }
 
 	@GET @Path("/{departure: [A-Za-z]*}/{destination: [A-Za-z]*}")

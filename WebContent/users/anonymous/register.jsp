@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
 <%@ page import="io.infinityCode.supTrip.bo.Campus" %>
-<%@ page import="java.util.ListIterator"%>
+<%@ page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -49,95 +49,55 @@
 	            	<tr>
                   		<td>
 							<input class="input long wrong" type="text" id="lastName" name="lastName" placeholder="Last name" required>
-							<span id="errorSpan1">
-				          	 	 <% 
-         							String errorMsgLastName = (String) request.getAttribute("errorMsgLastName");
-         							out.println( errorMsgLastName );
-         						%>
-         					</span>
+							<span id="errorSpan1"><%=request.getAttribute("errorMsgLastName")%></span>
 							
 					 	</td>
 						<td>
 							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name" required>
-							<span id="errorSpan2">
-				          	 	 <% 
-         							String errorMsgFirstName = (String) request.getAttribute("errorMsgFirstName");
-         							out.println( errorMsgFirstName );
-         						%>
-         					</span>
+							<span id="errorSpan2"><%=request.getAttribute("errorMsgFirstName")%></span>
 						</td>
 					</tr>
 					<tr>
 						<td>	
 							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster" required>
-							<span>
-				          	 	 <% 
-         							String errorMsgIDBooster = (String) request.getAttribute("errorMsgIDBooster");
-         							out.println( errorMsgIDBooster );
-         						%>
-         					</span>
+							<span><%=request.getAttribute("errorMsgIDBooster")%></span>
 						</td>
 						<td>
 							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address" required>
-							<span>
-				          	 	 <% 
-         							String errorMsgEmail = (String) request.getAttribute("errorMsgEmail");
-         							out.println( errorMsgEmail );
-         						%>
-         					</span>
+							<span><%=request.getAttribute("errorMsgEmail")%></span>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<% ListIterator<Campus> list = DaoFactory.getCampusDao().all();%>
-			               <select class="dropdown long"" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+							<% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
+			               <select class="dropdown long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
 			        			<option value="" disabled selected>Campus name</option>
-			        			<%while(list.hasNext()){%>
-			           				 <option><%=list.next()%></option>
+			        			<%for(int i=0; i < list.size(); ++i){%>
+			           				 <option><%=list.get(i)%></option>
 		     					<% } %>
 		      			   </select>
-		      			   <span>
-				          	 	 <% 
-         							String errorMsgCampusName = (String) request.getAttribute("errorMsgCampusName");
-         							out.println( errorMsgCampusName );
-         						%>
-         					</span>
+		      			   <span><%=request.getAttribute("errorMsgCampusName")%></span>
 						</td>
 						<td>
 							<select class="dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
 				               	<option value="" disabled selected>Current school year</option>
-				               	<option>B1</option>
-				               	<option>B2</option>
-				               	<option>B3</option>
-				               	<option>M1</option>
-				               	<option>M2</option>
+				               	<option>A.Sc. 1</option>
+				               	<option>A.Sc. 2</option>
+				               	<option>B.Sc.</option>
+				               	<option>M.Sc. 1</option>
+				               	<option>M.Sc. 2</option>
 		               		</select>
-		               		<span>
-				          	 	 <% 
-         							String errorMsgCurrentSchoolYear = (String) request.getAttribute("errorMsgCurrentSchoolYear");
-         							out.println( errorMsgCurrentSchoolYear );
-         						%>
-         					</span>
+		               		<span><%=request.getAttribute("errorMsgCurrentSchoolYear")%></span>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
-							<span>
-			          	 	 <% 
-	       							String errorMsgPassword = (String) request.getAttribute("errorMsgPassword");
-	       							out.println( errorMsgPassword );
-	       						%>
-	       					</span>
+							<span><%=request.getAttribute("errorMsgPassword")%></span>
        					</td>
 						<td>
 							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation" required>
-							<span>
-			          	 	 <% 
-	       							String errorMsgPasswordConf = (String) request.getAttribute("errorMsgPasswordConf");
-	       							out.println( errorMsgPasswordConf );
-	       						%>
-	       					</span>
+							<span><%=request.getAttribute("errorMsgPasswordConf")%></span>
 	       				</td>	
 					</tr>
 				</table>

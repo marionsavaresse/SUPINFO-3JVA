@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
+<%@ page import="io.infinityCode.supTrip.bo.Campus" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -82,11 +84,24 @@
 	            <tr>
                     <td> 
                     	<label for="campusName">Campus Name</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
-                        <input class="inputProfile input long" type=text id="campusName" name="campusName" disabled value="<%=request.getSession().getAttribute("campusID")%>" placeholder="<%=request.getSession().getAttribute("campusID")%>">
-                    </td>	
+                        <% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
+			               <select class="dropdown long"" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+			        			<option value="" disabled selected>Campus name</option>
+			        			<%for(int i=0; i < list.size(); ++i){%>
+			           				 <option <% if(list.get(i).equals(request.getSession().getAttribute("campusID"))) out.println("selected"); %>><%=list.get(i)%></option>
+		     					<% } %>
+		      			   </select>
+					</td>	
                     <td> 
                     	<label for="currentSchoolYear">Current School Year</label><button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
-                        <input class="inputProfile input long" type=text id="currentSchoolYear" name="currentSchoolYear" disabled value="<%=request.getSession().getAttribute("currentSchoolYear")%>" placeholder="<%=request.getSession().getAttribute("currentSchoolYear")%>">                      
+                        <select class="dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+			               	<option value="" disabled selected>Current school year</option>
+			               	<option <% if(request.getSession().getAttribute("currentSchoolYear").equals("A.Sc. 1")) out.println("selected"); %>>A.Sc. 1</option>
+			               	<option <% if(request.getSession().getAttribute("currentSchoolYear").equals("A.Sc. 2")) out.println("selected"); %>>A.Sc. 2</option>
+			               	<option <% if(request.getSession().getAttribute("currentSchoolYear").equals("B.Sc.")) out.println("selected"); %>>B.Sc.</option>
+			               	<option <% if(request.getSession().getAttribute("currentSchoolYear").equals("M.Sc. 1")) out.println("selected"); %>>M.Sc. 1</option>
+			               	<option <% if(request.getSession().getAttribute("currentSchoolYear").equals("M.Sc. 2")) out.println("selected"); %>>M.Sc. 2</option>
+	               		</select>                      
                     </td>
 				</tr>
 				
@@ -102,7 +117,7 @@
 				</tr>
 	        </table>
 	        <br><br>
-			<input class="button buttonBig" type=submit value="Save Changes" form="EditForm" class="button">
+			<input class="button buttonBig" type=submit value="Save Changes" form="profileForm" class="button">
 			</form>	
 			
 		</main>

@@ -8,4 +8,5 @@ public interface CampusDao {
 	public Campus persist(Campus campus);
 	public Campus oneById(Long campusId);
 	public List<Campus> all();
+	public List<String> allCampusName();
 }

@@ -42,4 +42,14 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 		List<Campus> iter = selectAllCat.getResultList();
 		return iter;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> allCampusName() {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		Query selectAllCat = em.createQuery("SELECT campusName FROM Campus");
+		
+		List<String> iter = selectAllCat.getResultList();
+		return iter;
+	}
 }
