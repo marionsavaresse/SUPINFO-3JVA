@@ -8,4 +8,5 @@ public interface UserDao {
 	public User oneById(int user);
 	public String update(User user);
 	public List<User> all();
+	public Long countUsers();
 }

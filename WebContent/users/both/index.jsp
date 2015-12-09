@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +23,7 @@
 			<table id="homeTable">
 				<tr>
 					<td class="homeTDLeft">Number of registered users</td>
-					<td class="homeTDRight"><span class="blueChip">4</span></td>
+					<td class="homeTDRight"><span class="blueChip"><%=DaoFactory.getUserDao().countUsers() %></span></td>
 				</tr>	
 				<tr>
 					<td class="homeTDLeft">Number of destinations</td>

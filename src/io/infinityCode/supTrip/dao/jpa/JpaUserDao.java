@@ -44,6 +44,11 @@ public class JpaUserDao extends BaseJpaDao implements UserDao {
 		return getEntityManagerFactory().createEntityManager()
 				.find(User.class, userID);
 	}
+	
+	@Override
+	public Long countUsers() {
+		return Long.parseLong(getEntityManagerFactory().createEntityManager().createNativeQuery("SELECT COUNT(campusId) FROM users").getSingleResult().toString());
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
