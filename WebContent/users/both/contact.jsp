@@ -46,7 +46,7 @@
 					<textarea class="contact" placeholder="Message" name="body" form="mel" required></textarea>
 					</br>
 					
-					<input class="button send-button" id="envoyer" type="submit" value="Send">
+					<input class="button buttonBig" id="envoyer" type="submit" value="Send">
 				</form>
 			</div>
 		

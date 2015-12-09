@@ -43,10 +43,23 @@
 					</tr>
 					<tr>
 						<td>
-							<input class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+							<% ListIterator<Campus> list = DaoFactory.getCampusDao().all();%>
+			               <select class="dropdown long"" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+			        			<option value="" disabled selected>Campus name</option>
+			        			<%while(list.hasNext()){%>
+			           				 <option><%=list.next()%></option>
+		     					<% } %>
+		      			   </select>
 						</td>
 						<td>
-							<input class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="Current school year" required>								
+							<select class="dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+				               	<option value="" disabled selected>Current school year</option>
+				               	<option>B1</option>
+				               	<option>B2</option>
+				               	<option>B3</option>
+				               	<option>M1</option>
+				               	<option>M2</option>
+		               		</select>
 						</td>
 					</tr>
 					<tr>
@@ -58,23 +71,8 @@
 						</td>
 					</tr>
 				</table>
-				<%
-				ListIterator<Campus> list = DaoFactory.getCampusDao().all();
-				%>
-               <select  class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
-        		<%while(list.hasNext()){%>
-           			 <option><%=list.next()%></option>
-     			<% } %>
-      			</select>
-               <select  class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
-               	<option>B1</option>
-               	<option>B2</option>
-               	<option>B3</option>
-               	<option>M1</option>
-               	<option>M2</option>
-               </select>
 				<br>
-				<input class="button send-button" type="submit" value="Create my account">
+				<input class="button buttonBig" type="submit" value="Create my account">
 			</form>
 		</main>
 

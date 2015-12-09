@@ -21,7 +21,7 @@
 				<br>
 				<input class="input" type="password" id="password" name="password" placeholder="Password">
 				</br>
-				<input class="button send-button" type="submit" value="Login">
+				<input class="button buttonBig" type="submit" value="Login">
 				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>
 		</main>

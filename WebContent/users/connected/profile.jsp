@@ -49,7 +49,7 @@
 			Profile 
 			<span>see and edit your personal informations</span>
 			<div id="searchBar">
-				<input class="button send-button" id="envoyer" type="submit" value="See my order history">
+				<input class="button buttonBig" id="envoyer" type="submit" value="See my order history">
 			</div>
 		</h1>
 		<main>  
@@ -58,11 +58,11 @@
 			 <table>
 	            <tr>
                     <td>
-                    	<label for="familyName">Last Name</label> <button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="familyName">Last Name</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="familyName" name="familyName" disabled value="<%=request.getSession().getAttribute("familyName")%>" placeholder="<%=request.getSession().getAttribute("familyName")%>">
                     </td>	
                     <td> 
-                    	<label for="firstName">First Name</label> <button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="firstName">First Name</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="firstName" name="firstName" disabled value="<%=request.getSession().getAttribute("name")%>" placeholder="<%=request.getSession().getAttribute("name")%>">
           
                     </td>
@@ -74,25 +74,25 @@
                         <input class="inputProfile input long" type=text id="idBooster" name="idBooster" disabled value="<%=request.getSession().getAttribute("idBooster")%>" placeholder="<%=request.getSession().getAttribute("idBooster")%>">
                     </td>	
                     <td> 
-                    	<label for="email">Email address</label> <button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="email">Email address</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="email" name="email" disabled value="<%=request.getSession().getAttribute("email")%>" placeholder="<%=request.getSession().getAttribute("email")%>">
 					 </td>
 				</tr>
 				
 	            <tr>
                     <td> 
-                    	<label for="campusName">Campus Name</label> <button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="campusName">Campus Name</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="campusName" name="campusName" disabled value="<%=request.getSession().getAttribute("campusID")%>" placeholder="<%=request.getSession().getAttribute("campusID")%>">
                     </td>	
                     <td> 
-                    	<label for="currentSchoolYear">Current School Year</label><button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="currentSchoolYear">Current School Year</label><button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="currentSchoolYear" name="currentSchoolYear" disabled value="<%=request.getSession().getAttribute("currentSchoolYear")%>" placeholder="<%=request.getSession().getAttribute("currentSchoolYear")%>">                      
                     </td>
 				</tr>
 				
 				<tr>
                     <td> 
-                    	<label for="password">Password</label> <button class="button send-button profile" type=button onclick="switchEdit(this)">Edit</button>
+                    	<label for="password">Password</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <input class="inputProfile input long" type=text id="password" name="password" disabled value="<%=request.getSession().getAttribute("password")%>" placeholder="<%=request.getSession().getAttribute("password")%>">
                     </td>	
                     <td style="display:none;"> 
@@ -102,7 +102,7 @@
 				</tr>
 	        </table>
 	        <br><br>
-			<input class="button send-button" type=submit value="Save Changes" form="EditForm" class="button">
+			<input class="button buttonBig" type=submit value="Save Changes" form="EditForm" class="button">
 			</form>	
 			
 		</main>
