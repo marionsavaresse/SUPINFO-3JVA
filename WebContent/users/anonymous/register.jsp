@@ -43,14 +43,6 @@
 					</tr>
 					<tr>
 						<td>
-							<input class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
-						</td>
-						<td>
-							<input class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="Current school year" required>								
-						</td>
-					</tr>
-					<tr>
-						<td>
 							<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
 						</td>
 						<td>
@@ -58,21 +50,19 @@
 						</td>
 					</tr>
 				</table>
-				<%
-				ListIterator<Campus> list = DaoFactory.getCampusDao().all();
-				%>
-               <select  class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
-        		<%while(list.hasNext()){%>
-           			 <option><%=list.next()%></option>
-     			<% } %>
-      			</select>
-               <select  class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
-               	<option>B1</option>
-               	<option>B2</option>
-               	<option>B3</option>
-               	<option>M1</option>
-               	<option>M2</option>
-               </select>
+				<% ListIterator<Campus> list = DaoFactory.getCampusDao().all();%>
+	               <select  class="input long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+	        			<%while(list.hasNext()){%>
+	           				 <option><%=list.next()%></option>
+     					<% } %>
+      			   </select>
+              	 <select  class="input long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+		               	<option>B1</option>
+		               	<option>B2</option>
+		               	<option>B3</option>
+		               	<option>M1</option>
+		               	<option>M2</option>
+	               </select>
 				<br>
 				<input class="button send-button" type="submit" value="Create my account">
 			</form>
