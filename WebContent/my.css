@@ -133,7 +133,20 @@ input:-moz-placeholder,
 textarea:-moz-placeholder
 { color: #878787; }
 
-textarea, input { outline: none }
+textarea, input, select { outline: none }
+
+select {
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	line-height:normal;
+	border-radius:6px;
+	display:block;
+	background:#dad9d9 url(res/img/arrow.png) 90% center;
+	background-repeat: no-repeat;
+	color: #5c6066;
+}
 
 input[type="text"], input[type="password"], input[type="mail"]
 {
@@ -297,7 +310,7 @@ h3 {
 	margin-bottom:10px;
 }
 
-input.input, textarea.contact {
+input.input, textarea.contact, select.dropdown {
 	height: 40px;	
 	border-radius: 20px;
 	width: 210px;
@@ -307,7 +320,7 @@ input.input, textarea.contact {
 	font-size: 13px;
 }
 
-input.long {
+input.long, select.long {
 	width: 350px;
 	margin: 0 10px 15px 0;
 }
