@@ -63,7 +63,7 @@
     	}
     
 		var map;
-		var myLatLng = {lat: 43.6958795, lng: 7.251661499999955};
+		var myLatLng = {lat: 43.6958795, lng: 7.2516615};
 		
 		function initMap() {
 			

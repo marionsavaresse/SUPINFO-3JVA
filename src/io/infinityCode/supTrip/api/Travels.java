@@ -1,5 +1,6 @@
 package io.infinityCode.supTrip.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -9,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.infinityCode.supTrip.bo.AvailableTrip;
+import io.infinityCode.supTrip.bo.Campus;
 import io.infinityCode.supTrip.bo.Trip;
 import io.infinityCode.supTrip.dao.DaoFactory;
 import io.infinityCode.supTrip.dao.TripDao;
@@ -18,9 +20,23 @@ import io.infinityCode.supTrip.dao.TripDao;
 public class Travels
 {
 	@GET
-    public List<AvailableTrip> getTravels()
+    public List<AvailableTrip> AllTravels()
 	{
-        return DaoFactory.getAvailableTripDao().all();
+		
+		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
+		List<Campus> campuses = DaoFactory.getCampusDao().all();
+		Campus temp;
+
+		for(int i = 0; i < campuses.size(); ++i)
+			for(int j = 0; j < campuses.size(); ++j)
+				if(i == j) continue;
+				else
+					ret.add(new AvailableTrip(
+						campuses.get(i).getId(), campuses.get(i).getCampusName(),
+						campuses.get(j).getId(), campuses.get(j).getCampusName()
+					));
+		
+		return ret;
     }
 
 	@GET @Path("/{id: [0-9]+}")

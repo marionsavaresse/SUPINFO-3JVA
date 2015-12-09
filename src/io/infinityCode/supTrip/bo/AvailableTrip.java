@@ -2,35 +2,25 @@ package io.infinityCode.supTrip.bo;
 
 import java.io.Serializable;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@Entity
-@Table(name="availabletrips")
-@XmlRootElement
 public class AvailableTrip implements Serializable{
 	private static final long serialVersionUID = -6508844872643488786L;
-
-	@Id
-	private int line;
 	
-	@Basic
 	private int departure_id;
 
-	@Basic
 	private String departure_name;
 
-	@Basic
 	private int arrival_id;
 
-	@Basic
 	private String arrival_name;
 
 	public AvailableTrip() { }
+	public AvailableTrip(int di, String dn, int ai, String an)
+	{
+		this.departure_id = di;
+		this.departure_name = dn;
+		this.arrival_id = ai;
+		this.arrival_name = an;
+	}
 
 	public int getDeparture_id() {
 		return departure_id;

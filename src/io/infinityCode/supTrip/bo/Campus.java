@@ -17,7 +17,7 @@ public class Campus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Long id;
+	private int id;
 	
 	@Basic
 	@Column(name = "name")
@@ -36,11 +36,11 @@ public class Campus {
 		
 	public Campus() { }
 	
-	public Long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Long Id) {
+	public void setId(int Id) {
 		this.id = Id;
 	}
 	
