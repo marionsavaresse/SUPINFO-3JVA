@@ -20,18 +20,19 @@
 			<h4>Welcome to SUPTRIP !</h4> 
 			<p>This website is an interface allowing students of <b>SUPINFO International University</b> to book their travel between the campus world. You are welcome to login or register a new account in order to access our offers.</p>
 			
+			<% Long travelsCount = DaoFactory.getCampusDao().countCampuses(); %>
 			<table id="homeTable">
 				<tr>
 					<td class="homeTDLeft">Number of registered users</td>
-					<td class="homeTDRight"><span class="blueChip"><%=DaoFactory.getUserDao().countUsers() %></span></td>
+					<td class="homeTDRight"><span class="blueChip"><%=DaoFactory.getUserDao().countUsers()%></span></td>
 				</tr>	
 				<tr>
 					<td class="homeTDLeft">Number of destinations</td>
-					<td class="homeTDRight"><span class="blueChip">39</span></td>
+					<td class="homeTDRight"><span class="blueChip"><%=travelsCount%></span></td>
 				</tr>	
 				<tr>
 					<td class="homeTDLeft">Number of possible travels</td>
-					<td class="homeTDRight"><span class="blueChip">1521</span></td>
+					<td class="homeTDRight"><span class="blueChip"><%=travelsCount*travelsCount%></span></td>
 				</tr>	
 			</table>
 		  <% }else{%>

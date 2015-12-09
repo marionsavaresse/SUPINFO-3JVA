@@ -70,7 +70,7 @@
 					<tr>
 						<td>
 							<% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
-			               <select class="dropdown long" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+			               <select class="dropdown long" type="text" id="campusName" name="campusName" required>
 			        			<option value="" disabled selected>Campus name</option>
 			        			<%for(int i=0; i < list.size(); ++i){%>
 			           				 <option><%=list.get(i)%></option>

@@ -42,6 +42,11 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 		List<Campus> iter = selectAllCat.getResultList();
 		return iter;
 	}
+	
+	@Override
+	public Long countCampuses() {
+		return Long.parseLong(getEntityManagerFactory().createEntityManager().createNativeQuery("SELECT COUNT(name) FROM campuses").getSingleResult().toString());
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

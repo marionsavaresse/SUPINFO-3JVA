@@ -9,4 +9,5 @@ public interface CampusDao {
 	public Campus oneById(Long campusId);
 	public List<Campus> all();
 	public List<String> allCampusName();
+	Long countCampuses();
 }
