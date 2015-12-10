@@ -89,7 +89,7 @@ input.long, select.long {
 	margin: 0 10px 15px 0;
 }
 
-input.wrong {
+input.input.long.wrong, select.dropdown.long.wrong {
 	border: 1px solid #82bbeb;
 }
 

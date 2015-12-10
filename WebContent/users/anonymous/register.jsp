@@ -12,27 +12,6 @@
 		<title>SupTrip - Register</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
-		
-		<script>
-            function validForm(form)
-            {
-            	var allSpans = document.getElementsByTagName('span');
-            	
-                for (i = 0; i < 8; i++)
-               	{
-               		if (allSpans[i].innerHTML != 'null')
-               		{
-               			console.log(allSpans[i]);
-               			alert(allSpans[i].innerHTML);
-               			allSpans[i].innerHTML="truc";
-               			alert(allSpans[i].innerHTML);
-               			allSpans[i].style.color = "red";
-               			alert(allSpans[i].style.color);
-               			allSpans[i].previousElementSibling.className = allSpans[i].previousElementSibling.className + " wrong";
-               		}
-               	}
-            }
-        </script>
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %>
@@ -44,42 +23,112 @@
 			<br>
 			<p> All fields are required in order to sign up. </p>
 			
-			<form action="/SupTrip/register" method="post" id="registerForm" onSubmit="validForm(this)">
+			<form action="/SupTrip/register" method="post" id="registerForm">
 				<table>
 	            	<tr>
                   		<td>
-							<input class="input long wrong" type="text" id="lastName" name="lastName" placeholder="Last name" required>
-							<span id="errorSpan1"><%=request.getAttribute("errorMsgLastName")%></span>
+							<input class="input long" type="text" id="lastName" name="lastName" placeholder="Last name">
+							<span>							
+								<% String errorMsgLastName = (String)request.getAttribute("errorMsgLastName");			          
+				               		if (errorMsgLastName == null) {	
+				               			errorMsgLastName = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("lastName").className = document.getElementById("lastName").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgLastName);
+				               		}
+			               		%>
+							</span>
 							
 					 	</td>
 						<td>
-							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name" required>
-							<span id="errorSpan2"><%=request.getAttribute("errorMsgFirstName")%></span>
+							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name">
+							<span>							
+								<% String errorMsgFirstName = (String)request.getAttribute("errorMsgFirstName");			          
+				               		if (errorMsgFirstName == null) {	
+				               			errorMsgFirstName = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("firstName").className = document.getElementById("firstName").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgFirstName);
+				               		}
+			               		%>
+							</span>
 						</td>
 					</tr>
 					<tr>
 						<td>	
-							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster" required>
-							<span><%=request.getAttribute("errorMsgIDBooster")%></span>
+							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster">
+							<span>							
+								<% String errorMsgIDBooster = (String)request.getAttribute("errorMsgIDBooster");			          
+				               		if (errorMsgIDBooster == null) {	
+				               			errorMsgIDBooster = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("idBooster").className = document.getElementById("idBooster").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgIDBooster);
+				               		}
+			               		%>
+							</span>
 						</td>
 						<td>
-							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address" required>
-							<span><%=request.getAttribute("errorMsgEmail")%></span>
+							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address">
+							<span>							
+								<% String errorMsgEmail = (String)request.getAttribute("errorMsgEmail");			          
+				               		if (errorMsgEmail == null) {	
+				               			errorMsgEmail = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("email").className = document.getElementById("email").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgEmail);
+				               		}
+			               		%>
+							</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
-			               <select class="dropdown long" type="text" id="campusName" name="campusName" required>
+			               <select class="dropdown long" id="campusName" name="campusName">
 			        			<option value="" disabled selected>Campus name</option>
 			        			<%for(int i=0; i < list.size(); ++i){%>
 			           				 <option><%=list.get(i)%></option>
 		     					<% } %>
 		      			   </select>
-		      			   <span><%=request.getAttribute("errorMsgCampusName")%></span>
+		      			   <span>							
+								<% String errorMsgCampusName = (String)request.getAttribute("errorMsgCampusName");			          
+				               		if (errorMsgCampusName == null) {	
+				               			errorMsgCampusName = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("campusName").className = document.getElementById("campusName").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgCampusName);
+				               		}
+			               		%>
+							</span>
 						</td>
 						<td>
-							<select class="dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+							<select class="dropdown long" id="currentSchoolYear" name="currentSchoolYear">
 				               	<option value="" disabled selected>Current school year</option>
 				               	<option>A.Sc. 1</option>
 				               	<option>A.Sc. 2</option>
@@ -87,17 +136,59 @@
 				               	<option>M.Sc. 1</option>
 				               	<option>M.Sc. 2</option>
 		               		</select>
-		               		<span><%=request.getAttribute("errorMsgCurrentSchoolYear")%></span>
+		               		<span>							
+								<% String errorMsgCurrentSchoolYear = (String)request.getAttribute("errorMsgCurrentSchoolYear");			          
+				               		if (errorMsgCurrentSchoolYear == null) {	
+				               			errorMsgCurrentSchoolYear = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("currentSchoolYear").className = document.getElementById("currentSchoolYear").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgCurrentSchoolYear);
+				               		}
+			               		%>
+							</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input class="input long" type="password" id="password" name="password" placeholder="Password" required>
-							<span><%=request.getAttribute("errorMsgPassword")%></span>
+							<input class="input long" type="password" id="password pwd" name="password" placeholder="Password">
+							<span>							
+								<% String errorMsgPassword = (String)request.getAttribute("errorMsgPassword");			          
+				               		if (errorMsgPassword == null) {	
+				               			errorMsgPassword = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+					           		 document.getElementById("password pwd").className = document.getElementById("password pwd").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgPassword);
+				               		}
+			               		%>
+							</span>
        					</td>
 						<td>
-							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation" required>
-							<span><%=request.getAttribute("errorMsgPasswordConf")%></span>
+							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation">
+							<span>							
+								<% String errorMsgPasswordConf = (String)request.getAttribute("errorMsgPasswordConf");			          
+				               		if (errorMsgPasswordConf == null) {	
+				               			errorMsgPasswordConf = "";
+				               		}
+				               		else { 
+				               	%>             		
+					            <script>
+				               		document.getElementById("passwordConf").className = document.getElementById("passwordConf").className + " wrong";
+				               	</script>
+					            <% 	
+				               			out.println(errorMsgPasswordConf);
+				               		}
+			               		%>
+							</span>
 	       				</td>	
 					</tr>
 				</table>

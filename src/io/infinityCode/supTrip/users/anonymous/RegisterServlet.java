@@ -3,6 +3,8 @@ package io.infinityCode.supTrip.users.anonymous;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,25 +39,43 @@ public class RegisterServlet extends HttpServlet
 		
 		if (request.getParameter("lastName") == "")
 		{
-			errorMsg = "You need to specify your last name";
+			errorMsg = "You must specify your last name.";
 			request.setAttribute( "errorMsgLastName", errorMsg );
 		}
 		
 		if (request.getParameter("firstName") == "")
 		{
-			errorMsg = "You need to specify your first name";
+			errorMsg = "You must specify your first name.";
 			request.setAttribute( "errorMsgFirstName", errorMsg );
 		}
 		
 		if (!(checkId(request.getParameter("idBooster")).equals("Ok")))
 		{
-			errorMsg = "Your ID Booster must be composed of 6 numbers";
+			errorMsg = "Your ID Booster must be composed of 6 numbers.";
 			request.setAttribute( "errorMsgIDBooster", errorMsg );
+		}
+		
+		if (!(checkEmail(request.getParameter("email")).equals("Ok")))
+		{
+			errorMsg = "Your must specify a correct email address.";
+			request.setAttribute( "errorMsgEmail", errorMsg );
+		}
+		
+		if (request.getParameter("campusName") == null )
+		{
+			errorMsg = "You must specify your current school year.";
+			request.setAttribute( "errorMsgCurrentSchoolYear", errorMsg );
+		}
+		
+		if (request.getParameter("currentSchoolYear") == null )
+		{
+			errorMsg = "You must specify your campus name.";
+			request.setAttribute( "errorMsgCampusName", errorMsg );
 		}
 		
 		if (!(checkPWD(request.getParameter("password")).equals("Ok")))
 		{
-			errorMsg = "Your password must contain six characters";
+			errorMsg = "Your password must contain six characters.";
 			request.setAttribute( "errorMsgPassword", errorMsg );
 		}
 						
@@ -71,7 +91,7 @@ public class RegisterServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		
-		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") == "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("passwordConf").equals(request.getParameter("password"))))
+		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") != "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("campusName") != null) && (request.getParameter("currentSchoolYear") != null) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("passwordConf").equals(request.getParameter("password"))))
 		{
 				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
 				request.getParameter("lastName"),
@@ -115,6 +135,19 @@ public class RegisterServlet extends HttpServlet
 		}
 		return "";
 	}	
+	
+	protected String checkEmail(String email)
+	throws ServletException, IOException
+	{		
+		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		
+		if (matcher.matches()){
+			return "Ok";
+		}
+		return "";
+	}
 	
 	protected String checkPWD(String password)
 	throws ServletException, IOException
