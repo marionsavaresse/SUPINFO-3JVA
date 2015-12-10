@@ -567,7 +567,7 @@ textarea.contact {
 	margin: 0 0 0 10px;
 }
 
-input.inputProfile {
+input.inputProfile, select.selectProfile {
 	margin-top: 10px;
 }
 

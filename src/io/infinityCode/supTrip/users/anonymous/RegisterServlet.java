@@ -63,14 +63,14 @@ public class RegisterServlet extends HttpServlet
 		
 		if (request.getParameter("campusName") == null )
 		{
-			errorMsg = "You must specify your current school year.";
-			request.setAttribute( "errorMsgCurrentSchoolYear", errorMsg );
+			errorMsg = "You must specify your campus name.";
+			request.setAttribute( "errorMsgCampusName", errorMsg );
 		}
 		
 		if (request.getParameter("currentSchoolYear") == null )
 		{
-			errorMsg = "You must specify your campus name.";
-			request.setAttribute( "errorMsgCampusName", errorMsg );
+			errorMsg = "You must specify your current school year.";
+			request.setAttribute( "errorMsgCurrentSchoolYear", errorMsg );
 		}
 		
 		if (!(checkPWD(request.getParameter("password")).equals("Ok")))

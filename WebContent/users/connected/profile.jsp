@@ -11,39 +11,6 @@
 		<title>SupTrip - Profile</title>
 
 		<link rel=stylesheet type=text/css href="my.css">
-		
-		<script>
-            function toggleClassAttribut(node, wantedClass)
-            {
-                node.className.match(new RegExp("[^|\\s]?(" + wantedClass + ")[!\\S]?", ''))
-                ? node.className = node.className.replace(new RegExp("[^|\\s]?(" + wantedClass + ")[!\\S]?", 'g'), '').replace(new RegExp("(^\\s)", ''), '')
-                : node.className += " " + wantedClass;
-            }
-        
-            function switchEdit(btn)
-            {
-                var editing = Boolean(btn.innerHTML.toLowerCase() == "ok");
-                if(editing)
-                {
-                    btn.innerHTML = "Edit";
-                    toggleClassAttribut(btn.parentNode, "editing");
-                }
-                else
-                {
-                    btn.innerHTML = "Ok";
-                    toggleClassAttribut(btn.parentNode, "editing");
-                }
-                btn.parentNode.children[2].disabled = editing;
-            }
-            function validForm(form)
-            {
-                for(var i=0; i < form.elements.length; i++)
-                    if(form.elements[i].hasAttribute('disabled'))
-                        document.getElementById(form.elements[i].id).disabled = false;
-      			
-                return true;
-            }
-        </script>
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %> 
@@ -86,7 +53,7 @@
                     <td> 
                     	<label for="campusName">Campus Name</label> <button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
                         <% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
-			               <select class="dropdown long"" type="text" id="campusName" name="campusName" placeholder="Campus name" required>
+			               <select class="selectProfile dropdown long"" type="text" id="campusName" name="campusName" placeholder="Campus name" disabled>
 			        			<option value="" disabled selected>Campus name</option>
 			        			<%for(int i=0; i < list.size(); ++i){%>
 			           				 <option <% if(list.get(i).equals(session.getAttribute("campusID"))) out.println("selected"); %>><%=list.get(i)%></option>
@@ -95,7 +62,7 @@
 					</td>	
                     <td> 
                     	<label for="currentSchoolYear">Current School Year</label><button class="button profile" type=button onclick="switchEdit(this)">Edit</button>
-                        <select class="dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" required>
+                        <select class="selectProfile dropdown long" type="text" id="currentSchoolYear" name="currentSchoolYear" placeholder="B3" disabled>
 			               	<option value="" disabled selected>Current school year</option>
 			               	<option <% if(session.getAttribute("currentSchoolYear").equals("A.Sc. 1")) out.println("selected"); %>>A.Sc. 1</option>
 			               	<option <% if(session.getAttribute("currentSchoolYear").equals("A.Sc. 2")) out.println("selected"); %>>A.Sc. 2</option>
@@ -124,5 +91,6 @@
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
+		<script type="text/javascript" src="js/profile.js"></script>
 	</body>
 </html>

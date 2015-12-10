@@ -21,14 +21,14 @@
 		
 			<p> Only SUPINFO International University students can register on our website and take advantage of our travel offers. Thank you to enter your personal information and fill out the form below. </p>
 			<br>
-			<p> All fields are required in order to sign up. </p>
+			<p> All fields are   in order to sign up. </p>
 			
-			<form action="/SupTrip/register" method="post" id="registerForm">
+			<form action="/SupTrip/register" id="registerForm" method="post" onSubmit="return validForm()">
 				<table>
 	            	<tr>
                   		<td>
-							<input class="input long" type="text" id="lastName" name="lastName" placeholder="Last name">
-							<span>							
+							<input class="input long" type="text" id="lastName" name="lastName" placeholder="Last name"  >
+							<span id="spanLastName">							
 								<% String errorMsgLastName = (String)request.getAttribute("errorMsgLastName");			          
 				               		if (errorMsgLastName == null) {	
 				               			errorMsgLastName = "";
@@ -46,8 +46,8 @@
 							
 					 	</td>
 						<td>
-							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name">
-							<span>							
+							<input class="input long" type="text" id="firstName" name="firstName" placeholder="First name"  >
+							<span id="spanFirstName">							
 								<% String errorMsgFirstName = (String)request.getAttribute("errorMsgFirstName");			          
 				               		if (errorMsgFirstName == null) {	
 				               			errorMsgFirstName = "";
@@ -66,8 +66,8 @@
 					</tr>
 					<tr>
 						<td>	
-							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster">
-							<span>							
+							<input class="input long" type="text" id="idBooster" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster"  >
+							<span id="spanIDBooster">							
 								<% String errorMsgIDBooster = (String)request.getAttribute("errorMsgIDBooster");			          
 				               		if (errorMsgIDBooster == null) {	
 				               			errorMsgIDBooster = "";
@@ -84,8 +84,8 @@
 							</span>
 						</td>
 						<td>
-							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address">
-							<span>							
+							<input class="input long" type="email" id="email" name="email" pattern="[\w\d\._%+-]+@[\w\d\.-]+\.[a-z]{2,4}$" placeholder="Email address"  >
+							<span id="spanEmail">							
 								<% String errorMsgEmail = (String)request.getAttribute("errorMsgEmail");			          
 				               		if (errorMsgEmail == null) {	
 				               			errorMsgEmail = "";
@@ -105,13 +105,13 @@
 					<tr>
 						<td>
 							<% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
-			               <select class="dropdown long" id="campusName" name="campusName">
+			               <select class="dropdown long" id="campusName" name="campusName"  >
 			        			<option value="" disabled selected>Campus name</option>
 			        			<%for(int i=0; i < list.size(); ++i){%>
 			           				 <option><%=list.get(i)%></option>
 		     					<% } %>
 		      			   </select>
-		      			   <span>							
+		      			   <span id="spanCampusName">							
 								<% String errorMsgCampusName = (String)request.getAttribute("errorMsgCampusName");			          
 				               		if (errorMsgCampusName == null) {	
 				               			errorMsgCampusName = "";
@@ -128,7 +128,7 @@
 							</span>
 						</td>
 						<td>
-							<select class="dropdown long" id="currentSchoolYear" name="currentSchoolYear">
+							<select class="dropdown long" id="currentSchoolYear" name="currentSchoolYear"  >
 				               	<option value="" disabled selected>Current school year</option>
 				               	<option>A.Sc. 1</option>
 				               	<option>A.Sc. 2</option>
@@ -136,7 +136,7 @@
 				               	<option>M.Sc. 1</option>
 				               	<option>M.Sc. 2</option>
 		               		</select>
-		               		<span>							
+		               		<span id="spanCurrentSchoolYear">							
 								<% String errorMsgCurrentSchoolYear = (String)request.getAttribute("errorMsgCurrentSchoolYear");			          
 				               		if (errorMsgCurrentSchoolYear == null) {	
 				               			errorMsgCurrentSchoolYear = "";
@@ -155,8 +155,8 @@
 					</tr>
 					<tr>
 						<td>
-							<input class="input long" type="password" id="password pwd" name="password" placeholder="Password">
-							<span>							
+							<input class="input long" type="password" id="password pwd" name="password" placeholder="Password"  >
+							<span id="spanPassword">							
 								<% String errorMsgPassword = (String)request.getAttribute("errorMsgPassword");			          
 				               		if (errorMsgPassword == null) {	
 				               			errorMsgPassword = "";
@@ -173,8 +173,8 @@
 							</span>
        					</td>
 						<td>
-							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation">
-							<span>							
+							<input class="input long" type="password" id="passwordConf" name="passwordConf" placeholder="Password confirmation"  >
+							<span id="spanPasswordConf">							
 								<% String errorMsgPasswordConf = (String)request.getAttribute("errorMsgPasswordConf");			          
 				               		if (errorMsgPasswordConf == null) {	
 				               			errorMsgPasswordConf = "";
@@ -193,10 +193,11 @@
 					</tr>
 				</table>
 				<br>
-				<input class="button buttonBig" type="submit" value="Create my account">
+				<input class="button buttonBig" type="submit" id="registerButton" value="Create my account">
 			</form>
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
+		<script type="text/javascript" src="js/register.js"></script>
 	</body>
 </html>
