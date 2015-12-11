@@ -13,7 +13,7 @@ function validForm()
 	if (lastName.value == ""){
 		spanLastName = document.getElementById("spanLastName");
 		spanLastName.innerHTML = "You must specify your last name.";
-		lastName.className = lastName.className + " wrong";		
+		lastName.className = "input long wrong";		
 		bool = false;
 	}
 	else {
@@ -25,7 +25,7 @@ function validForm()
 	{
 		spanFirstName = document.getElementById("spanFirstName");	
 		spanFirstName.innerHTML = "You must specify your first name.";
-		firstName.className = firstName.className + " wrong";
+		firstName.className = "input long wrong";
 		bool = false;
 	}
 	else {
@@ -36,7 +36,7 @@ function validForm()
 	if ( (((IDBooster.value.match("^[0-9]*$")) == "") || ((IDBooster.value.match("^[0-9]*$")) == null)) || (IDBooster.value.length != 6) ){
 		spanIDBooster = document.getElementById("spanIDBooster");		
 		spanIDBooster.innerHTML = "Your ID Booster must be composed of 6 numbers.";
-		IDBooster.className = IDBooster.className + " wrong";		
+		IDBooster.className = "input long wrong";		
 		bool = false;
 	}
 	else {
@@ -47,7 +47,7 @@ function validForm()
 	if ( ((email.value.match("^[A-Za-z0-9+_.-]+@(.+)$")) == "") || ((email.value.match("^[A-Za-z0-9+_.-]+@(.+)$")) == null) ){
 		spanEmail = document.getElementById("spanEmail");		
 		spanEmail.innerHTML = "Your must specify a correct email address.";
-		email.className = email.className + " wrong";		
+		email.className = "input long wrong";		
 		bool = false;
 	}
 	else {
@@ -59,7 +59,7 @@ function validForm()
 	{
 		spanCampusName = document.getElementById("spanCampusName");	
 		spanCampusName.innerHTML = "You must specify your campus name.";
-		campusName.className = campusName.className + " wrong";
+		campusName.className = "dropdown long wrong";
 		bool = false;
 	}
 	else {
@@ -71,7 +71,7 @@ function validForm()
 	{
 		spanCurrentSchoolYear = document.getElementById("spanCurrentSchoolYear");	
 		spanCurrentSchoolYear.innerHTML = "You must specify your current school year.";
-		currentSchoolYear.className = currentSchoolYear.className + " wrong";
+		currentSchoolYear.className = "dropdown long wrong";
 		bool = false;
 	}
 	else {
@@ -83,7 +83,7 @@ function validForm()
 	{
 		spanPassword = document.getElementById("spanPassword");	
 		spanPassword.innerHTML = "Your password must contain six characters.";
-		password.className = password.className + " wrong";
+		password.className = "input long wrong";
 		bool = false;
 	}
 	else {
@@ -95,7 +95,7 @@ function validForm()
 	{
 		spanPasswordConf = document.getElementById("spanPasswordConf");	
 		spanPasswordConf.innerHTML = "Passwords do not match.";
-		passwordConf.className = passwordConf.className + " wrong";
+		passwordConf.className = "input long wrong";
 		bool = false;
 	}
 	else {

@@ -24,7 +24,7 @@ public class User {
 	
 	@Basic
 	@Column(name = "currentYear")
-	private String currentSchoolYear; // from B1 to M2
+	private String currentSchoolYear; 
 
 	@Basic
 	@Column(name = "email")

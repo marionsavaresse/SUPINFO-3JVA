@@ -575,6 +575,15 @@ input.inputProfile, select.selectProfile {
 	color: #559bd6;
 }
 
+#spanButton
+{
+	color: #377bb5;
+	margin-left: 10px;
+}
+
+#passwordConfirmation {
+	margin-top : 18px;
+}
 
 
 /* ORDER HISTORY */
