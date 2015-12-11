@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `campuses` (`countryCode`, `name`, `address`, `longitude`, `latitude`) VALUES
 ('BE', 'Brussels', '29 Rue Ducale, 1000 Bruxelles, Belgique', 50.8448, 4.3659),
 ('FR', 'Paris', 'Tour Montparnasse - 40e étage, 33 Avenue du Maine, 75015 Paris, France', 48.8421, 2.3218),
-
 ('FR', 'Nice', 'Immeuble Bel Air Mansions, 21 boulevard Grosso, 06000 Nice', 43.6959, 7.2515),
 ('FR', 'Bordeaux', '14 Cours Saint-Louis, 33300 Bordeaux', 44.8563, -0.573098),
 ('FR', 'Caen', ' 10 Rue Alfred Kastler, 14000 Caen', 49.2021, -0.392815),
@@ -75,6 +74,11 @@ INSERT INTO `campuses` (`countryCode`, `name`, `address`, `longitude`, `latitude
 ('CN', 'Tianjin', 'Room 709, No.9 Courses Building, South campus, Heibei University of Technology, Guang Rong Dao 29, HongQiao District, 300004 TIANJIN', NULL, NULL),
 ('CN', 'Zhenjiang', 'East Campus JUST, MengXi Road 2, Jingkou District, ZHENJIANG', NULL, NULL);
 
+INSERT INTO `users` (`campusId`, `password`, `currentYear`, `email`, `firstName`, `lastName`, `campus`) VALUES
+(170754, '170754', 'B.Sc.', '170754@supinfo.com', 'Marion', 'Savaresse', 'Nice'),
+(174595, '174595', 'B.Sc.', '174595@supinfo.com', 'Mike', 'Roux', 'Nice'),
+(172012, '172012', 'B.Sc.', '172012@supinfo.com', 'Hugo', 'Tardiou', 'Nice'),
+(208851, '208851', 'B.Sc.', '208851@supinfo.com', 'Adrien', 'Buffet', 'Nice');
 
 -- CREATE
 -- ALGORITHM = UNDEFINED
