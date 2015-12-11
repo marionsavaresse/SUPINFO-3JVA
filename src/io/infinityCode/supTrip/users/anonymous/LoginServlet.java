@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if(request.getSession().getAttribute("id") == null){ //might be a filter?
+		if(request.getSession().getAttribute("idBooster") == null){
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/login.jsp");
 			dispatcher.forward(request, response);
 		}else{
@@ -39,7 +39,6 @@ public class LoginServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{		
-		// A REMPLACER AVEC REQUETE SQL ID = 172012 || 172012, PWD = "TEST"
 		if (checkId(request.getParameter("idBooster"))){
 			User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
 			
@@ -68,9 +67,7 @@ public class LoginServlet extends HttpServlet
 	protected boolean checkId(String idBooster)
 	throws ServletException, IOException
 	{		
-		//ID IS ALWAYS 6 NUMBERS
 		if (idBooster.length() == 6){
-			//CHECKS IF ONLY NUMBERS
 			try{
 				int num = Integer.parseInt(idBooster);
 						return true;
@@ -86,11 +83,9 @@ public class LoginServlet extends HttpServlet
 	protected String hashPWD(String password)
 	{
 		MessageDigest md5 = null;
-		//REQUIRES A TRYCATCH I DONT KNOW WHY => That's 'cause getInstance methods throws exception (see checkId declaration)
 		try {
 			md5 = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		byte[] messageDigest = md5.digest(password.getBytes());

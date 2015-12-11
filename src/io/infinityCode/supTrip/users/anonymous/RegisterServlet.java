@@ -30,10 +30,15 @@ public class RegisterServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/register.jsp");
-		dispatcher.forward(request, response);
-	}
+		if(request.getSession().getAttribute("idBooster") == null){
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/register.jsp");
+			dispatcher.forward(request, response);
+		}else{
+			((HttpServletResponse)response).sendRedirect("/SupTrip/");
+		}	
+	}	
 
+	
 	public void doGetErrorMessage(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		String errorMsg = "";
 		
