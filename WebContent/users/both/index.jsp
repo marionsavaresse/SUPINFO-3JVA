@@ -32,7 +32,7 @@
 				</tr>	
 				<tr>
 					<td class="homeTDLeft">Number of possible travels</td>
-					<td class="homeTDRight"><span class="blueChip"><%=travelsCount*travelsCount%></span></td>
+					<td class="homeTDRight"><span class="blueChip"><%=travelsCount*(travelsCount-1)%></span></td>
 				</tr>	
 			</table>
 		  <% }else{%>
