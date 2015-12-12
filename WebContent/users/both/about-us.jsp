@@ -24,7 +24,7 @@
 			<div class="column" id="one">
 				<img class="profilePicture" id="marion">
 				<h3>Marion Savaresse</h3>
-				<p>Developer & designer, she continues her studies while making some external missions, hoping to always learning more. Always motivated for some challenge.</p>
+				<p>Developer & designer, I continue my studies while making some external missions, hoping to always learning more. Always motivated for some challenge.</p>
 			</div>
 			
 			<div class="column" id="two">
