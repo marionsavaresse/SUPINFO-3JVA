@@ -9,9 +9,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import io.infinityCode.supTrip.bo.AvailableTrip;
-import io.infinityCode.supTrip.bo.Campus;
 import io.infinityCode.supTrip.dao.DaoFactory;
+import io.infinityCode.supTrip.entity.AvailableTrip;
+import io.infinityCode.supTrip.entity.Campus;
 
 @Path("/travels")
 @Produces(MediaType.APPLICATION_JSON)

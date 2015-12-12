@@ -1,4 +1,4 @@
-package io.infinityCode.supTrip.bo;
+package io.infinityCode.supTrip.entity;
 
 import java.io.Serializable;
 

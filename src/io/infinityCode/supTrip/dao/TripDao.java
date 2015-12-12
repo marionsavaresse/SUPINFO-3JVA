@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import io.infinityCode.supTrip.bo.Trip;
-
+import io.infinityCode.supTrip.entity.Trip;
 import io.infinityCode.supTrip.exception.UnknownTripException;
 
 

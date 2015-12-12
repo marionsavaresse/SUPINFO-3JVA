@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.infinityCode.supTrip.bo.User;
 import io.infinityCode.supTrip.dao.DaoFactory;
+import io.infinityCode.supTrip.entity.User;
 
 
 @WebServlet(
@@ -70,18 +70,6 @@ public class ProfileServlet extends HttpServlet
 			errorMsg = "You must specify your current school year.";
 			request.setAttribute( "errorMsgCurrentSchoolYear", errorMsg );
 		}
-	/*	
-		if (!(checkPWD(request.getParameter("password")).equals("Ok")))
-		{
-			errorMsg = "Your password must contain six characters.";
-			request.setAttribute( "errorMsgPassword", errorMsg );
-		}
-						
-		if (!(request.getParameter("passwordConf").equals(request.getParameter("password"))))
-		{
-			errorMsg = "Passwords do not match.";
-			request.setAttribute( "errorMsgPasswordConf", errorMsg );
-		}*/
 		this.getServletContext().getRequestDispatcher( "/users/connected/profile.jsp" ).forward( request, response );
 	}
 	

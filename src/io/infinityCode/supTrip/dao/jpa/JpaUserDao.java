@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import io.infinityCode.supTrip.dao.UserDao;
-import io.infinityCode.supTrip.bo.User;
+import io.infinityCode.supTrip.entity.User;
 
 public class JpaUserDao extends BaseJpaDao implements UserDao {
 	

@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import io.infinityCode.supTrip.dao.CampusDao;
-import io.infinityCode.supTrip.bo.Campus;
+import io.infinityCode.supTrip.entity.Campus;
 
 public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 	

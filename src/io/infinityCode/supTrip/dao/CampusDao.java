@@ -2,7 +2,7 @@ package io.infinityCode.supTrip.dao;
 
 import java.util.List;
 
-import io.infinityCode.supTrip.bo.Campus;
+import io.infinityCode.supTrip.entity.Campus;
 
 public interface CampusDao {
 	public Campus persist(Campus campus);
