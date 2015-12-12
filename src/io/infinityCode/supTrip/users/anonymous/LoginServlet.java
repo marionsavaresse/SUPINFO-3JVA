@@ -41,11 +41,16 @@ public class LoginServlet extends HttpServlet
 						
 		switch(number) {
 	    case 1:
-	    	errorMsg = "There is no account created with this ID Booster.";
+	    	errorMsg = "Your ID Booster must be composed of 6 numbers.";
 			request.setAttribute( "errorMsgLogin", errorMsg );
 	        break;
 	        
 	    case 2:
+	    	errorMsg = "There is no account created with this ID Booster.";
+			request.setAttribute( "errorMsgLogin", errorMsg );
+			break;
+			
+	    case 3 :
 	    	errorMsg = "Login incorrect.";
 			request.setAttribute( "errorMsgLogin", errorMsg );
 			break;
@@ -73,10 +78,10 @@ public class LoginServlet extends HttpServlet
 
 					((HttpServletResponse)response).sendRedirect("/SupTrip/");
 				}else{
-					doGetErrorMessage(2, request, response);
+					doGetErrorMessage(3, request, response);
 				}
 			}else{
-				doGetErrorMessage(1, request, response);
+				doGetErrorMessage(2, request, response);
 			}
 		}else{
 			doGetErrorMessage(1, request, response);
