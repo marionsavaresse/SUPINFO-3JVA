@@ -35,7 +35,25 @@ public class LoginServlet extends HttpServlet
 			((HttpServletResponse)response).sendRedirect("/SupTrip/");
 		}
 	}
-
+	
+	public void doGetErrorMessage(int number, HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+		String errorMsg = "";
+						
+		switch(number) {
+	    case 1:
+	    	errorMsg = "There is no account created with this ID Booster.";
+			request.setAttribute( "errorMsgLogin", errorMsg );
+	        break;
+	        
+	    case 2:
+	    	errorMsg = "Login incorrect.";
+			request.setAttribute( "errorMsgLogin", errorMsg );
+			break;
+		}	
+		
+		this.getServletContext().getRequestDispatcher( "/users/anonymous/login.jsp" ).forward( request, response );
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{		
@@ -55,13 +73,13 @@ public class LoginServlet extends HttpServlet
 
 					((HttpServletResponse)response).sendRedirect("/SupTrip/");
 				}else{
-					((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+					doGetErrorMessage(2, request, response);
 				}
 			}else{
-				((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+				doGetErrorMessage(1, request, response);
 			}
 		}else{
-		((HttpServletResponse)response).sendRedirect("/SupTrip/login");
+			doGetErrorMessage(1, request, response);
 		}
 	}
 	
