@@ -16,7 +16,7 @@ import io.infinityCode.supTrip.dao.DaoFactory;
 
 @WebServlet(
 	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
-	urlPatterns = { "/profile" }
+	urlPatterns = { "/connected/profile" }
 )
 public class ProfileServlet extends HttpServlet
 {
@@ -46,6 +46,7 @@ public class ProfileServlet extends HttpServlet
 		object.setCurrentSchoolYear(request.getParameter("currentSchoolYear"));
 
 		DaoFactory.getUserDao().update(object);
+		
 		request.getSession().setAttribute("name", object.getName());
 		request.getSession().setAttribute("familyName", object.getFamilyName());
 		request.getSession().setAttribute("email", object.getEmail());
@@ -53,7 +54,7 @@ public class ProfileServlet extends HttpServlet
 		request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 		
 		
-		((HttpServletResponse)response).sendRedirect("/SupTrip/profile");
+		((HttpServletResponse)response).sendRedirect("/SupTrip/connected/profile");
 	}
 
 }

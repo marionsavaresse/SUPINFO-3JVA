@@ -96,15 +96,15 @@ public class RegisterServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		
-		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") != "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("campusName") != null) && (request.getParameter("currentSchoolYear") != null) && (checkPWD(request.getParameter("password")).equals("Ok")) && (request.getParameter("passwordConf").equals(request.getParameter("password"))))
+		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") != "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (request.getParameter("campusName") != null) && (request.getParameter("currentSchoolYear") != null) && (checkPWD(request.getParameter("password")).equals("Ok")) && hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password"))))
 		{
 				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
-				request.getParameter("lastName"),
-				request.getParameter("firstName"),
-				request.getParameter("email"),
-				request.getParameter("password"),
-				request.getParameter("campusName"),
-				request.getParameter("currentSchoolYear"));
+						request.getParameter("lastName"),
+						request.getParameter("firstName"),
+						request.getParameter("email"),
+						hashPWD(request.getParameter("password")),
+						request.getParameter("campusName"),
+						request.getParameter("currentSchoolYear"));
 		
 				
 				DaoFactory.getUserDao().persist(user);

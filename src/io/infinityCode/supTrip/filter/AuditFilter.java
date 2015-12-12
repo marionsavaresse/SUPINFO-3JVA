@@ -1,4 +1,4 @@
-package io.infinityCode.supTrip.users.anonymous;
+package io.infinityCode.supTrip.filter;
 
 import java.io.IOException;
 
@@ -15,24 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(
 	urlPatterns={
-		"/auth/*",
-		"/navbar.jsp"
+		"/connected/*"
 	}
 )
-public class AuthenticateFilter implements Filter
+public class AuditFilter implements Filter
 {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException
 	{
-		if(null == ((HttpServletRequest)request).getSession().getAttribute("user_name"))
-		{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/index.jsp");
+		if(((HttpServletRequest)request).getSession().getAttribute("idBooster") == null){
+			((HttpServletResponse)response).sendRedirect("/SupTrip/login");
 			return;
 		}
-		else
-		{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/login.html");
-		}
-		
+
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}

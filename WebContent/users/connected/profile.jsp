@@ -10,7 +10,7 @@
 
 		<title>SupTrip - Profile</title>
 
-		<link rel=stylesheet type=text/css href="my.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/my.css" />
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %> 
@@ -150,7 +150,7 @@
 				<tr>
                     <td> 
                     	<label for="password" id="labelPwd">Password</label> <button class="button profile" id="buttonPwd" type=button onclick="switchEdit(this,'6')">Edit</button>
-                        <input class="inputProfile input long" type="password" id="password pwd" name="password" disabled value="<%=session.getAttribute("password")%>">
+                        <input class="inputProfile input long" type="password" id="password pwd" name="password" disabled value="********">
                     	<span id="spanPassword">							
 								<% String errorMsgPassword = (String)request.getAttribute("errorMsgPassword");			          
 				               		if (errorMsgPassword == null) {	
@@ -196,6 +196,6 @@
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
-		<script type="text/javascript" src="js/profile.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/profile.js"></script>
 	</body>
 </html>

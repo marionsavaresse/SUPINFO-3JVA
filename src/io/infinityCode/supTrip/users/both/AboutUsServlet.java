@@ -29,7 +29,7 @@ public class AboutUsServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		response.getWriter().print("WWWe got you request but the server is temporaly under maintenance, try later :)");
+		response.getWriter().print("We got you request but the server is temporaly under maintenance, try later :)");
 	}
 
 }

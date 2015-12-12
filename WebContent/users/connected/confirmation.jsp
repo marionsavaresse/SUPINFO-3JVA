@@ -7,7 +7,7 @@
 
 		<title>SupTrip - Order Confirmation</title>
 
-		<link rel=stylesheet type=text/css href="my.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/my.css" />
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %>

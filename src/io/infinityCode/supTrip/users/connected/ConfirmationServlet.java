@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
 	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
-	urlPatterns = { "/confirmation" }
+	urlPatterns = { "/connected/confirmation" }
 )
 public class ConfirmationServlet extends HttpServlet
 {
