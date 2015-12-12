@@ -33,6 +33,12 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 				.find(Campus.class, campusId);
 	}
 
+	@Override
+	public Campus oneByName(String campusName) {
+		return getEntityManagerFactory().createEntityManager()
+				.find(Campus.class, campusName);
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Campus> all() {
@@ -40,6 +46,16 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 		Query selectAllCat = em.createQuery("SELECT c FROM Campus c");
 		
 		List<Campus> iter = selectAllCat.getResultList();
+		return iter;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Campus> allExceptGivenCampus(String search) {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		
+		List<Campus> iter = em.createQuery("SELECT c FROM Campus c WHERE c.campusName != :search").setParameter("search", search).getResultList();
+		
 		return iter;
 	}
 	

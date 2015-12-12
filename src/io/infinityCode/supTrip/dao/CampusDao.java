@@ -7,7 +7,9 @@ import io.infinityCode.supTrip.bo.Campus;
 public interface CampusDao {
 	public Campus persist(Campus campus);
 	public Campus oneById(Long campusId);
+	public Campus oneByName(String campusName);
 	public List<Campus> all();
+	public List<Campus> allExceptGivenCampus(String search);
 	public List<String> allCampusName();
-	Long countCampuses();
+	public Long countCampuses();
 }
