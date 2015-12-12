@@ -150,7 +150,7 @@
 				<tr>
                     <td> 
                     	<label for="password" id="labelPwd">Password</label> <button class="button profile" id="buttonPwd" type=button onclick="switchEdit(this,'6')">Edit</button>
-                        <input class="inputProfile input long" type="password" id="password pwd" name="password" disabled value="********">
+                        <input class="inputProfile input long" type="password" id="password pwd" name="password" disabled placeholder="********">
                     	<span id="spanPassword">							
 								<% String errorMsgPassword = (String)request.getAttribute("errorMsgPassword");			          
 				               		if (errorMsgPassword == null) {	
@@ -168,8 +168,8 @@
 							</span>
                     </td>	
                     <td id="tdPasswordConf" style="display:none;"> 
-                    	<label for="passwordConfirmation" class="editing">Password confirmation</label> 
-                        <input class="inputProfile input long" type="password" id="passwordConfirmation" name="passwordConfirmation">                      
+                    	<label for="passwordConf" class="editing">Password confirmation</label> 
+                        <input class="inputProfile input long" type="password" id="passwordConf" name="passwordConf">                      
                     	<span id="spanPasswordConf">							
 								<% String errorMsgPasswordConf = (String)request.getAttribute("errorMsgPasswordConf");			          
 				               		if (errorMsgPasswordConf == null) {	

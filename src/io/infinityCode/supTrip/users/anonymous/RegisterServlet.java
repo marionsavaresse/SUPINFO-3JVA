@@ -115,7 +115,6 @@ public class RegisterServlet extends HttpServlet
 				request.getSession().setAttribute("familyName", object.getFamilyName());
 				request.getSession().setAttribute("email", object.getEmail());
 				request.getSession().setAttribute("campusID", object.getCampusName());
-				request.getSession().setAttribute("password", object.getPassword());
 				request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 				
 				((HttpServletResponse)response).sendRedirect("/SupTrip/");

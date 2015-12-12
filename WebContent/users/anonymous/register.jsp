@@ -11,7 +11,7 @@
 
 		<title>SupTrip - Register</title>
 
-		<link rel=stylesheet type=text/css href="my.css">
+		<link rel=stylesheet type=text/css href="${pageContext.request.contextPath}/my.css">
 	</head>
 	<body>
 		<%@include file="../both/navbar.jsp" %>
@@ -198,6 +198,6 @@
 		</main>
 
 		<%@include file="../both/footer.jsp" %>
-		<script type="text/javascript" src="js/register.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/register.js"></script>
 	</body>
 </html>

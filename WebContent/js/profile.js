@@ -56,19 +56,10 @@ function validField(number)
     case "6":
     	bool = true;
     	password = document.getElementById("password pwd");
-    	if (password.value.length < 6)
-    	{
-    		spanPassword = document.getElementById("spanPassword");	
-    		spanPassword.innerHTML = "Your password must contain six characters.";
-    		password.className = "inputProfile input long wrong";
-    		bool = false;
-    	}
-    	else {
-    		spanPassword.innerHTML = "";
-    		password.className = "inputProfile input long";	
-    	}
-    	
-    	passwordConf = document.getElementById("passwordConfirmation");
+		spanPassword.innerHTML = "";
+		password.className = "inputProfile input long";	
+		
+    	passwordConf = document.getElementById("passwordConf");
     	if ((passwordConf.value != "") && (passwordConf.value != password.value))
     	{
     		spanPasswordConf = document.getElementById("spanPasswordConf");	
@@ -99,6 +90,7 @@ function switchEdit(btn, number)
             btn.innerHTML = "Edit";
             toggleClassAttribut(btn.parentNode, "editing");	
             btn.parentNode.children[2].disabled = true;
+            btn.parentNode.children[2].style.backgroundColor = "#f2f1f1";
             if (number == 6) {
             	document.getElementById("passwordConfirmation").value = "";
             	document.getElementById("tdPasswordConf").style.display = "none";
@@ -106,6 +98,7 @@ function switchEdit(btn, number)
         }
     	else {
     		btn.parentNode.children[2].disabled = false;
+            btn.parentNode.children[2].style.backgroundColor = "#dad9d9";
     	}
     }
     else
@@ -113,6 +106,7 @@ function switchEdit(btn, number)
         btn.innerHTML = "Ok";
         toggleClassAttribut(btn.parentNode, "editing");
         btn.parentNode.children[2].disabled = false;
+        btn.parentNode.children[2].style.backgroundColor = "#dad9d9";
         if (number == 6) {
         	document.getElementById("tdPasswordConf").style.display = "block";
         }
