@@ -1,8 +1,11 @@
 package io.infinityCode.supTrip.users.anonymous;
+import io.infinityCode.supTrip.dao.DaoFactory;
 
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,6 +62,13 @@ public class RegisterServlet extends HttpServlet
 			errorMsg = "Your ID Booster must be composed of 6 numbers.";
 			request.setAttribute( "errorMsgIDBooster", errorMsg );
 		}
+		else {
+			if (!(checkExistantIds(request.getParameter("idBooster")).equals("Ok")))
+			{
+				errorMsg = "There is already an account with this ID Booster.";
+				request.setAttribute( "errorMsgIDBooster", errorMsg );
+			}
+		}
 		
 		if (!(checkEmail(request.getParameter("email")).equals("Ok")))
 		{
@@ -96,6 +106,7 @@ public class RegisterServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		
+
 		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") != "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (request.getParameter("campusName") != null) && (request.getParameter("currentSchoolYear") != null) && (checkPWD(request.getParameter("password")).equals("Ok")) && hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password"))))
 		{
 				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
@@ -138,6 +149,24 @@ public class RegisterServlet extends HttpServlet
 				}
 		}
 		return "";
+	}
+	
+	protected String checkExistantIds(String idBooster)
+	throws ServletException, IOException
+	{
+		List<User> listUsers = new ArrayList<User>();
+		listUsers = DaoFactory.getUserDao().all(); 
+
+		for (int i = 0; i < listUsers.size(); i++) {
+			 int currentID = listUsers.get(i).getIdBooster();
+			 int intIDBooster = Integer.parseInt(idBooster);
+			 
+			 if (intIDBooster == currentID) {
+				 return "";
+			 }
+		}
+		return "Ok";	
+
 	}	
 	
 	protected String checkEmail(String email)

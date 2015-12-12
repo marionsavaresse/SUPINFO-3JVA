@@ -24,25 +24,25 @@
 			<div class="column" id="one">
 				<img class="profilePicture" id="marion">
 				<h3>Marion Savaresse</h3>
-				<p>Developer & designer, I continue my studies while making some external missions, hoping to always learning more. Always motivated for some challenge.</p>
+				<p>Marion focuses on the Web and all its components. Design, web, web apps, etc. She is currently trying to recreate a pokedex for humans, without success yet.</p>
 			</div>
 			
 			<div class="column" id="two">
 				<img class="profilePicture" id="mike">
 				<h3>Mike Roux</h3>
-				<p>When I started to do softwares, I became inlove of the Java language. So, I continue to this track and do Java-code everyday and every nights.</p>
+				<p>Mike loves the C / C ++. This language of particular interest for more than three years. He is currently under professional contract with K-Eplison, the company of his dreams.</p>
 			</div>
 		
 			<div class="column" id="one">
 				<img class="profilePicture" id="hugo">
 				<h3>Hugo Tardiou</h3>
-				<p>As a student, I lived two years in Cambridge to graduate with a double-diploma in IT. I also learnt the Ook language in third year. </p>
+				<p>He is interested mainly in data structure and projects using new technologies. He wishes to continue his career in the USA on the AutoIT language .</p>
 			</div>
 			
 			<div class="column" id="two">
 				<img class="profilePicture" id="adrien">
 				<h3>Adrien Tanaka</h3>
-				<p>Insterested in Software development since I was a kid, I recently moved up to south california to meet people that make the world move on.</p>
+				<p>After two years at Avignon, he continue studying at Supinfo Nice. He specializes in high-level languages, databases and Amazon API to automate buying unneeded things.</p>
 			</div>	
 		
 			
