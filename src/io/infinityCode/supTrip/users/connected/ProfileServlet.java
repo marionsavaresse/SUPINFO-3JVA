@@ -83,8 +83,7 @@ public class ProfileServlet extends HttpServlet
 		{
 			User object = DaoFactory.getUserDao().oneById((int)(request.getSession().getAttribute("idBooster")));
 
-			if (request.getParameter("password") != null
-					&& hashPWD(request.getParameter("passwordConf")).equals(hashPWD(request.getParameter("password"))))
+			if (request.getParameter("password") != null)
 			{
 				object.setPassword(hashPWD(request.getParameter("password")));
 			}else{
@@ -93,10 +92,6 @@ public class ProfileServlet extends HttpServlet
 				{
 					errorMsg = "Your password must contain six characters.";
 					request.setAttribute( "errorMsgPassword", errorMsg );
-				}
-				if (!(request.getParameter("passwordConf").equals(request.getParameter("password")))){
-					errorMsg = "Passwords do not match.";
-					request.setAttribute( "errorMsgPasswordConf", errorMsg );
 				}
 				this.getServletContext().getRequestDispatcher( "/users/connected/profile.jsp" ).forward( request, response );
 			}
