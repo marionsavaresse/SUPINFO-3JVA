@@ -19,22 +19,18 @@
 			<form action="login" id="loginForm" method="post">
 				<input class="input" type="text" id="username" name="idBooster" pattern="^[0-9]*$" placeholder="ID Booster">
 				<br>
+				<span>
 				<% String errorMsgLogin = (String)request.getAttribute("errorMsgLogin");			          
                		if (errorMsgLogin == null) {	
                			errorMsgLogin = "";
                		}
                		else { 
-               	%>             		
-	            <script>
-               		document.getElementById("username").className = document.getElementById("username").className + " wrong";
-               	</script>
-	            <% 	
                			out.println(errorMsgLogin);
                		}
 			    %>
-				<br><br>
+			    </span>
 				<input class="input" type="password" id="password" name="password" placeholder="Password">
-				</br>
+				<br><br>
 				<input class="button buttonBig" type="submit" value="Login">
 				<label style="margin-right:4px">or</label><a href="/SupTrip/register">register</a>
 			</form>
