@@ -1,6 +1,7 @@
 package io.infinityCode.supTrip.dao;
 
-import io.infinityCode.supTrip.bo.User;
+import io.infinityCode.supTrip.entity.User;
+
 import java.util.List;
 
 public interface UserDao {

@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.infinityCode.supTrip.bo.User;
 import io.infinityCode.supTrip.dao.DaoFactory;
 import io.infinityCode.supTrip.dao.jpa.JpaUserDao;
+import io.infinityCode.supTrip.entity.User;
 
 
 

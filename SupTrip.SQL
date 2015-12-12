@@ -75,10 +75,10 @@ INSERT INTO `campuses` (`countryCode`, `name`, `address`, `longitude`, `latitude
 ('CN', 'Zhenjiang', 'East Campus JUST, MengXi Road 2, Jingkou District, ZHENJIANG', NULL, NULL);
 
 INSERT INTO `users` (`campusId`, `password`, `currentYear`, `email`, `firstName`, `lastName`, `campus`) VALUES
-(170754, '170754', 'B.Sc.', '170754@supinfo.com', 'Marion', 'Savaresse', 'Nice'),
-(174595, '174595', 'B.Sc.', '174595@supinfo.com', 'Mike', 'Roux', 'Nice'),
-(172012, '172012', 'B.Sc.', '172012@supinfo.com', 'Hugo', 'Tardiou', 'Nice'),
-(208851, '208851', 'B.Sc.', '208851@supinfo.com', 'Adrien', 'Buffet', 'Nice');
+(170754, '01c44f19a8be8a97402f1b7d2ba2868f', 'B.Sc.', '170754@supinfo.com', 'Marion', 'Savaresse', 'Nice'),
+(174595, '2d5e8da3ce2be61452357d2e5d604546', 'B.Sc.', '174595@supinfo.com', 'Mike', 'Roux', 'Nice'),
+(172012, 'f765cc4722690f831f32054e5e04b7c5', 'B.Sc.', '172012@supinfo.com', 'Hugo', 'Tardiou', 'Nice'),
+(208851, 'bd9749748cefa0e0fb8b7f02643b1a36', 'B.Sc.', '208851@supinfo.com', 'Adrien', 'Buffet', 'Nice');
 
 -- CREATE
 -- ALGORITHM = UNDEFINED
