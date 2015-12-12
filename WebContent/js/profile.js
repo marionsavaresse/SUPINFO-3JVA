@@ -56,7 +56,8 @@ function validField(number)
     case "6":
     	bool = true;
     	password = document.getElementById("password pwd");
-    	if (password.value.length < 6)
+
+    	if ((password.value != "") && (password.value.length < 6))
     	{
     		spanPassword = document.getElementById("spanPassword");	
     		spanPassword.innerHTML = "Your password must contain six characters.";
@@ -69,7 +70,7 @@ function validField(number)
     	}
 		
     	passwordConf = document.getElementById("passwordConf");
-    	if ((passwordConf.value != "") && (passwordConf.value != password.value))
+    	if (passwordConf.value != password.value)
     	{
     		spanPasswordConf = document.getElementById("spanPasswordConf");	
     		spanPasswordConf.innerHTML = "Passwords do not match.";

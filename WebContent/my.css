@@ -40,7 +40,7 @@ input:-moz-placeholder,
 textarea:-moz-placeholder
 { color: #878787; }
 
-textarea, input, select { outline: none }
+textarea, input, select, button { outline: none }
 
 select {
 	border: none;
@@ -564,7 +564,7 @@ textarea.contact {
 .profile {
 	background-color: #377bb5;
 	display: inline;
-	margin: 0 0 -10px 10px;
+	margin: -5px 0 -10px 10px;
 }
 
 input.inputProfile, select.selectProfile {
