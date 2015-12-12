@@ -44,23 +44,24 @@ public class LoginServlet extends HttpServlet
 			
 			if (object != null)
 			{
-				if(request.getParameter("password").equals(object.getPassword()))
+				if(hashPWD(request.getParameter("password")).equals(object.getPassword()))
 				{
 					request.getSession().setAttribute("idBooster", object.getIdBooster());
 					request.getSession().setAttribute("name", object.getName());
 					request.getSession().setAttribute("familyName", object.getFamilyName());
 					request.getSession().setAttribute("email", object.getEmail());
 					request.getSession().setAttribute("campusID", object.getCampusName());
-					request.getSession().setAttribute("password", object.getPassword());
 					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 
 					((HttpServletResponse)response).sendRedirect("/SupTrip/");
+				}else{
+					((HttpServletResponse)response).sendRedirect("/SupTrip/login");
 				}
 			}else{
-				((HttpServletResponse)response).sendRedirect("/SupTrip/register");
+				((HttpServletResponse)response).sendRedirect("/SupTrip/login");
 			}
 		}else{
-		((HttpServletResponse)response).sendRedirect("/SupTrip/register");
+		((HttpServletResponse)response).sendRedirect("/SupTrip/login");
 		}
 	}
 	

@@ -41,7 +41,7 @@ public class Travels
 		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
         return ret;
     }
-
+/*
 	@GET @Path("/{campus: [A-Za-z]+}")
     public List<AvailableTrip> searchCampus(@PathParam("campus") String campus)
 	{
@@ -54,5 +54,5 @@ public class Travels
 		for(campus: Campuses) // truc du genre, ajouter find to all others, all others to find
 		
 		return ret;
-    }
+    }*/
 }

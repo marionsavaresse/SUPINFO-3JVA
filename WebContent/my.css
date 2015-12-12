@@ -50,7 +50,7 @@ select {
 	line-height:normal;
 	border-radius:6px;
 	display:block;
-	background:#dad9d9 url(res/img/arrow.png) 90% center;
+	background:#f2f1f1 url(res/img/arrow.png) 90% center;
 	background-repeat: no-repeat;
 	color: #5c6066;
 }
