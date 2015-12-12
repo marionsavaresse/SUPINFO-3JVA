@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
-<%@ page import="io.infinityCode.supTrip.entity.Campus" %>
+<%@ page import="io.infinityCode.supTrip.entity.Campus" %>>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -26,9 +26,9 @@
 			<%  %>
 		     <form id="profileForm" action="profile" id="EditForm" method=post onSubmit="return validForm(this)">  
 			 <table>
-	            <tr>
+	            <tr valign="top">
                     <td>
-                    	<label for="familyName">Last Name</label> <button class="button profile" type=button onclick="switchEdit(this,'1')">Edit</button>
+                    	<label class="labelProfile" for="familyName">Last Name</label> <button class="button profile" type=button onclick="switchEdit(this,'1')">Edit</button>
                         <input class="inputProfile input long" type=text id="familyName" name="familyName" disabled value="<%=session.getAttribute("familyName")%>">
                         <span id="spanLastName">							
 								<% String errorMsgLastName = (String)request.getAttribute("errorMsgLastName");			          
@@ -67,7 +67,7 @@
                     </td>
 				</tr>
 				
-	            <tr>
+	            <tr valign="top">
                     <td> 
                     	<label for="idBooster">ID Booster</label>
                         <input class="inputProfile input long" type=text id="idBooster" name="idBooster" disabled value="<%=session.getAttribute("idBooster")%>">
@@ -93,7 +93,7 @@
 					 </td>
 				</tr>
 				
-	            <tr>
+	            <tr valign="top">
                     <td> 
                     	<label for="campusName">Campus Name</label> <button class="button profile" type=button onclick="switchEdit(this,'4')">Edit</button>
                         <% List<String> list = DaoFactory.getCampusDao().allCampusName(); %>
@@ -147,7 +147,7 @@
                     </td>
 				</tr>
 				
-				<tr>
+				<tr valign="top">
                     <td> 
                     	<label for="password" id="labelPwd">Password</label> <button class="button profile" id="buttonPwd" type=button onclick="switchEdit(this,'6')">Edit</button>
                         <input class="inputProfile input long" type="password" id="password pwd" name="password" disabled placeholder="********">

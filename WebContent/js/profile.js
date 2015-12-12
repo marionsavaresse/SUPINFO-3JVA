@@ -65,8 +65,6 @@ function validField(number)
     		spanPasswordConf = document.getElementById("spanPasswordConf");	
     		spanPasswordConf.innerHTML = "Passwords do not match.";
     		passwordConf.className = "inputProfile input long wrong";
-    		spanPassword.innerHTML = ".";
-    		spanPassword.style.visibility = "hidden";
     		bool = false;
     	}
     	else {
@@ -90,15 +88,13 @@ function switchEdit(btn, number)
             btn.innerHTML = "Edit";
             toggleClassAttribut(btn.parentNode, "editing");	
             btn.parentNode.children[2].disabled = true;
-            btn.parentNode.children[2].style.backgroundColor = "#f2f1f1";
             if (number == 6) {
-            	document.getElementById("passwordConfirmation").value = "";
+            	document.getElementById("passwordConf").value = "";
             	document.getElementById("tdPasswordConf").style.display = "none";
             }
         }
     	else {
     		btn.parentNode.children[2].disabled = false;
-            btn.parentNode.children[2].style.backgroundColor = "#dad9d9";
     	}
     }
     else
@@ -106,7 +102,6 @@ function switchEdit(btn, number)
         btn.innerHTML = "Ok";
         toggleClassAttribut(btn.parentNode, "editing");
         btn.parentNode.children[2].disabled = false;
-        btn.parentNode.children[2].style.backgroundColor = "#dad9d9";
         if (number == 6) {
         	document.getElementById("tdPasswordConf").style.display = "block";
         }
