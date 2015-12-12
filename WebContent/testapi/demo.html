@@ -31,7 +31,6 @@
 				switch(kind)
 				{
 					case 'all': data = ''; break;
-					case 'id': data = parseInt(prompt("Travel ID :")); break;
 					case 'campus': data = encodeURIComponent(prompt("Campus name :")); break;
 					case 'fromto': data = encodeURIComponent(prompt("Departure : ")) + "/" + encodeURIComponent(prompt("Destination : ")); break;
 					default: return;

@@ -23,14 +23,11 @@ public class Travels
 		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
 		List<Campus> campuses = DaoFactory.getCampusDao().all();
 
-		for(int i = 0; i < campuses.size(); ++i)
-			for(int j = 0; j < campuses.size(); ++j)
-				if(i == j) continue;
+		for(Campus dep : campuses)
+			for(Campus des : campuses)
+				if(dep == des) continue;
 				else
-					ret.add(new AvailableTrip(
-						campuses.get(i).getId(), campuses.get(i).getCampusName(),
-						campuses.get(j).getId(), campuses.get(j).getCampusName()
-					));
+					ret.add(new AvailableTrip(dep, des));
 		
 		return ret;
     }
@@ -39,20 +36,53 @@ public class Travels
     public List<AvailableTrip> searchTravel(@PathParam("departure") String from, @PathParam("destination") String to)
 	{
 		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
+
+		if(from.isEmpty() && to.isEmpty())
+			ret = this.AllTravels();
+		else if(!from.isEmpty() && !to.isEmpty())
+			ret.add(new AvailableTrip(
+				DaoFactory.getCampusDao().oneByName(from),
+				DaoFactory.getCampusDao().oneByName(to)
+			));
+		else
+		{
+			if(to.isEmpty())
+			{
+				Campus find = DaoFactory.getCampusDao().oneByName(from);
+				List<Campus> campuses = DaoFactory.getCampusDao().allExceptGivenCampus(from);
+				for(Campus campus: campuses)
+					ret.add(new AvailableTrip(find, campus));
+			}
+			else if(from.isEmpty())
+			{
+				Campus find = DaoFactory.getCampusDao().oneByName(to);
+				List<Campus> campuses = DaoFactory.getCampusDao().allExceptGivenCampus(to);
+				for(Campus campus: campuses)
+					ret.add(new AvailableTrip(campus, find));
+			}
+		}
+
         return ret;
     }
 
-	@GET @Path("/{campus: [A-Za-z]+}")
-    public List<AvailableTrip> searchCampus(@PathParam("campus") String campus)
+	@GET @Path("/{campus: [A-Za-z]*}")
+    public List<AvailableTrip> searchCampus(@PathParam("campus") String depdes)
 	{
+		if(depdes.isEmpty()) return null;
+
 		List<AvailableTrip> ret = new ArrayList<AvailableTrip>();
-		Campus find = DaoFactory.getCampusDao().oneByName(campus)
+
+		Campus find = DaoFactory.getCampusDao().oneByName(depdes);
 		if(0 >= find.getId()) return null;
 		
 		
-		List<Campus> campuses = DaoFactory.getCampusDao().allExceptGivenCampus(campus);
-		for(campus: Campuses) // truc du genre, ajouter find to all others, all others to find
-		
+		List<Campus> campuses = DaoFactory.getCampusDao().allExceptGivenCampus(depdes);
+		for(Campus campus: campuses)
+		{
+			ret.add(new AvailableTrip(find, campus));
+			ret.add(new AvailableTrip(campus, find));
+		}
+	
 		return ret;
     }
 }

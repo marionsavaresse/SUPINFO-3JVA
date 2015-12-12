@@ -34,9 +34,9 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 	}
 
 	@Override
-	public Campus oneByName(String campusName) {
-		return getEntityManagerFactory().createEntityManager()
-				.find(Campus.class, campusName);
+	public Campus oneByName(String xx) {
+		return (Campus) getEntityManagerFactory().createEntityManager()
+				.createQuery("SELECT c FROM Campus c WHERE c.campusName = :search").setParameter("search", xx).getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
