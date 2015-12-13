@@ -60,13 +60,13 @@
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button buttonBig" id="addBag" type="submit" value="Add to bag"></td>
+					<td class="TDFour"><a class="button buttonBig addBag" href="#">Add to bag</a></td>
 				</tr>	
 				<tr class="light">
 					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 					<td class="TDTwo">→</td>
 					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><input class="button buttonBig" id="addBag" type="submit" value="Add to bag"></td>
+					<td class="TDFour"><a class="button buttonBig addBag" href="#">Add to bag</a></td>
 				</tr>		
 			</table>
 			
