@@ -118,7 +118,11 @@ input.input.long.wrong, select.dropdown.long.wrong {
 	font-size: 13px;
 }
 
-
+.addBag{
+	padding-top: 13px;
+	display: block;
+	margin-left: 18px;
+}
 
 /* HEADER */
 

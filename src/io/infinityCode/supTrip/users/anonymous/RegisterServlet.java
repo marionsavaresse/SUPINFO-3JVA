@@ -107,7 +107,14 @@ public class RegisterServlet extends HttpServlet
 	{
 		
 
-		if ((request.getParameter("lastName") != "") && (request.getParameter("firstName") != "") && (checkId(request.getParameter("idBooster")).equals("Ok")) && (request.getParameter("campusName") != null) && (request.getParameter("currentSchoolYear") != null) && (checkPWD(request.getParameter("password")).equals("Ok")) && hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password"))))
+		if ((request.getParameter("lastName") != "") 
+				&& (request.getParameter("firstName") != "") 
+				&& (checkId(request.getParameter("idBooster")).equals("Ok")) 
+				&& (checkExistantIds(request.getParameter("idBooster")).equals("Ok"))
+				&& (request.getParameter("campusName") != null) 
+				&& (request.getParameter("currentSchoolYear") != null) 
+				&& (checkPWD(request.getParameter("password")).equals("Ok")) 
+				&& hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password"))))
 		{
 				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
 						request.getParameter("lastName"),

@@ -176,7 +176,7 @@
 	                    <td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
 	                    <td class="TDFour"><a class="button buttonBig addBag" href="#">Add to bag</a></td>
 	                </tr>
-				</tbody>	
+				</tbody>
 			</table>
 			
 			<div id="pagination">
