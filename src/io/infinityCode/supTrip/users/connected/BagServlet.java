@@ -21,13 +21,13 @@ public class BagServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
+		RequestDispatcher dispatcher;
 		if(request.getSession().getAttribute("idBooster") == null){ //might be a filter?
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
-			dispatcher.forward(request, response);
+			dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
 		}else{
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
-			dispatcher.forward(request, response); //can't put this line down for some reason, ty java
+			dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
 		}
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
