@@ -108,21 +108,29 @@
 				pg = document.getElementById("pagination");
 				pg.innerHTML = "";
 				
-				switch(activePage)
+				if(activeMax < 7)
 				{
-					case 1: pg.innerHTML = `<span class="blueChip">1</span> - <span>2</span> - .. - <span>`+activeMax+`</span>`; break;
-					case 2: pg.innerHTML = `<span>1</span> - <span class="blueChip">2</span> - <span>3</span> - .. - <span>`+activeMax+`</span>`; break;
-					case (activeMax-1): pg.innerHTML = `<span>1</span> - .. - <span>`+(activePage-1)+`</span> - <span class="blueChip">`+(activeMax-1)+`</span> - <span>`+activeMax+`</span>`; break;
-					case activeMax: pg.innerHTML = `<span>1</span> - .. - <span>`+(activeMax-1)+`</span> - <span class="blueChip">`+activeMax+`</span>`; break;
-					default: pg.innerHTML = `<span>1</span> - .. - <span>`+(activePage-1)+`</span> - <span class="blueChip">`+activePage+`</span> - <span>`+(activePage+1)+`</span> - .. - <span>`+activeMax+`</span>`; 
+					for(var i = 1; i < activePage; i++)
+						pg.innerHTML += (i==activePage ? '<span class="blueChip">' : "<span>") + i + "</span> - ";
+					pg.innerHTML += (i==activePage ? '<span class="blueChip">' : "<span>") + i + "</span>";
 				}
-				
+				else
+				{
+					switch(activePage)
+					{
+						case 1: pg.innerHTML = `<span class="blueChip">1</span> - <span>2</span> - .. - <span>`+activeMax+`</span>`; break;
+						case 2: pg.innerHTML = `<span>1</span> - <span class="blueChip">2</span> - <span>3</span> - .. - <span>`+activeMax+`</span>`; break;
+						case (activeMax-1): pg.innerHTML = `<span>1</span> - .. - <span>`+(activePage-1)+`</span> - <span class="blueChip">`+(activeMax-1)+`</span> - <span>`+activeMax+`</span>`; break;
+						case activeMax: pg.innerHTML = `<span>1</span> - .. - <span>`+(activeMax-1)+`</span> - <span class="blueChip">`+activeMax+`</span>`; break;
+						default: pg.innerHTML = `<span>1</span> - .. - <span>`+(activePage-1)+`</span> - <span class="blueChip">`+activePage+`</span> - <span>`+(activePage+1)+`</span> - .. - <span>`+activeMax+`</span>`; 
+					}
+				}
 				for(i = 0, stop = pg.children.length; i < stop; i++)
 					pg.children[i].addEventListener("click", function(){printTravels(parseInt(this.innerHTML));});
 			}
 		</script>
 	</head>
-	<body onload="init()">
+	<body>
 		<%@include file="navbar.jsp" %>
 
 		<% if(request.getSession().getAttribute("idBooster") == null){%>
@@ -190,9 +198,9 @@
 			</table>
 			
 			<div id="pagination">
-				<span class="blueChip">1</span>- 2 - ... - 120 - 121
+				<span class="blueChip">1</span>- 2 - ... - 120
 			</div>
-			
+			<script>init()</script>
 			
 		  <% }%>
 		</main>

@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="io.infinityCode.supTrip.entity.AvailableTrip" %>
+<%@ page import="io.infinityCode.supTrip.entity.Campus" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,8 +17,8 @@
 
 		<h1>Order Confirmation <span>Order number #12</span></h1>
 		<main> 
-		
-			<p>Thank you for your order. You will find below a summary of the order you just pass. It is also possible to export your proof of reservation in PDF format.</p>
+		<% List<AvailableTrip> Trips = (List<AvailableTrip>) request.getSession().getAttribute("reservingTrips"); int i = 0; %>
+			<p>Thank you for your order. You will find below a summary of the order you just pass.</p>
 			
 			<table id="homeTable connected">
 				<tr>
@@ -24,22 +27,15 @@
 					<th>Arrival</th>
 					<th id="null"></th>
 				</tr>
-				<tr class="dark">
-					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
+				<% for(AvailableTrip a : Trips){%>
+				<tr class="<%=i++%2==0?"dark":"light"%>">
+					<td class="TDOne"><%=a.departure.getCampusName()%><span class="address"><%=a.departure.getAddress()%></span></td>
 					<td class="TDTwo">→</td>
-					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
+					<td class="TDThree"><%=a.arrival.getCampusName()%><span class="address"><%=a.arrival.getAddress()%></span></td>
 					<td class="TDFour"><span class="quantity">QUANTITY : 1</span></td>
-				</tr>	
-				<tr class="light">
-					<td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
-					<td class="TDTwo">→</td>
-					<td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
-					<td class="TDFour"><span class="quantity">QUANTITY : 2</span></td>
-				</tr>		
+				</tr>
+		  		<% }%>
 			</table>
-			<br><br>
-			<input class="button buttonBig" id="envoyer" type="submit" value="DOWLOAD PDF">
-			
 		</main>
 
 		<%@include file="../both/footer.jsp" %>

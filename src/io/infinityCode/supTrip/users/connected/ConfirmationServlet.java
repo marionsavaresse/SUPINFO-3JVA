@@ -1,7 +1,6 @@
 package io.infinityCode.supTrip.users.connected;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(
-	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
 	urlPatterns = { "/connected/confirmation" }
 )
 public class ConfirmationServlet extends HttpServlet
@@ -21,22 +19,10 @@ public class ConfirmationServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if(request.getSession().getAttribute("idBooster") == null)
-			getServletContext()
-				.getRequestDispatcher("/users/both/index.jsp")
-				.forward(request, response);
-		else
-			getServletContext()
-				.getRequestDispatcher("/users/connected/confirmation.jsp")
-				.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException
-	{
 		getServletContext()
 			.getRequestDispatcher("/users/connected/confirmation.jsp")
-			.forward(request, response);
+			.include(request, response);
+		request.getSession().removeAttribute("reservingTrips");
+		return;
 	}
-	
 }

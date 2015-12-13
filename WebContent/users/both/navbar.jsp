@@ -14,7 +14,7 @@
 				        <li><a href="/SupTrip/" <%=printClassIfActive(request, "index")%>>Home</a></li>
 				      <% if(request.getSession().getAttribute("idBooster") != null){%>
 						<li><a href="/SupTrip/connected/profile" <%=printClassIfActive(request, "profile")%>>Profile</a></li>
-						<li><a href="/SupTrip/connected/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip"><%=request.getSession().getAttribute("reservingTrips")==null?0:((List<AvailableTrip>)request.getSession().getAttribute("reservingTrips")).size()%></span></a></li>
+						<li><a href="/SupTrip/connected/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip"><%=request.getSession().getAttribute("reservingTrips")==null||request.getRequestURI().contains("confirm")?0:((List<AvailableTrip>)request.getSession().getAttribute("reservingTrips")).size()%></span></a></li>
 			 		  <% }%>
 				        <li><a href="/SupTrip/contact" <%=printClassIfActive(request, "contact")%>>Contact</a></li>
 				    </ul>
