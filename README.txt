@@ -1,12 +1,12 @@
 Documentation
 -------------
 
-Afin de pouvoir lancer le projet, il y a plusieurs étapes très simples à réaliser :
+Afin de pouvoir lancer le projet, il y a plusieurs Ã©tapes trÄs simples Å• rÃ©aliser :
 
-1) Importer le projet sous Eclipse en faisant « File > Import > Existing Projects into Workspace ». Sélectionner alors le répertoire où se trouve le dossier « 3jva » du projet (« Select root directory »).
+1) Importer le projet sous Eclipse en faisant Å¤ File > Import > Existing Projects into Workspace Å¥. SÃ©lectionner alors le rÃ©pertoire oÅ¯ se trouve le dossier Å¤ 3jva Å¥ du projet (Å¤ Select root directory Å¥).
 
-2) Executer le script d’importation de la base via le fichier « SupTrip.SQL ». Celui-ci s’occupe de créer une base nommée SupTrip. Tous les campus sont déjà en base, et il a également 4 comptes utilisateurs (ceux avec les ID Booster de l’équipe, ex: id=170754 mdp=170754).
+2) Executer le script dÂ’importation de la base via le fichier Å¤ SupTrip.SQL Å¥. Celui-ci sÂ’occupe de crÃ©er une base nommÃ©e SupTrip. Tous les campus sont dÃ©jÅ• en base, et il a Ã©galement 4 comptes utilisateurs (ceux avec les ID Booster de lÂ’Ã©quipe, ex: id=170754 mdp=170754).
 
-3) Aller dans « Java resources > src > META-INF » ( ou directement « src > META-INF » via l’explorateur de fichiers) afin de modifier le fichier « persistance.xml ». Il faudra à ce niveau là mettre vos propres identifiants (user et password) et vérifier le chemin pour joindre la base de données.
+3) Aller dans Å¤ Java resources > src > META-INF Å¥ ( ou directement Å¤ src > META-INF Å¥ via lÂ’explorateur de fichiers) afin de modifier le fichier Å¤ persistance.xml Å¥. Il faudra Å• ce niveau lÅ• mettre vos propres identifiants (user et password) et vÃ©rifier le chemin pour joindre la base de donnÃ©es.
 
-Le projet sera alors prêt à être déployer sur votre navigateur.
+Le projet sera alors prÄ™t Å• Ä™tre dÃ©ployer sur votre navigateur.
