@@ -29,12 +29,13 @@
 			{
 				var data,
 					baseURL = "/SupTrip/API/travels/";
+				console.log(kind);
+				console.log(kind == '');
 				switch(kind)
 				{
-					case 'all': data = ''; break;
-					case 'campus': data = encodeURIComponent(prompt("Campus name :")); break;
+					case '': data = ''; break;
 					case 'fromto': data = encodeURIComponent(prompt("Departure : ")) + "/" + encodeURIComponent(prompt("Destination : ")); break;
-					default: return;
+					default: data = encodeURIComponent(kind);
 				}
 
 
@@ -45,6 +46,8 @@
 				{
 					if(xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
 						TRAVELS = JSON.parse(xhr.responseText);
+					else if(xhr.readyState == 4 && xhr.status == 500)
+						alert("This campus doesn't exist ! :(");
 					
 					if(null != TRAVELS)
 						printTravels(1);
@@ -63,7 +66,7 @@
 			{
 				tripListTemplate = document.getElementById("homeTable connected").tBodies[0].children[0].cloneNode(true);
 				tripListAdrressContent = document.getElementById("homeTable connected").tBodies[0].children[1].children[0].children[0].cloneNode(true);
-				search("all");
+				search("");
 			}
 			
 			function fillAddressTd(td, name, address)
@@ -90,6 +93,8 @@
 					aTrip.className += (i%2 ? " light" : " dark" );
 					fillAddressTd(aTrip.children[0], aTravel.departure.campusName, aTravel.departure.address);
 					fillAddressTd(aTrip.children[2], aTravel.arrival.campusName, aTravel.arrival.address);
+					temp = aTrip.children[3].children[0];
+					temp.href="/connected/bag/?d=" + aTravel.departure.id + "&a=" + aTravel.arrival.id;
 					container.appendChild(aTrip);
 				}
 				
@@ -110,8 +115,8 @@
 					default: pg.innerHTML = `<span>1</span> - .. - <span>`+(activePage-1)+`</span> - <span class="blueChip">`+activePage+`</span> - <span>`+(activePage+1)+`</span> - .. - <span>`+activeMax+`</span>`; 
 				}
 				
-				for(span of pg.children)
-					span.addEventListener("click", function(){printTravels(parseInt(this.innerHTML));});
+				for(i = 0, stop = pg.children.length; i < stop; i++)
+					pg.children[i].addEventListener("click", function(){printTravels(parseInt(this.innerHTML));});
 			}
 		</script>
 	</head>
@@ -144,10 +149,10 @@
 			<h1>
 				Home 
 				<span>WHERE DO YOU WANT TO GO ?</span>
-				<div id="searchBar">
-					<input class="input" type="text" name="search" placeholder="Search a campus">
+				<form id="searchBar" action="#" onsubmit="search(this.campus.value); return false;">
+					<input class="input" type="text" name="campus" placeholder="Search a campus">
 					<input class="button buttonBig" id="envoyer" type="submit" value="Go">
-				</div>
+				</form>
 			</h1>
 				
 			<main>
