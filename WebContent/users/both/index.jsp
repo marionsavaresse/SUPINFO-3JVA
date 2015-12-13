@@ -67,6 +67,8 @@
 				tripListTemplate = document.getElementById("homeTable connected").tBodies[0].children[0].cloneNode(true);
 				tripListAdrressContent = document.getElementById("homeTable connected").tBodies[0].children[1].children[0].children[0].cloneNode(true);
 				search("");
+				document.getElementById("homeTable connected").tBodies[0].style.display = '';
+				document.getElementById("homeTable connected").tBodies[1].style.display = 'none';
 			}
 			
 			function fillAddressTd(td, name, address)
@@ -168,7 +170,7 @@
 						<th id="null"></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="display: none">
 					<tr class="dark">
 	                    <td class="TDOne">Campus de Paris<span class="address">33 Avenue du Maine, Tour Montparnasse, 40e étage <br>75015 Paris</span></td>
 	                    <td class="TDTwo">→</td>
@@ -181,6 +183,9 @@
 	                    <td class="TDThree">Campus de Bordeaux<span class="address">14 Cours Saint-Louis<br>33300 Bordeaux</span></td>
 	                    <td class="TDFour"><a class="button buttonBig addBag" href="#">Add to bag</a></td>
 	                </tr>
+				</tbody>
+				<tbody>
+					<tr><td colspan=3>Loading available travels, please wait ...</td></tr>
 				</tbody>
 			</table>
 			

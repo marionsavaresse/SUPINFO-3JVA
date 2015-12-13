@@ -7,7 +7,7 @@ public class AppConfig extends ResourceConfig
 {
 	public AppConfig()
 	{
-		packages("fr.coolStudio.supTrip");
+		packages("io.infinityCode.supTrip");
 		register(JacksonJaxbXMLProvider.class);
 	}
 }
