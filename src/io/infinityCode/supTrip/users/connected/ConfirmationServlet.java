@@ -21,21 +21,22 @@ public class ConfirmationServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if(request.getSession().getAttribute("idBooster") == null){ //might be a filter?
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
-			dispatcher.forward(request, response);
-		}else{
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/confirmation.jsp");
-			dispatcher.forward(request, response); //can't put this line down for some reason, ty java
-		}
+		if(request.getSession().getAttribute("idBooster") == null)
+			getServletContext()
+				.getRequestDispatcher("/users/both/index.jsp")
+				.forward(request, response);
+		else
+			getServletContext()
+				.getRequestDispatcher("/users/connected/confirmation.jsp")
+				.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		//response.getWriter().print(request.getParameter("idk"));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/confirmation.jsp");
-		dispatcher.forward(request, response);
+		getServletContext()
+			.getRequestDispatcher("/users/connected/confirmation.jsp")
+			.forward(request, response);
 	}
 	
 }

@@ -76,10 +76,10 @@ public class ProfileServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{	
-		if ((request.getParameter("lastName") != "") 
-				&& (request.getParameter("firstName") != "") 
-				&& (request.getParameter("campusName") != null) 
-				&& (request.getParameter("currentSchoolYear") != null))
+		if( (request.getParameter("lastName") != "") 
+		 && (request.getParameter("firstName") != "") 
+		 && (request.getParameter("campusName") != null) 
+		 && (request.getParameter("currentSchoolYear") != null))
 		{
 			User object = DaoFactory.getUserDao().oneById((int)(request.getSession().getAttribute("idBooster")));
 

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(
-	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
 	urlPatterns = { "/about-us" }
 )
 public class AboutUsServlet extends HttpServlet
@@ -22,14 +21,18 @@ public class AboutUsServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/about-us.jsp");
-		dispatcher.forward(request, response);
+		getServletContext()
+			.getRequestDispatcher("/users/both/about-us.jsp")
+			.forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		response.getWriter().print("We got you request but the server is temporaly under maintenance, try later :)");
+		response
+			.getWriter()
+			.print("We got you request but the server is temporaly under maintenance, try later :)");
 	}
 
 }

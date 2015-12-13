@@ -33,41 +33,43 @@ public class RegisterServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		if(request.getSession().getAttribute("idBooster") == null){
+		if(request.getSession().getAttribute("idBooster") == null)
+		{
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/register.jsp");
 			dispatcher.forward(request, response);
-		}else{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/");
-		}	
+		}
+		else
+			response.sendRedirect("/SupTrip/");
+		return;
 	}	
 
 	
-	public void doGetErrorMessage(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	public void doGetErrorMessage(HttpServletRequest request, HttpServletResponse response )
+	throws ServletException, IOException
+	{
 		String errorMsg = "";
 		
-		if (request.getParameter("lastName") == "")
+		if(request.getParameter("lastName") == "")
 		{
 			errorMsg = "You must specify your last name.";
 			request.setAttribute( "errorMsgLastName", errorMsg );
 		}
 		
-		if (request.getParameter("firstName") == "")
+		if(request.getParameter("firstName") == "")
 		{
 			errorMsg = "You must specify your first name.";
 			request.setAttribute( "errorMsgFirstName", errorMsg );
 		}
 		
-		if (!(checkId(request.getParameter("idBooster")).equals("Ok")))
+		if(!(checkId(request.getParameter("idBooster")).equals("Ok")))
 		{
 			errorMsg = "Your ID Booster must be composed of 6 numbers.";
 			request.setAttribute( "errorMsgIDBooster", errorMsg );
 		}
-		else {
-			if (!(checkExistantIds(request.getParameter("idBooster")).equals("Ok")))
-			{
-				errorMsg = "There is already an account with this ID Booster.";
-				request.setAttribute( "errorMsgIDBooster", errorMsg );
-			}
+		else if (!(checkExistantIds(request.getParameter("idBooster")).equals("Ok")))
+		{
+			errorMsg = "There is already an account with this ID Booster.";
+			request.setAttribute( "errorMsgIDBooster", errorMsg );
 		}
 		
 		if (!(checkEmail(request.getParameter("email")).equals("Ok")))
@@ -99,48 +101,52 @@ public class RegisterServlet extends HttpServlet
 			errorMsg = "Passwords do not match.";
 			request.setAttribute( "errorMsgPasswordConf", errorMsg );
 		}
-		this.getServletContext().getRequestDispatcher( "/users/anonymous/register.jsp" ).forward( request, response );
+		
+		this
+			.getServletContext()
+			.getRequestDispatcher("/users/anonymous/register.jsp")
+			.forward(request, response);
+		
+		return;
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		
-
 		if ((request.getParameter("lastName") != "") 
-				&& (request.getParameter("firstName") != "") 
-				&& (checkId(request.getParameter("idBooster")).equals("Ok")) 
-				&& (checkExistantIds(request.getParameter("idBooster")).equals("Ok"))
-				&& (request.getParameter("campusName") != null) 
-				&& (request.getParameter("currentSchoolYear") != null) 
-				&& (checkPWD(request.getParameter("password")).equals("Ok")) 
-				&& hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password"))))
-		{
-				User user = new User(Integer.parseInt(request.getParameter("idBooster")),
-						request.getParameter("lastName"),
-						request.getParameter("firstName"),
-						request.getParameter("email"),
-						hashPWD(request.getParameter("password")),
-						request.getParameter("campusName"),
-						request.getParameter("currentSchoolYear"));
+		 && (request.getParameter("firstName") != "") 
+		 && (checkId(request.getParameter("idBooster")).equals("Ok")) 
+		 && (checkExistantIds(request.getParameter("idBooster")).equals("Ok"))
+		 && (request.getParameter("campusName") != null) 
+		 && (request.getParameter("currentSchoolYear") != null) 
+		 && (checkPWD(request.getParameter("password")).equals("Ok")) 
+		 && hashPWD((request.getParameter("passwordConf"))).equals(hashPWD(request.getParameter("password")))
+		){
+			User user = new User(Integer.parseInt(request.getParameter("idBooster")),
+				request.getParameter("lastName"),
+				request.getParameter("firstName"),
+				request.getParameter("email"),
+				hashPWD(request.getParameter("password")),
+				request.getParameter("campusName"),
+				request.getParameter("currentSchoolYear")
+			);
 		
 				
-				DaoFactory.getUserDao().persist(user);
-				
-				User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
-				request.getSession().setAttribute("idBooster", object.getIdBooster());
-				request.getSession().setAttribute("name", object.getName());
-				request.getSession().setAttribute("familyName", object.getFamilyName());
-				request.getSession().setAttribute("email", object.getEmail());
-				request.getSession().setAttribute("campusID", object.getCampusName());
-				request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
-				
-				((HttpServletResponse)response).sendRedirect("/SupTrip/");
-				
+			DaoFactory.getUserDao().persist(user);
+			
+			User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
+			request.getSession().setAttribute("idBooster", object.getIdBooster());
+			request.getSession().setAttribute("name", object.getName());
+			request.getSession().setAttribute("familyName", object.getFamilyName());
+			request.getSession().setAttribute("email", object.getEmail());
+			request.getSession().setAttribute("campusID", object.getCampusName());
+			request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
+			
+			((HttpServletResponse)response).sendRedirect("/SupTrip/");
+			return;
 		}
-		else {
-			doGetErrorMessage(request, response);
-		}
+		doGetErrorMessage(request, response);
+		return;
 }
 	
 	
@@ -148,12 +154,15 @@ public class RegisterServlet extends HttpServlet
 	throws ServletException, IOException
 	{		
 		// We suppose ID Booster is always 6 numbers (for actuals students)
-		if (idBooster.length() == 6){
-			try{
+		if(idBooster.length() == 6)
+		{
+			try
+			{
 				int num = Integer.parseInt(idBooster);
-						return "Ok";
-				} catch (NumberFormatException e) {
-				}
+				return "Ok";
+			}
+			catch(NumberFormatException e) {
+			}
 		}
 		return "";
 	}
@@ -164,14 +173,9 @@ public class RegisterServlet extends HttpServlet
 		List<User> listUsers = new ArrayList<User>();
 		listUsers = DaoFactory.getUserDao().all(); 
 
-		for (int i = 0; i < listUsers.size(); i++) {
-			 int currentID = listUsers.get(i).getIdBooster();
-			 int intIDBooster = Integer.parseInt(idBooster);
-			 
-			 if (intIDBooster == currentID) {
+		for (int i = 0; i < listUsers.size(); i++)
+			 if (Integer.parseInt(idBooster) == listUsers.get(i).getIdBooster())
 				 return "";
-			 }
-		}
 		return "Ok";	
 
 	}	
@@ -183,18 +187,16 @@ public class RegisterServlet extends HttpServlet
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(email);
 		
-		if (matcher.matches()){
+		if (matcher.matches())
 			return "Ok";
-		}
 		return "";
 	}
 	
 	protected String checkPWD(String password)
 	throws ServletException, IOException
 	{		
-		if (password.length() >= 6){
-						return "Ok";
-		}
+		if (password.length() >= 6)
+			return "Ok";
 		return "";
 	}
 			
@@ -204,18 +206,19 @@ public class RegisterServlet extends HttpServlet
 	{
 		MessageDigest md5 = null;
 		// Requires a try/catch because getInstance methods throws exception (see checkId declaration)
-		try {
+		try
+		{
 			md5 = MessageDigest.getInstance("MD5");
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (NoSuchAlgorithmException e)
+		{
 			e.printStackTrace();
 		}
 		byte[] messageDigest = md5.digest(password.getBytes());
 		
 		String result = "";
-		for (int i=0; i < messageDigest.length; i++) {
+		for (int i=0; i < messageDigest.length; i++)
 			result += Integer.toString( ( messageDigest[i] & 0xff ) + 0x100, 16).substring( 1 );
-		}
 		return result;
 	}
 }

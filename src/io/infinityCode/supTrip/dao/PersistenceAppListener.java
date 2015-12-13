@@ -7,14 +7,12 @@ import javax.servlet.annotation.WebListener;
 import io.infinityCode.supTrip.dao.PersistenceManager;
 
 @WebListener
-public class PersistenceAppListener implements ServletContextListener {
-	// Call on application initialization
-	public void contextInitialized(ServletContextEvent evt) {
-		// Do nothing
-	}
+public class PersistenceAppListener implements ServletContextListener
+{
+	public void contextInitialized(ServletContextEvent evt){}
 
-	// Call on application destruction
-	public void contextDestroyed(ServletContextEvent evt) {
+	public void contextDestroyed(ServletContextEvent evt)
+	{
 		PersistenceManager.closeEntityManagerFactory();
 	}
 }

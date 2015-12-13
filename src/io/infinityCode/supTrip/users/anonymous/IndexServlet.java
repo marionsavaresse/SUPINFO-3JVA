@@ -22,10 +22,7 @@ public class IndexServlet extends HttpServlet
 	{
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
 		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException
-	{
+		
+		return;
 	}
 }

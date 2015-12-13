@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(
-	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
 	urlPatterns = { "/connected/logout" }
 )
 public class LogoutServlet extends HttpServlet
@@ -20,12 +19,6 @@ public class LogoutServlet extends HttpServlet
 	throws ServletException, IOException
 	{
 		request.getSession().invalidate();
-		((HttpServletResponse)response).sendRedirect("/SupTrip/");
+		response.sendRedirect("/SupTrip/");
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException
-	{	
-	}
-
 }

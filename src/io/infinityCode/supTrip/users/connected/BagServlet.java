@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(
-	description = "Gère la connexion des utilisateurs et tout ce qui est lié à la fonctionnalité (formulaires, requetes, verifications, ...)",
 	urlPatterns = { "/connected/bag" }
 )
 public class BagServlet extends HttpServlet
@@ -30,9 +29,10 @@ public class BagServlet extends HttpServlet
 	{
 		RequestDispatcher dispatcher;
 		List<AvailableTrip> reservingTrips;
-		if(request.getSession().getAttribute("idBooster") == null){ //might be a filter?
+		
+		if(request.getSession().getAttribute("idBooster") == null)//might be a filter?
 			dispatcher = getServletContext().getRequestDispatcher("/users/both/index.jsp");
-		}else
+		else
 		{
 			if(request.getSession().getAttribute("reservingTrips") == null) reservingTrips = new ArrayList<AvailableTrip>();
 			else reservingTrips = (List<AvailableTrip>) request.getSession().getAttribute("reservingTrips");
@@ -50,14 +50,18 @@ public class BagServlet extends HttpServlet
 			dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
 		}
 		dispatcher.forward(request, response);
+		
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
-		//response.getWriter().print(request.getParameter("idk"));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/connected/bag.jsp");
-		dispatcher.forward(request, response);
+		getServletContext()
+			.getRequestDispatcher("/users/connected/bag.jsp")
+			.forward(request, response);
+		
+		return;
 	}
 	
 }

@@ -31,28 +31,29 @@ public class LoginServlet extends HttpServlet
 		if(request.getSession().getAttribute("idBooster") == null){
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/users/anonymous/login.jsp");
 			dispatcher.forward(request, response);
-		}else{
-			((HttpServletResponse)response).sendRedirect("/SupTrip/");
 		}
+		else
+			((HttpServletResponse)response).sendRedirect("/SupTrip/");
 	}
 	
 	public void doGetErrorMessage(int number, HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		String errorMsg = "";
 						
-		switch(number) {
-	    case 1:
-	    	errorMsg = "Your ID Booster must be composed of 6 numbers.";
-			request.setAttribute( "errorMsgLogin", errorMsg );
+		switch(number)
+		{
+		    case 1:
+		    	errorMsg = "Your ID Booster must be composed of 6 numbers.";
+				request.setAttribute( "errorMsgLogin", errorMsg );
 	        break;
 	        
-	    case 2:
-	    	errorMsg = "There is no account created with this ID Booster.";
-			request.setAttribute( "errorMsgLogin", errorMsg );
+		    case 2:
+		    	errorMsg = "There is no account created with this ID Booster.";
+				request.setAttribute( "errorMsgLogin", errorMsg );
 			break;
 			
-	    case 3 :
-	    	errorMsg = "Login incorrect.";
-			request.setAttribute( "errorMsgLogin", errorMsg );
+		    case 3 :
+		    	errorMsg = "Login incorrect.";
+				request.setAttribute( "errorMsgLogin", errorMsg );
 			break;
 		}	
 		
@@ -62,11 +63,11 @@ public class LoginServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{		
-		if (checkId(request.getParameter("idBooster"))){
+		if (checkId(request.getParameter("idBooster")))
+		{
 			User object = DaoFactory.getUserDao().oneById(Integer.parseInt(request.getParameter("idBooster")));
 			
 			if (object != null)
-			{
 				if(hashPWD(request.getParameter("password")).equals(object.getPassword()))
 				{
 					request.getSession().setAttribute("idBooster", object.getIdBooster());
@@ -76,29 +77,25 @@ public class LoginServlet extends HttpServlet
 					request.getSession().setAttribute("campusID", object.getCampusName());
 					request.getSession().setAttribute("currentSchoolYear", object.getCurrentSchoolYear());
 
-					((HttpServletResponse)response).sendRedirect("/SupTrip/");
-				}else{
-					doGetErrorMessage(3, request, response);
+					response.sendRedirect("/SupTrip/");
+					return;
 				}
-			}else{
-				doGetErrorMessage(2, request, response);
-			}
-		}else{
-			doGetErrorMessage(1, request, response);
 		}
+		doGetErrorMessage(1, request, response);
 	}
 	
 	protected boolean checkId(String idBooster)
 	throws ServletException, IOException
-	{		
-		if (idBooster.length() == 6){
-			try{
+	{
+		if (idBooster.length() == 6)
+		{
+			try
+			{
 				int num = Integer.parseInt(idBooster);
-						return true;
-				} catch (NumberFormatException e) {
-				}
-		}
-		else{
+				return true;
+			}
+			catch (NumberFormatException e){
+			}
 		}
 		return false;
 	}
@@ -115,9 +112,9 @@ public class LoginServlet extends HttpServlet
 		byte[] messageDigest = md5.digest(password.getBytes());
 		
 		String result = "";
-		for (int i=0; i < messageDigest.length; i++) {
+		for(int i=0; i < messageDigest.length; i++)
 			result += Integer.toString( ( messageDigest[i] & 0xff ) + 0x100, 16).substring( 1 );
-		}
+
 		return result;
 	}
 
