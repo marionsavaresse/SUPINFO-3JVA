@@ -17,9 +17,6 @@
 		<h1>
 			Profile 
 			<span>see and edit your personal informations</span>
-			<div id="searchBar">
-				<input class="button buttonBig" id="envoyer" type="submit" value="See my order history">
-			</div>
 		</h1>
 		<main>  
 		
