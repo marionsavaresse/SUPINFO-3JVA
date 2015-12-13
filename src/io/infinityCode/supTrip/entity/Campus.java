@@ -30,9 +30,6 @@ public class Campus {
 	@Basic
 	@Column(name = "address")
 	private String address;
-	@Basic
-	@Column(name = "googleMapLink")
-	private String googleLink;
 		
 	public Campus() { }
 	
@@ -66,13 +63,5 @@ public class Campus {
 	
 	public void setAddress(String campusAddress) {
 		this.address = campusAddress;
-	}
-	
-	public String getGoogleLink() {
-		return this.googleLink;
-	}
-	
-	public void setGoogleLink(String campusGoogleLink) {
-		this.googleLink = campusGoogleLink;
 	}
 }
