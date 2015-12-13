@@ -6,7 +6,7 @@ import io.infinityCode.supTrip.entity.Campus;
 
 public interface CampusDao {
 	public Campus persist(Campus campus);
-	public Campus oneById(Long campusId);
+	public Campus oneById(int campusId);
 	public Campus oneByName(String campusName);
 	public List<Campus> all();
 	public List<Campus> allExceptGivenCampus(String search);

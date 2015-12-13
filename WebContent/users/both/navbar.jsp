@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="io.infinityCode.supTrip.dao.DaoFactory" %>
+<%@ page import="io.infinityCode.supTrip.entity.AvailableTrip" %>
+<%@ page import="java.util.List" %>
 <%! public String printClassIfActive(HttpServletRequest req, String requiredPageName){ return ( req.getRequestURI().contains(requiredPageName) ) ? "class=\"active\"" : ""; } %>
 		<form action="login" id="loginForm" method=post></form>
 		
@@ -12,7 +14,7 @@
 				        <li><a href="/SupTrip/" <%=printClassIfActive(request, "index")%>>Home</a></li>
 				      <% if(request.getSession().getAttribute("idBooster") != null){%>
 						<li><a href="/SupTrip/connected/profile" <%=printClassIfActive(request, "profile")%>>Profile</a></li>
-						<li><a href="/SupTrip/connected/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip">0</span></a></li>
+						<li><a href="/SupTrip/connected/bag" <%=printClassIfActive(request, "bag")%>>Bag<span class="blueChip"><%=request.getSession().getAttribute("reservingTrips")==null?0:((List<AvailableTrip>)request.getSession().getAttribute("reservingTrips")).size()%></span></a></li>
 			 		  <% }%>
 				        <li><a href="/SupTrip/contact" <%=printClassIfActive(request, "contact")%>>Contact</a></li>
 				    </ul>

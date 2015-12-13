@@ -118,7 +118,7 @@ input.input.long.wrong, select.dropdown.long.wrong {
 	font-size: 13px;
 }
 
-.addBag{
+.addBag, .cancel{
 	padding-top: 13px;
 	display: block;
 	margin-left: 18px;
@@ -549,6 +549,7 @@ textarea.contact {
 
 .cancel {
 	background-color: #4b515b !important;
+	font-size: 11px;
 }
 
 

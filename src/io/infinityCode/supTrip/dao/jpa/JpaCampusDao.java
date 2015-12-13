@@ -28,7 +28,7 @@ public class JpaCampusDao extends BaseJpaDao implements CampusDao {
 	}
 
 	@Override
-	public Campus oneById(Long campusId) {
+	public Campus oneById(int campusId) {
 		return getEntityManagerFactory().createEntityManager()
 				.find(Campus.class, campusId);
 	}

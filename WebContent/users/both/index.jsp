@@ -94,7 +94,7 @@
 					fillAddressTd(aTrip.children[0], aTravel.departure.campusName, aTravel.departure.address);
 					fillAddressTd(aTrip.children[2], aTravel.arrival.campusName, aTravel.arrival.address);
 					temp = aTrip.children[3].children[0];
-					temp.href="/connected/bag/?d=" + aTravel.departure.id + "&a=" + aTravel.arrival.id;
+					temp.href="/SupTrip/connected/bag?d=" + aTravel.departure.id + "&a=" + aTravel.arrival.id;
 					container.appendChild(aTrip);
 				}
 				
